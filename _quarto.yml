@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "dissertation"
+  author: "Jane Doe"
+  date: "1/9/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - place.qmd
+    - discourse.qmd
+    - networks.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
