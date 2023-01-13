@@ -1,0 +1,155 @@
+---
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(tidyverse)
+library(gt)
+```
+
+```{r}
+platform <- c(
+  "Reddit",
+  "Wikipedia",
+  "Twitter "
+)
+
+lgbtq_communities <- c(
+  "LGBTQ subreddits (many)",
+  "LGBTQ Wikipedians (language-specific)",
+  '"gay Twitter" (porous boundaries)'
+)
+
+ties <- c(
+  'Subreddit co-membership',
+  'None(?)',
+  'Friends and followers'
+)
+
+interactions <- c(
+  'Posts and comments on threads within subreddits',
+  'Talk page discussions',
+  'Tweets and replies, quote tweets, retweets'
+)
+
+outcomes <- c(
+  'Conversation "quality", upvotes/downvotes',
+  'Conversation "quality", article representations',
+  'Conversation "quality", reactions, persistence of ties(?)'
+)
+
+project_anchor <- c(
+  'General vs specific LGBTQ subreddits(?)',
+  'List of LGB People',
+  'Symbolic anchor of rainbow-flag in bio'
+)
+
+d_table <- 
+  tibble(
+    platform, 
+    lgbtq_communities, 
+    ties, 
+    interactions, 
+    outcomes, 
+    project_anchor
+  )
+```
+
+```{r eval=FALSE}
+# d_table <- 
+#   d_table %>%
+#   mutate(across(everything(), str_wrap, width = 22)) %>%
+#   mutate(across(everything(), 
+#                 str_replace, 
+#                 pattern = "\n", 
+#                 replacement = "<br>"))
+```
+
+
+```{r}
+gt_table <- gt(d_table, rowname_col = "platform")
+```
+
+```{r}
+gt_table_formatted <- 
+  gt_table %>%
+  tab_header(
+    title = md("**Table 3.1: Key platforms for studying LGBTQ virtual communities**")
+  ) %>%
+  tab_stubhead(label = md("**Platform**")) %>%
+  tab_spanner(
+    label = md("**Social density**"),
+    columns = c(ties, interactions)
+  ) %>%
+  cols_label(
+    lgbtq_communities = md("**LGBTQ Communities**"),
+    ties = md("*Ties*"),
+    interactions = md("*Interactions*"),
+    outcomes = md("**Outcomes**"),
+    project_anchor = md("**Project anchor**")
+  ) %>%
+  tab_style(
+    style = list(
+      cell_text(align = "right")
+    ),
+    locations = cells_stub(rows = TRUE)
+  ) %>%
+  # tab_style(
+  #   style = list(
+  #     cell_text(size = "small")
+  #   ), 
+  #   locations = cells_body()
+  # ) %>%
+  fmt_markdown(columns = everything()) %>%
+  opt_vertical_padding(scale = 2) %>%
+  tab_options(container.width = pct(87.5)) %>%
+  opt_css(css = "
+          div.gt_from_md > p {
+            font-size: 1rem;
+            line-height: 1rem;
+          }
+          ")
+
+
+# https://stackoverflow.com/questions/61880002/right-align-the-rowname-col-in-gt
+```
+
+```{r eval=(!knitr::is_latex_output())}
+gt_table_formatted
+```
+
+```{r eval=knitr::is_latex_output()}
+latex_table <- as_latex(gt_table_formatted)
+
+p_columns <- 
+  ">{\\raggedright}p{7em}>{\\raggedright\\arraybackslash}p{5em}>{\\raggedright\\arraybackslash}p{7em}>{\\raggedright\\arraybackslash}p{8em}>{\\raggedright\\arraybackslash}p{6em}"
+
+vertical_space <- "\n\\rule{0pt}{2em}\n"
+
+latex_table_formatted <- 
+  latex_table %>%
+  str_replace(fixed("lllll"), p_columns) %>%
+  str_replace(fixed("\nWikipedia"), str_c(vertical_space, "Wikipedia")) %>%
+  str_replace(fixed("\nTwitter"), str_c(vertical_space, "Twitter"))
+
+attributes(latex_table_formatted) <- attributes(latex_table)
+```
+
+```{r eval=knitr::is_latex_output()}
+knitr::asis_output("\\newpage\n")
+knitr::asis_output("\\linespread{1}\\selectfont\n")
+knitr::asis_output("\\begin{small}\n")
+latex_table_formatted
+knitr::asis_output("\\end{small}\n")
+knitr::asis_output("\\linespread{1.6}\\selectfont\n")
+knitr::asis_output("\\newpage\n")
+```
+
+```{r eval=FALSE}
+gtsave(gt_table_formatted, "table_3_1.html", inline_css = TRUE)
+gtsave(gt_table_formatted, "table_3_1.rtf")
+gtsave(gt_table_formatted, "table_3_1.tex")
+```
