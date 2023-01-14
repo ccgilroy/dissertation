@@ -6,6 +6,9 @@ book:
   title: "Expressions of Community"
   author: "Connor Gilroy"
   date: "1/13/2023"
+  repo-url: https://github.com/ccgilroy/dissertation/
+  repo-actions: [edit, issue]
+  downloads: [pdf]
   chapters:
     - index.qmd
     - intro.qmd
