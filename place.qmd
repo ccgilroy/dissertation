@@ -77,13 +77,13 @@ The key data source for this paper is the _Generations_ study [@meyer_generation
 I use four measures from wave 1 of the Generations study - both the two full scales and the first single item from each - as outcome variables to represent community and belonging. The multi-item scales are validated and robust. By contrast, single items from those scales are framed to more precisely target _belonging_. While it's important to justify deviations from standard, validated scales [@mustillo_editors_2018], it's also important not to over-project meaning onto latent constructs derived from survey measures or take those meanings for granted [@martin_other_2020; @martin_response_2021]. As a compromise, I analyze both and discuss any noteworthy divergences below. These are the scales and items I analyze:
 
 - The **LGBT Community Connectedness** scale, a 4-point scale constructed from an average of 7 items, previously validated as a cognitive/affective construct in @frost_measuring_2012. Items touch on emotional attachment, participation, and political and collective action within "the" (singular) LGBT community.
-- The **Social Wellbeing** scale, a 7-point scale constructed from an average of 15 items.This scale includes not only items that ask about respondents' relations to community, but also to society and the world more broadly. 
+- The **Social Wellbeing** scale, a 7-point scale constructed from an average of 15 items. This scale includes not only items that ask about respondents' relations to community, but also to society and the world more broadly. 
 - The first item on the Community Connectedness scale, "You feel you’re a part of the LGBT community," with four response options ranging from "Agree strongly" to "Disagree strongly."
 - The first item on the Social Wellbeing scale, "I don’t feel I belong to anything I’d call a community," with seven response options ranging from "Strongly disagree" to "Strongly agree." (_Strongly disagree_ with this negative statement corresponds in direction to _agree strongly_ on the LGBT Community Connnectedness question, so I align my model results and figures accordingly.)
 
 For place-based data, I draw on the US Census Bureau's American Community Survey [CITE] via the tidycensus package [CITE]. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR's virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.
 
-In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA/μSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.
+In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.
 
 In my statistical models, I test four different functional specifications of the association between population density and community/belonging:
 
@@ -106,7 +106,124 @@ With 4 outcomes, 2 geographic levels, and 4 functional specifications of density
 
 ## Results
 
-<!-- okay, if I want to show the distributions of the things, I can do that here. -->
+First, I'll describe the distributions of the relevant variables, to contextualize the main statistical models that follow. @tbl-outcomes shows that the typical Generations respondent (47.2%) agrees that they feel a part of the LGBT community, and this corresponds closely to the overall 7-item average of 2.97 on the Community Connectedness scale. The scale is flipped, so that higher numbers represent greater connectedness, and a respondent who agrees with every item would receive a score of 3.Consistent with the LGBT-specific trend, respondents tend on average to disagree with the notion that they don't belong to any community, and this aligns with the 4.67 average response for the 15-item Social Wellbeing scale (again, aligned so that higher values represent more positive outcomes). All four measures point to a moderately positive sense of community and belonging on average, but with enough variability to attempt to model systematic differences among respondents and the places in which they live.
+
+```{r}
+#| include: false
+library("tidyverse")
+library("gt")
+
+tbl_outcomes_a <- read_csv("tbl/place/tbl-outcomes-a.csv")
+tbl_outcomes_b <- read_csv("tbl/place/tbl-outcomes-b.csv")
+tbl_place <- read_csv("tbl/place/tbl-place.csv")
+```
+
+```{r}
+#| label: tbl-outcomes
+#| tbl-cap: "Outcomes"
+#| tbl-subcap: 
+#|   - "Individual item outcomes"
+#|   - "Scale outcomes"
+#| layout-nrow: 2
+#| echo: false
+
+tbl_outcomes_a %>%
+    mutate(response = str_remove(response, "\\(.\\) ")) %>%
+    gt(
+        groupname_col = "variable",
+        rowname_col = "response"
+    ) %>%
+    tab_header(title = NULL) %>%
+    cols_label(n = "N", p = "%") %>%
+    fmt_percent(columns = p, decimals = 1) %>%
+    tab_style(
+        style = list(
+            cell_text(style = "italic", weight = "normal")
+        ),
+        locations = list(
+            cells_column_labels(),
+            cells_row_groups()
+        )
+    ) %>%
+    tab_source_note(md("Source: _Generations_ study (Meyer 2020)"))
+
+tbl_outcomes_b %>%
+    gt(rowname_col = "variable") %>%
+    cols_label(mean = "Mean", sd = "Std. dev.") %>%
+    fmt_number(columns = c(mean, sd)) %>%
+    tab_style(
+        style = list(
+            cell_text(style = "italic", weight = "normal")
+        ),
+        locations = cells_column_labels()
+    ) %>%
+    tab_style(
+        style = cell_borders(
+            sides = "bottom",
+            color = "#D3D3D3"
+        ),
+        location = cells_column_labels()
+    ) %>%
+    tab_source_note(md("Source: _Generations_ study (Meyer 2020)"))
+```
+
+<!-- TODO: descriptives for individual variables, to answer the question of "who is in the data". This could go in an appendix, since it's not a focus of my paper.-->
+
+@tbl-place shows the distributions of the two key place covariates for the zip codes and metropolitan areas represented in the _Generations_ study. Population densities vary widely across zip codes (sample SD = 5,200 individuals per sq. km), and a strong right skew is evident where a tail of zip codes are especially densely populated. The mean respondent lives in a zip code with 2,500 individuals/km^2^, while the median respondent lives in a zip code with only 1,000 individuals/km^2^. The population-weighted mean density for all populated zip codes is 1,560 individuals per sq. km, meaning that LGBQ individuals in this representative sample live in zip codes that are on average substantially denser than the American population at large. Same-sex couples are around 1.1% of the households in the average zip code represented in the study, with a slightly lower median (0.8%) and a reasonable amount of variation (SD = 1.1%). As with density, the average is higher than the population-weighted mean for all populated zip codes of roughly 0.75%. (This is shaped by the fact that 54% of populated ZCTAs recorded 0 same-sex couples in the 2015-2019 ACS time period. Because the ACS is not a census and same-sex couples are rare, many of these are not likely to be true zeroes.) On both distributions, especially percentage of same-sex couples, note that MSAs show much less variability than zip codes. 
+
+These covariate distributions shape how I model, present, and interpret my results. The distribution of population densities, in particular, informs my decision to display predicted values on a log scale. For interpreting magnitudes, you can anchor on the idea that around half of zip codes are above and below 1,000 individuals per sq. km, and around half are above and below 1% same-sex couple households
+
+```{r}
+#| label: tbl-place
+#| tbl-cap: "Place characteristics"
+#| echo: false
+
+tbl_place %>%
+    gt(
+        groupname_col = "geography",
+        rowname_col = "variable"
+    ) %>%
+    cols_label(median = "Median", mean = "Mean", sd = "Std. dev.") %>%
+    fmt_number(
+        columns = c(median, mean, sd),
+        decimals = 0,
+        rows = str_detect(variable, "density")
+    ) %>%
+    fmt_percent(
+        columns = c(median, mean, sd),
+        drop_trailing_zeros = TRUE,
+        rows = str_detect(variable, "Percent")
+    ) %>%
+    tab_style(
+        style = list(
+            cell_text(style = "italic", weight = "normal")
+        ),
+        locations = list(
+            cells_column_labels(),
+            cells_row_groups()
+        )
+    ) %>%
+    tab_source_note("Source: 5-year American Community Survey, 2019") %>%
+    tab_source_note(
+        md(
+            "Note: Characteristics for zip codes and metropolitan areas represented in the Generations study. Values are rounded to maintain privacy. Values are weighted by number of respondents, meaning that these are the values _experienced_ by the average respondent."
+        )
+    )
+```
+
+Two examples drawn from the full set of zip codes will provide anchor values for those distributions and help contextualize the model results that follow. These are shown in @fig-place-examples. (Remember, I can't discuss which zip codes and MSAs are actually included in the Generations study.) I've chosen these examples as quantitative outliers corresponding to culturally significant places, illustrating what a place where 10% or more of households are same-sex couples actually look like.
+
+- Zip code 94114 encompasses the Castro, San Francisco's gayborhood and one of the most prominent gay neighborhoods in the country. 12% of households in the area are same-sex couples. The Castro is in a densely-populated residential part of the city (9,500 individuals per sq. km), and adjacent to the extremely dense downtown core of San Francisco (with densities reaching 20,000 individuals per sq. km). San Francisco is is in turn the densest part of the wider Bay Area, and one of the densest major cities in the country.
+
+- Zip codes 92262 and 92264 coincide closely with Palm Springs, a gay resort town in Southern California. 12% and 14% of households are same-sex couples, respectively. However, as the map shows, Palm Springs is far from the most densely-populated part of the Riverside, CA, metropolitan area (population densities are 300 and 150 individuals per sq. km, respectively). In other words, it's only extreme on one place characteristic, not both dimensions. Overall densities in the area are much lower compared to the Bay Area, and more typical of the country as a whole.
+
+These real places illustrate the plausible upper end of the range for the prevalence and abundance of LGBTQ people, proxied through same-sex couples, and two distinct points on the spectrum of population densities. In the subsequent results, moving from 1% same-sex couples and 1,000 individuals per sq. km to 10% and 10,000 individuals per sq. km is like moving from a typical zip code in the sample to a place like the Castro.
+
+![Example zip codes with high prevalence of same-sex couples: the Castro (94114) and Palm Springs (92262, 92264).](img/place/place_examples.png){#fig-place-examples}
+
+And now, dear reader, the results.
+
+<!-- TODO: update model results. -->
 
 ![Density and prevalence of same-sex couples across 8 models.](img/place/zip_code_models.png)
 

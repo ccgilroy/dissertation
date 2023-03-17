@@ -261,12 +261,12 @@ div.csl-indent {
 <p>I use four measures from wave 1 of the Generations study - both the two full scales and the first single item from each - as outcome variables to represent community and belonging. The multi-item scales are validated and robust. By contrast, single items from those scales are framed to more precisely target <em>belonging</em>. While it’s important to justify deviations from standard, validated scales <span class="citation" data-cites="mustillo_editors_2018">(<a href="references.html#ref-mustillo_editors_2018" role="doc-biblioref">Mustillo, Lizardo, and McVeigh 2018</a>)</span>, it’s also important not to over-project meaning onto latent constructs derived from survey measures or take those meanings for granted <span class="citation" data-cites="martin_other_2020 martin_response_2021">(<a href="references.html#ref-martin_other_2020" role="doc-biblioref">Martin and Lembo 2020</a>, <a href="references.html#ref-martin_response_2021" role="doc-biblioref">2021</a>)</span>. As a compromise, I analyze both and discuss any noteworthy divergences below. These are the scales and items I analyze:</p>
 <ul>
 <li>The <strong>LGBT Community Connectedness</strong> scale, a 4-point scale constructed from an average of 7 items, previously validated as a cognitive/affective construct in <span class="citation" data-cites="frost_measuring_2012">Frost and Meyer (<a href="references.html#ref-frost_measuring_2012" role="doc-biblioref">2012</a>)</span>. Items touch on emotional attachment, participation, and political and collective action within “the” (singular) LGBT community.</li>
-<li>The <strong>Social Wellbeing</strong> scale, a 7-point scale constructed from an average of 15 items.This scale includes not only items that ask about respondents’ relations to community, but also to society and the world more broadly.</li>
+<li>The <strong>Social Wellbeing</strong> scale, a 7-point scale constructed from an average of 15 items. This scale includes not only items that ask about respondents’ relations to community, but also to society and the world more broadly.</li>
 <li>The first item on the Community Connectedness scale, “You feel you’re a part of the LGBT community,” with four response options ranging from “Agree strongly” to “Disagree strongly.”</li>
 <li>The first item on the Social Wellbeing scale, “I don’t feel I belong to anything I’d call a community,” with seven response options ranging from “Strongly disagree” to “Strongly agree.” (<em>Strongly disagree</em> with this negative statement corresponds in direction to <em>agree strongly</em> on the LGBT Community Connnectedness question, so I align my model results and figures accordingly.)</li>
 </ul>
 <p>For place-based data, I draw on the US Census Bureau’s American Community Survey [CITE] via the tidycensus package [CITE]. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR’s virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.</p>
-<p>In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA/μSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.</p>
+<p>In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.</p>
 <p>In my statistical models, I test four different functional specifications of the association between population density and community/belonging:</p>
 <ul>
 <li><strong>Linear.</strong> The most straightforward specification, allowing me to detect whether denser places are associated with a stronger or weaker experience of community.</li>
@@ -283,7 +283,1407 @@ div.csl-indent {
 </section>
 <section id="results" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="results"><span class="header-section-number">2.5</span> Results</h2>
-<!-- okay, if I want to show the distributions of the things, I can do that here. -->
+<p>First, I’ll describe the distributions of the relevant variables, to contextualize the main statistical models that follow. <a href="#tbl-outcomes">Table&nbsp;<span>2.1</span></a> shows that the typical Generations respondent (47.2%) agrees that they feel a part of the LGBT community, and this corresponds closely to the overall 7-item average of 2.97 on the Community Connectedness scale. The scale is flipped, so that higher numbers represent greater connectedness, and a respondent who agrees with every item would receive a score of 3.Consistent with the LGBT-specific trend, respondents tend on average to disagree with the notion that they don’t belong to any community, and this aligns with the 4.67 average response for the 15-item Social Wellbeing scale (again, aligned so that higher values represent more positive outcomes). All four measures point to a moderately positive sense of community and belonging on average, but with enough variability to attempt to model systematic differences among respondents and the places in which they live.</p>
+<div id="tbl-outcomes" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Table&nbsp;2.1: Outcomes</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-outcomes-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-outcomes" style="flex-basis: 100.0%;justify-content: center;">
+
+<div id="fifritozno" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#fifritozno) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#fifritozno) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#fifritozno) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#fifritozno) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#fifritozno) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#fifritozno) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#fifritozno) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#fifritozno) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#fifritozno) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#fifritozno) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#fifritozno) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#fifritozno) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#fifritozno) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#fifritozno) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fifritozno) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#fifritozno) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#fifritozno) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fifritozno) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#fifritozno) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fifritozno) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#fifritozno) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fifritozno) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fifritozno) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fifritozno) .gt_left {
+  text-align: left;
+}
+
+:where(#fifritozno) .gt_center {
+  text-align: center;
+}
+
+:where(#fifritozno) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#fifritozno) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#fifritozno) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#fifritozno) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#fifritozno) .gt_super {
+  font-size: 65%;
+}
+
+:where(#fifritozno) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#fifritozno) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#fifritozno) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#fifritozno) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#fifritozno) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#fifritozno) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#fifritozno) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>(a) Individual item outcomes </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="N">N</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="%">%</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" style="font-style: italic; font-weight: normal;" scope="colgroup" id="You feel you're a part of the LGBT community.">You feel you're a part of the LGBT community.</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Agree strongly</th>
+<td headers="You feel you're a part of the LGBT community. stub_1_1 n" class="gt_row gt_right">239</td>
+<td headers="You feel you're a part of the LGBT community. stub_1_1 p" class="gt_row gt_right">17.4%</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">Agree</th>
+<td headers="You feel you're a part of the LGBT community. stub_1_2 n" class="gt_row gt_right">649</td>
+<td headers="You feel you're a part of the LGBT community. stub_1_2 p" class="gt_row gt_right">47.2%</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">Disagree</th>
+<td headers="You feel you're a part of the LGBT community. stub_1_3 n" class="gt_row gt_right">389</td>
+<td headers="You feel you're a part of the LGBT community. stub_1_3 p" class="gt_row gt_right">28.3%</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">Disagree strongly</th>
+<td headers="You feel you're a part of the LGBT community. stub_1_4 n" class="gt_row gt_right">99</td>
+<td headers="You feel you're a part of the LGBT community. stub_1_4 p" class="gt_row gt_right">7.2%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" style="font-style: italic; font-weight: normal;" scope="colgroup" id="I don't feel I belong to anything I'd call a community.">I don't feel I belong to anything I'd call a community.</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">Strongly disagree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_5 n" class="gt_row gt_right">252</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_5 p" class="gt_row gt_right">18.3%</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">Moderately disagree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_6 n" class="gt_row gt_right">297</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_6 p" class="gt_row gt_right">21.6%</td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">Slightly disagree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_7 n" class="gt_row gt_right">227</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_7 p" class="gt_row gt_right">16.5%</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">Neither agree nor disagree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_8 n" class="gt_row gt_right">142</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_8 p" class="gt_row gt_right">10.3%</td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">Slightly agree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_9 n" class="gt_row gt_right">198</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_9 p" class="gt_row gt_right">14.4%</td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">Moderately agree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_10 n" class="gt_row gt_right">168</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_10 p" class="gt_row gt_right">12.2%</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">Strongly agree</th>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_11 n" class="gt_row gt_right">92</td>
+<td headers="I don't feel I belong to anything I'd call a community. stub_1_11 p" class="gt_row gt_right">6.7%</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="3">Source: <em>Generations</em> study (Meyer 2020)</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-outcomes-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-outcomes" style="flex-basis: 100.0%;justify-content: center;">
+
+<div id="gbyxxdxaze" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#gbyxxdxaze) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#gbyxxdxaze) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#gbyxxdxaze) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#gbyxxdxaze) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#gbyxxdxaze) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#gbyxxdxaze) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#gbyxxdxaze) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#gbyxxdxaze) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#gbyxxdxaze) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#gbyxxdxaze) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#gbyxxdxaze) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#gbyxxdxaze) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#gbyxxdxaze) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#gbyxxdxaze) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#gbyxxdxaze) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#gbyxxdxaze) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#gbyxxdxaze) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#gbyxxdxaze) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#gbyxxdxaze) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_left {
+  text-align: left;
+}
+
+:where(#gbyxxdxaze) .gt_center {
+  text-align: center;
+}
+
+:where(#gbyxxdxaze) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#gbyxxdxaze) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#gbyxxdxaze) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#gbyxxdxaze) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#gbyxxdxaze) .gt_super {
+  font-size: 65%;
+}
+
+:where(#gbyxxdxaze) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#gbyxxdxaze) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#gbyxxdxaze) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#gbyxxdxaze) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#gbyxxdxaze) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#gbyxxdxaze) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#gbyxxdxaze) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>(b) Scale outcomes </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #D3D3D3;" scope="col" id="Mean">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #D3D3D3;" scope="col" id="Std. dev.">Std. dev.</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">LGBT Community Connectedness scale (1-4)</th>
+<td headers="stub_1_1 mean" class="gt_row gt_right">2.97</td>
+<td headers="stub_1_1 sd" class="gt_row gt_right">0.56</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">Social Wellbeing scale (1-7)</th>
+<td headers="stub_1_2 mean" class="gt_row gt_right">4.67</td>
+<td headers="stub_1_2 sd" class="gt_row gt_right">0.91</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="3">Source: <em>Generations</em> study (Meyer 2020)</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- TODO: descriptives for individual variables, to answer the question of "who is in the data". This could go in an appendix, since it's not a focus of my paper.-->
+<p><a href="#tbl-place">Table&nbsp;<span>2.2</span></a> shows the distributions of the two key place covariates for the zip codes and metropolitan areas represented in the <em>Generations</em> study. Population densities vary widely across zip codes (sample SD = 5,200 individuals per sq. km), and a strong right skew is evident where a tail of zip codes are especially densely populated. The mean respondent lives in a zip code with 2,500 individuals/km<sup>2</sup>, while the median respondent lives in a zip code with only 1,000 individuals/km<sup>2</sup>. The population-weighted mean density for all populated zip codes is 1,560 individuals per sq. km, meaning that LGBQ individuals in this representative sample live in zip codes that are on average substantially denser than the American population at large. Same-sex couples are around 1.1% of the households in the average zip code represented in the study, with a slightly lower median (0.8%) and a reasonable amount of variation (SD = 1.1%). As with density, the average is higher than the population-weighted mean for all populated zip codes of roughly 0.75%. (This is shaped by the fact that 54% of populated ZCTAs recorded 0 same-sex couples in the 2015-2019 ACS time period. Because the ACS is not a census and same-sex couples are rare, many of these are not likely to be true zeroes.) On both distributions, especially percentage of same-sex couples, note that MSAs show much less variability than zip codes.</p>
+<p>These covariate distributions shape how I model, present, and interpret my results. The distribution of population densities, in particular, informs my decision to display predicted values on a log scale. For interpreting magnitudes, you can anchor on the idea that around half of zip codes are above and below 1,000 individuals per sq. km, and around half are above and below 1% same-sex couple households</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-place" class="anchored">
+
+<div id="edtjtebjrx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#edtjtebjrx) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#edtjtebjrx) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#edtjtebjrx) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#edtjtebjrx) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#edtjtebjrx) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#edtjtebjrx) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#edtjtebjrx) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#edtjtebjrx) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#edtjtebjrx) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#edtjtebjrx) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#edtjtebjrx) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#edtjtebjrx) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#edtjtebjrx) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#edtjtebjrx) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#edtjtebjrx) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#edtjtebjrx) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#edtjtebjrx) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#edtjtebjrx) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#edtjtebjrx) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#edtjtebjrx) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#edtjtebjrx) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#edtjtebjrx) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#edtjtebjrx) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#edtjtebjrx) .gt_left {
+  text-align: left;
+}
+
+:where(#edtjtebjrx) .gt_center {
+  text-align: center;
+}
+
+:where(#edtjtebjrx) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#edtjtebjrx) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#edtjtebjrx) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#edtjtebjrx) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#edtjtebjrx) .gt_super {
+  font-size: 65%;
+}
+
+:where(#edtjtebjrx) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#edtjtebjrx) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#edtjtebjrx) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#edtjtebjrx) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#edtjtebjrx) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#edtjtebjrx) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#edtjtebjrx) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;2.2:  Place characteristics </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="Median">Median</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="Mean">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="Std. dev.">Std. dev.</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="4" class="gt_group_heading" style="font-style: italic; font-weight: normal;" scope="colgroup" id="Zip codes in the Generations study (N = 1,238)">Zip codes in the Generations study (N = 1,238)</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Population density (individuals/sq. km)</th>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_1 median" class="gt_row gt_right">1,000</td>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_1 mean" class="gt_row gt_right">2,500</td>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_1 sd" class="gt_row gt_right">5,200</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">Percent same-sex couple households</th>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_2 median" class="gt_row gt_right">0.8%</td>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_2 mean" class="gt_row gt_right">1.1%</td>
+<td headers="Zip codes in the Generations study (N = 1,238) stub_1_2 sd" class="gt_row gt_right">1.1%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="4" class="gt_group_heading" style="font-style: italic; font-weight: normal;" scope="colgroup" id="MSAs in the Generations study (N = 217)">MSAs in the Generations study (N = 217)</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">Weighted population density (individuals/sq. km)</th>
+<td headers="MSAs in the Generations study (N = 217) stub_1_3 median" class="gt_row gt_right">1,200</td>
+<td headers="MSAs in the Generations study (N = 217) stub_1_3 mean" class="gt_row gt_right">2,050</td>
+<td headers="MSAs in the Generations study (N = 217) stub_1_3 sd" class="gt_row gt_right">2,540</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">Percent same-sex couple households</th>
+<td headers="MSAs in the Generations study (N = 217) stub_1_4 median" class="gt_row gt_right">0.9%</td>
+<td headers="MSAs in the Generations study (N = 217) stub_1_4 mean" class="gt_row gt_right">0.88%</td>
+<td headers="MSAs in the Generations study (N = 217) stub_1_4 sd" class="gt_row gt_right">0.23%</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="4">Source: 5-year American Community Survey, 2019</td>
+    </tr>
+    <tr>
+      <td class="gt_sourcenote" colspan="4">Note: Characteristics for zip codes and metropolitan areas represented in the Generations study. Values are rounded to maintain privacy. Values are weighted by number of respondents, meaning that these are the values <em>experienced</em> by the average respondent.</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Two examples drawn from the full set of zip codes will provide anchor values for those distributions and help contextualize the model results that follow. These are shown in <a href="#fig-place-examples">Figure&nbsp;<span>2.1</span></a>. (Remember, I can’t discuss which zip codes and MSAs are actually included in the Generations study.) I’ve chosen these examples as quantitative outliers corresponding to culturally significant places, illustrating what a place where 10% or more of households are same-sex couples actually look like.</p>
+<ul>
+<li><p>Zip code 94114 encompasses the Castro, San Francisco’s gayborhood and one of the most prominent gay neighborhoods in the country. 12% of households in the area are same-sex couples. The Castro is in a densely-populated residential part of the city (9,500 individuals per sq. km), and adjacent to the extremely dense downtown core of San Francisco (with densities reaching 20,000 individuals per sq. km). San Francisco is is in turn the densest part of the wider Bay Area, and one of the densest major cities in the country.</p></li>
+<li><p>Zip codes 92262 and 92264 coincide closely with Palm Springs, a gay resort town in Southern California. 12% and 14% of households are same-sex couples, respectively. However, as the map shows, Palm Springs is far from the most densely-populated part of the Riverside, CA, metropolitan area (population densities are 300 and 150 individuals per sq. km, respectively). In other words, it’s only extreme on one place characteristic, not both dimensions. Overall densities in the area are much lower compared to the Bay Area, and more typical of the country as a whole.</p></li>
+</ul>
+<p>These real places illustrate the plausible upper end of the range for the prevalence and abundance of LGBTQ people, proxied through same-sex couples, and two distinct points on the spectrum of population densities. In the subsequent results, moving from 1% same-sex couples and 1,000 individuals per sq. km to 10% and 10,000 individuals per sq. km is like moving from a typical zip code in the sample to a place like the Castro.</p>
+<div id="fig-place-examples" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/place/place_examples.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: Example zip codes with high prevalence of same-sex couples: the Castro (94114) and Palm Springs (92262, 92264).</figcaption><p></p>
+</figure>
+</div>
+<p>And now, dear reader, the results.</p>
+<!-- TODO: update model results. -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/place/zip_code_models.png" class="img-fluid figure-img"></p>
@@ -343,6 +1743,7 @@ div.csl-indent {
 <p>In a similar vein – given the cultural dimension of politics, and given the importance of political affiliation at the individual level, place-based measures of political climate (e.g., 2016 Trump vote share) seem important to include. As with every place characteristic, there’s a debate to be had about whether the zip code or MSA level is more salient.</p>
 <!-- [not hating queer people is (still, increasingly) a partisan issue.] -->
 <p>Alongside adding covariates and reevaluating how I operationalize them, I might bring the individual traits further into focus by considering how they interact with place characteristics, as it’s reasonable to think that they would. But, as my covariates and modeling strategies get more complex, I’ll be more and more limited by the number of respondents in the data. Of course, with only 1484 respondents, I don’t observe every zip code in the country; though I do get more than one respondent per location, especially at higher levels of aggregation like MSA. (You could even imagine a spatial model estimating kind of a “risk surface” for belonging, as Jon Wakefield would put it, but that seems unnecessarily complex for little added benefit.) At some point, we’ll have to feel confident that I’ve learned enough for one dissertation chapter, rather than trying every model specification imaginable.</p>
+<div style="page-break-after: always;"></div>
 </section>
 <section id="appendix-tables" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="appendix-tables"><span class="header-section-number">2.8</span> Appendix: Tables</h2>
@@ -353,6 +1754,7 @@ div.csl-indent {
 <section id="outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community." class="level3" data-number="2.8.2">
 <h3 data-number="2.8.2" class="anchored" data-anchor-id="outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community."><span class="header-section-number">2.8.2</span> Outcome 2: I don’t feel I belong to anything I’d call a community.</h3>
 <p><img src="img/place/generic_table.png" class="img-fluid"></p>
+<div style="page-break-after: always;"></div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
