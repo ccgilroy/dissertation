@@ -5,7 +5,8 @@ project:
 book:
   title: "Expressions of Community"
   author: "Connor Gilroy"
-  date: "1/13/2023"
+  date: today
+  date-format: "MM/DD/YYYY"
   repo-url: https://github.com/ccgilroy/dissertation/
   repo-actions: [edit, issue]
   downloads: [pdf]
