@@ -221,9 +221,53 @@ These real places illustrate the plausible upper end of the range for the preval
 
 ![Example zip codes with high prevalence of same-sex couples: the Castro (94114) and Palm Springs (92262, 92264).](img/place/place_examples.png){#fig-place-examples}
 
-And now, dear reader, the results.
+I will now describe those model results, organized as follows. I primarily discuss zip code results, and then briefly touch on metropolitan area results. Within each geographic scale, I describe first the patterns for population density, and second the patterns for percentage same-sex couple households. For each place covariate, I cover the four outcomes -- first the combined scales, and second the individual questions. I close by highlighting some individual-level trends for notable sociodemographic characteristics, which are independent of the place-level findings.
 
-<!-- TODO: update model results. -->
+At the zip code level, population density shows an association with both scale outcomes, but not with the specific questions about feelings of belonging. @fig-density-zip compares predicted values for four different functional specifications for zip code population density, controlling for percent same-sex couples and individual characteristics and holding these constant at their mean and reference categories respectively. Functional form turns out to matter quite a lot; with ill-fitting specifications, it becomes impossible to estimate any clear association at all. The best-fitting models for LGBT community connectedness and generic social wellbeing have different functional forms from each other. In neither case is there any evidence for non-monotonic relationships (quadratic, spline) between density and community belonging.
+
+Population density has a linear association with LGBT community connectedness (coef here). In terms of predicted values (see top-left panel of @fig-density-zip), this means there is little movement in community connectedness at the bottom half of the density distribution (below 1,000 individuals per sq. km), but substantial increases at very high densities. The association between population density and generic social wellbeing is better modeled as logarithmic (the third panel of the bottom row of @fig-density-zip) (coef here). An increase from very low densities (< 1 individual per sq. km) to the midpoint is associated with an increase in social wellbeing larger than from 1,000 individuals per sq. km to 10,000 or beyond, meaning that, descriptively, there are diminishing returns at higher densities. Despite being positively associated with both multi-item scales, population density is not associated with responses to either of the two single items alone, no matter the functional specification (coefs, p-values for the best-fitting models for the corresponding scales). I interpret this contrast and speculate on methodological and substantive reasons for it in the discussion.
+
+![](img/place/density_scale_models.png){#fig-density-zip}
+
+<!-- TODO: pull out concrete values from figures and coefficient tables. -->
+
+Across all four outcomes, a higher zip-code-level prevalence of same-sex couples is consistently associated with a greater sense of community and belonging for LGBQ people.
+
+As @fig-ssc-scales-zip show
+
+(all models discussed here use the best-fitting specifications for density)
+
+quarter-point increase in community connectedness (coef:)
+
+and half-point increase in social wellbeing (coef:)
+
+(the two scales have different ranges, so the units are not comparable).
+
+These strong associations are replicated in the individual question responses.
+
+@fig-ssc-q53-zip
+
+move from 1% to 10%, the predicted probability of "agree strongly" more than doubles from around 15% to 40%, and probability disagreeing at all falls from 30% to near 10%.
+
+@fig-ssc-q04-zip
+
+move from 1% to 10%, the predicted probability of "strongly disagree" also nearly doubles, to almost 40%.
+
+
+
+![](img/place/pct_ssc_scales.png){#fig-ssc-scales-zip}
+
+![](img/place/pct_ssc_q53.png){#fig-ssc-q53-zip}
+
+![](img/place/pct_ssc_q04.png){#fig-ssc-q04-zip}
+
+by contrast, not much at all at the MSA level. (put these figures in the appendix?)
+
+%-ssc only social wellbeing scale
+
+(Notably, even a simple varying-intercepts model with random effects - a completely different approach to capturing differences between MSAs - doesn't turn up much.)
+
+finally, not the focus, but worth noting:
 
 ![Density and prevalence of same-sex couples across 8 models.](img/place/zip_code_models.png)
 
