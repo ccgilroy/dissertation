@@ -231,29 +231,7 @@ Population density has a linear association with LGBT community connectedness (c
 
 <!-- TODO: pull out concrete values from figures and coefficient tables. -->
 
-Across all four outcomes, a higher zip-code-level prevalence of same-sex couples is consistently associated with a greater sense of community and belonging for LGBQ people.
-
-As @fig-ssc-scales-zip show
-
-(all models discussed here use the best-fitting specifications for density)
-
-quarter-point increase in community connectedness (coef:)
-
-and half-point increase in social wellbeing (coef:)
-
-(the two scales have different ranges, so the units are not comparable).
-
-These strong associations are replicated in the individual question responses.
-
-@fig-ssc-q53-zip
-
-move from 1% to 10%, the predicted probability of "agree strongly" more than doubles from around 15% to 40%, and probability disagreeing at all falls from 30% to near 10%.
-
-@fig-ssc-q04-zip
-
-move from 1% to 10%, the predicted probability of "strongly disagree" also nearly doubles, to almost 40%.
-
-
+Across all four outcomes, a higher zip-code-level prevalence of same-sex couples is consistently associated with a greater sense of community and belonging for LGBQ people. As @fig-ssc-scales-zip shows, a shift from 1% to 10% of households in a zip code being same-sex couples is associated with a quarter-point increase in community connectedness (coef:) and a half-point increase in social wellbeing (coef:). (The two scales have different ranges, so the units are not comparable. All models discussed here use the best-fitting specifications for density and control for individual characteristics.)These strong associations are replicated in the individual question responses. With other characteristics held constant, the ordinal model in @fig-ssc-q53-zip shows that as the percentage same-sex couples moves from 1% to 10%, the predicted probability of a respondent _agreeing strongly_ with feeling a part of the LGBT community more than doubles from around 15% to 40%. The probability of disagreeing at all falls from 30% to near 10%. Similarly, @fig-ssc-q04-zip shows that as the percentage moves from 1% to 10%, the predicted probability of a respondent _strongly disagreeing_ with the statement that they do not feel they belong to any community also nearly doubles, to almost 40%. Given that a sense of belonging to LGBT community specifically ought to logically entail belonging to at least one community in general (although individual responses aren't always consistent), this consistency is to be expected. The overall signal that more same-sex couples in a zip code area are associated with more subjective community for LGBQ people is robust.
 
 ![](img/place/pct_ssc_scales.png){#fig-ssc-scales-zip}
 
@@ -261,11 +239,15 @@ move from 1% to 10%, the predicted probability of "strongly disagree" also nearl
 
 ![](img/place/pct_ssc_q04.png){#fig-ssc-q04-zip}
 
-by contrast, not much at all at the MSA level. (put these figures in the appendix?)
+By contrast with those clear associations at the zip code level, there is little clear evidence to report at the metropolitan level. (put these figures in the appendix?)
+
+Among the combinations of the two covariates and four outcomes
 
 %-ssc only social wellbeing scale
 
-(Notably, even a simple varying-intercepts model with random effects - a completely different approach to capturing differences between MSAs - doesn't turn up much.)
+No matter the specification, 
+
+Notably, even a completely different approach to capturing differences between MSAs - a simple varying-intercepts model with random effects - doesn't reveal notable between-MSA variation.
 
 finally, not the focus, but worth noting:
 
