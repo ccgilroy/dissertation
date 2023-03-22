@@ -239,17 +239,13 @@ Across all four outcomes, a higher zip-code-level prevalence of same-sex couples
 
 ![](img/place/pct_ssc_q04.png){#fig-ssc-q04-zip}
 
-By contrast with those clear associations at the zip code level, there is little clear evidence to report at the metropolitan level. (put these figures in the appendix?)
+By contrast with those clear associations at the zip code level, there is less clear evidence to report at the metropolitan level. Among the combinations of the two covariates and four outcomes, only one association can be estimated sufficiently precisely to be distinguishable from zero. Even weighted for zip code population, MSA-level population density does not have a discernable association with any of the four community-related outcomes, with any functional form. The MSA-level percentage same-sex couple households is only discernably associated with the social wellbeing scale, with a 1 percentage point increase associated with around a 0.3 point increase on the scale (stats:). That change is of a similar magnitude to the level of change associated with a larger shift in same-sex couples described for zip codes above, but MSAs show much less variation in same-sex couple prevalence overall. The apparent direction of the coefficient for the generic community belonging item is consistent with the social wellbeing result, but the level of uncertainty is too large to reliably distinguish it from zero. The prevalence of same-sex couples in a metropolitan area is not at all associated with either measure of LGBT-specific community connectedness. As a robustness check, even a completely different approach to capturing differences between MSAs - a simple varying-intercepts model with random effects - doesn't reveal notable between-MSA variation. 
 
-Among the combinations of the two covariates and four outcomes
+finally, not the focus, but worth noting individual-level trends.
 
-%-ssc only social wellbeing scale
+the place characteristics don't seem to affect these, making this a great avenue for future work on the public version of the Generations data set.
 
-No matter the specification, 
 
-Notably, even a completely different approach to capturing differences between MSAs - a simple varying-intercepts model with random effects - doesn't reveal notable between-MSA variation.
-
-finally, not the focus, but worth noting:
 
 ![Density and prevalence of same-sex couples across 8 models.](img/place/zip_code_models.png)
 
