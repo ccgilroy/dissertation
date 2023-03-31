@@ -5,13 +5,7 @@ subtitle: How place characteristics shape individual sense of community for LGBQ
 
 ## Introduction
 
-<!-- what's this chapter doing, and why? this is Cunk on Earth.
-
-This is the chapter for sociologists who don't believe that online is real. I'm serving nationally representative survey realness. -->
-
 For a community to exist, people have to _feel_ that one exists, and that they're a part of it. How do they come to feel that way? This chapter investigates one aspect of that process, by using nationally-representative survey data from LGBQ people in the United States to assess how contextual characteristics of places are associated with individual experiences of sense of community and belonging. I identify two key place-based elements that might contribute toward creating a sense of community around LGBTQ identity, namely density and minority abundance. 
-
-<!-- These same traits are associated with the conditions for belonging and social wellbeing overall, in general. -->
 
 _Community_ itself is a meso-level social entity that comes into existence through the overlap of social interactional density and shared cultural or moral density (i.e. group styles, embodied habitus, values). Geographical proximity -- what Durkheim called physical density [@durkheim_elementary_2001; @tavory_summoned_2016] -- often facilitates the emergence of this collective entity, but it isn't intrinsically essential. But if community is a collective and sociological construct, _sense of community_ is more of a psychological and individual one -- the personal experience of belonging to a larger collective entity. (Which, unless we want to contend that people are delusional, implies the existence of that social entity.)
 
@@ -258,7 +252,7 @@ Future work in this vein might use these data to explore how responses related t
 
 ## Appendix: Tables
 
-actual appendix: best four statistical models for zip codes, best four models for MSAs. putting those into a table is gonna be a bitch.
+actual appendix: best four statistical models for zip codes, best four models for MSAs.
 
 ### Outcome 1: You feel you're part of the LGBT community.
 
