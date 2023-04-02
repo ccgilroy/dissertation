@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+profile:
+  default: all
+
 book:
   title: "Expressions of Community"
   author: "Connor Gilroy"
@@ -10,14 +13,14 @@ book:
   repo-url: https://github.com/ccgilroy/dissertation/
   repo-actions: [edit, issue]
   downloads: [pdf]
-  chapters:
-    - index.qmd
-    - intro.qmd
-    - place.qmd
-    - discourse.qmd
-    - networks.qmd
-    - conclusion.qmd
-    - references.qmd
+  # chapters:
+  #   - index.qmd
+  #   - intro.qmd
+  #   - place.qmd
+  #   - discourse.qmd
+  #   - networks.qmd
+  #   - conclusion.qmd
+  #   - references.qmd
 
 bibliography: references.bib
 csl: american-sociological-association.csl

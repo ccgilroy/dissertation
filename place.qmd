@@ -44,9 +44,9 @@ I use four measures from wave 1 of the Generations study - both the two full sca
 - The first item on the Community Connectedness scale, "You feel you’re a part of the LGBT community," with four response options ranging from "Agree strongly" to "Disagree strongly."
 - The first item on the Social Wellbeing scale, "I don’t feel I belong to anything I’d call a community," with seven response options ranging from "Strongly disagree" to "Strongly agree." (_Strongly disagree_ with this negative statement corresponds in direction to _agree strongly_ on the LGBT Community Connnectedness question, so I align my model results and figures accordingly.)
 
-For place-based data, I draw on the US Census Bureau's American Community Survey [CITE] via the tidycensus package [CITE]. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR's virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.
+For place-based data, I draw on the US Census Bureau's American Community Survey via the tidycensus package [@walker_tidycensus_2023]. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR's virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.
 
-In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.
+In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [@ottensmann_population-weighted_2018]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.
 
 In my statistical models, I test four different functional specifications of the association between population density and community/belonging:
 
@@ -59,13 +59,13 @@ As I'll show below, while the more complex specifications sound plausible, there
 
 I use only one specification for the prevalence/abundance of LGBTQ+ people: the proportion of households that are same-sex couples. There are no fine-grained geographic estimates of LGBTQ+ identity (and based on Census Bureau trends, there never will be), so partnered households are the best proxy. I considered instead using _counts_ of same-sex couples, as well as total population counts, rather than constructing two variables that are essentially _rates_. (Note: Because I pull same-sex couple counts and household counts from separate ACS tables, a few zip codes have nonsensical or extreme values for percent same-sex couples, which I drop from summary statistics. These are zip codes with small populations and/or high proportions of residents in group quarters.) It's an open question whether the _proportion_ or _count_ of same-sex couples is theoretically more important, but this alternate (and potentially simpler) specification did not turn out be especially promising, so I did not explore it systematically.
 
-I control for a set of individual demographic, socioeconomic, and other identity-based characteristics from the Generations data: gender (cisgender women, cisgender men, and [some] nonbinary/genderqueer people; transgender potential respondents took the parallel TransPop survey, not the Generations survey), sexual orientation (lesbian/gay, bisexual, queer/other), age cohort (younger, middle, older), race (white, Black/African American, Latino/Hispanic), political affiliation (Republican, Democrat, independent/other), and education (high school or less, more than high school). Some of these traits are associated with community and belonging in interesting ways I won't discuss in this paper. Individual covariates can be analyzed with the publicly available version of the Generations data set, and so they're peripheral to my central aim of analyzing the restricted geographic data. (Most notably - and unsurprisingly - the small minority of LGBQ Republicans report low LGBT community connectness and belonging. This finding was previously reported in a bivariate analysis [CITE], but my results show that it holds up in the presence of other controls.) Others of these controls aren't associated with one or another of the outcomes, but I retain them for consistency across models.
+I control for a set of individual demographic, socioeconomic, and other identity-based characteristics from the Generations data: gender (cisgender women, cisgender men, and [some] nonbinary/genderqueer people; transgender potential respondents took the parallel TransPop survey, not the Generations survey), sexual orientation (lesbian/gay, bisexual, queer/other), age cohort (younger, middle, older), race (white, Black/African American, Latino/Hispanic), political affiliation (Republican, Democrat, independent/other), and education (high school or less, more than high school). Some of these traits are associated with community and belonging in interesting ways I won't discuss in this paper. Individual covariates can be analyzed with the publicly available version of the Generations data set, and so they're peripheral to my central aim of analyzing the restricted geographic data. (Most notably - and unsurprisingly - the small minority of LGBQ Republicans report low LGBT community connectness and belonging. This finding was previously reported in a bivariate analysis [@meyer_differences_2020], but my results show that it holds up in the presence of other controls.) Others of these controls aren't associated with one or another of the outcomes, but I retain them for consistency across models.
 
-Beyond potentially being associated with community/belonging, these individual traits vary spatially. Race is of course central to the spatial demography of the United States, and political affiliation is markedly geographically structured as well (both regional and urban/rural divides).In terms of gender and sexuality, gay men are more likely than lesbian women to concentrate in urban centers [CITE]. Education level affects opportunities to relocate, and respondents of different ages may be at different points in their life course that affect where they choose to live (e.g., younger respondents in cities, older respondents in suburbs). 
+Beyond potentially being associated with community/belonging, these individual traits vary spatially. Race is of course central to the spatial demography of the United States, and political affiliation is markedly geographically structured as well (both regional and urban/rural divides). In terms of gender and sexuality, gay men are more likely than lesbian women to concentrate in urban centers [@black_demographics_2000]. Education level affects opportunities to relocate, and respondents of different ages may be at different points in their life course that affect where they choose to live (e.g., younger respondents in cities, older respondents in suburbs). 
 
-The marginal effects plots I show below present predicted values and predicted probabilities with the individual controls set at their reference categories: young white lesbian Republican women with a high school education or less. Of course, reference categories are political and theoretically important [CITE: Sasha], but the choice of reference categories does not affect my main results. (Most notably, "white" and "Republican" both shift the level of LGBT belonging and connectedness downward compared to Black/Latinx or Democrat/independent, but they do not alter the interpretations of the place covariates.)
+The marginal effects plots I show below present predicted values and predicted probabilities with the individual controls set at their reference categories: young white lesbian Republican women with a high school education or less. Of course, reference categories are political and theoretically important [@johfre_reconsidering_2021], but the choice of reference categories does not affect my main results. (Most notably, "white" and "Republican" both shift the level of LGBT belonging and connectedness downward compared to Black/Latinx or Democrat/independent, but they do not alter the interpretations of the place covariates.)
 
-With 4 outcomes, 2 geographic levels, and 4 functional specifications of density, my main results consist of a series of 32 statistical models -- although many of these models turn out to be uninformative. I model the multi-item scale outcomes (which can take fractional values) with linear regressions, and the single-item outcomes with ordered logistic regressions. For the spline functional specification of population density, I use GAM extensions of both model types (from the mgcv package [CITE]). As a robustness check for the multi-item scale outcomes, I test two additional varying-intercept multilevel models grouped at the MSA level. This is not a fruitful approach, but if it had been, it would have been appropriate to recast many of the other models as multilevel models. 
+With 4 outcomes, 2 geographic levels, and 4 functional specifications of density, my main results consist of a series of 32 statistical models -- although many of these models turn out to be uninformative. I model the multi-item scale outcomes (which can take fractional values) with linear regressions, and the single-item outcomes with ordered logistic regressions. For the spline functional specification of population density, I use GAM extensions of both model types (from the mgcv package [@wood_fast_2011]). As a robustness check for the multi-item scale outcomes, I test two additional varying-intercept multilevel models grouped at the MSA level. This is not a fruitful approach, but if it had been, it would have been appropriate to recast many of the other models as multilevel models.
 
 ## Results
 
@@ -250,17 +250,57 @@ Future work in this vein might use these data to explore how responses related t
 
 \newpage
 
-## Appendix: Tables
+## Appendix: Statistical tables
 
-actual appendix: best four statistical models for zip codes, best four models for MSAs.
+TODO: format two tables with four statistical models for zip codes and four models for MSAs. The zip code table is done but only displays in the html version.
 
-### Outcome 1: You feel you're part of the LGBT community.
+::: {.content-visible when-format="html"}
+```{r}
+#| label: tbl-zip-appendix
+#| tbl-cap: "Statistical models predicting four sense of community outcomes using ZCTA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
+#| tbl-cap-location: bottom
+#| echo: false
 
-![](img/place/lgbt_table.png)
+d_zt <- read_csv("tbl/place/tbl-zip-appendix.csv")
+d_best <- read_csv("tbl/place/tbl-zip-stats.csv")
 
-### Outcome 2: I don't feel I belong to anything I'd call a community. 
+get_fit_statistic <- function(x, statistic) {
+    column_name <- names(which(map_lgl(d_zt, ~ identical(., x))))
 
-![](img/place/generic_table.png)
+    d_best %>%
+        filter(outcome == column_name) %>%
+        pull({{ statistic }})
+}
 
-\newpage
+if (!knitr::is_latex_output()) {
+    gt(d_zt, rowname_col = "term") %>%
+        tab_header(title = "Zip code place characteristics and sense of community") %>%
+        sub_missing(missing_text = "---") %>%
+        cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
+        cols_label(
+            W1Q53 = md("Part of the LGBT community"),
+            W1Q04 = md("Don't belong to any community"),
+            W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
+            W1SOCIALWB_I = md("Social Wellbeing")
+        ) %>%
+        cols_align(align = "center") %>%
+        cols_align_decimal() %>%
+        grand_summary_rows(
+            fns = list(
+                "Num. obs." = ~ get_fit_statistic(., "nobs"),
+                "Log likelihood" = ~ get_fit_statistic(., "logLik"),
+                AIC = ~ get_fit_statistic(., "AIC"),
+                BIC = ~ get_fit_statistic(., "BIC"),
+                list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
+            ),
+            fmt = list(
+                ~ fmt_number(., sep_mark = ""),
+                ~ fmt_integer(., rows = "Num. obs.")
+            )
+        ) %>%
+    fmt_markdown(columns = everything())
+}
+
+```
+:::
 

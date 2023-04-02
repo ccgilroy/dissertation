@@ -166,11 +166,7 @@ div.csl-indent {
   <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods"><span class="toc-section-number">2.3</span>  Data and methods</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="toc-section-number">2.4</span>  Results</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="toc-section-number">2.5</span>  Discussion</a></li>
-  <li><a href="#appendix-tables" id="toc-appendix-tables" class="nav-link" data-scroll-target="#appendix-tables"><span class="toc-section-number">2.6</span>  Appendix: Tables</a>
-  <ul class="collapse">
-  <li><a href="#outcome-1-you-feel-youre-part-of-the-lgbt-community." id="toc-outcome-1-you-feel-youre-part-of-the-lgbt-community." class="nav-link" data-scroll-target="#outcome-1-you-feel-youre-part-of-the-lgbt-community."><span class="toc-section-number">2.6.1</span>  Outcome 1: You feel you’re part of the LGBT community.</a></li>
-  <li><a href="#outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community." id="toc-outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community." class="nav-link" data-scroll-target="#outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community."><span class="toc-section-number">2.6.2</span>  Outcome 2: I don’t feel I belong to anything I’d call a community.</a></li>
-  </ul></li>
+  <li><a href="#appendix-statistical-tables" id="toc-appendix-statistical-tables" class="nav-link" data-scroll-target="#appendix-statistical-tables"><span class="toc-section-number">2.6</span>  Appendix: Statistical tables</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ccgilroy/dissertation/edit/main/place.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ccgilroy/dissertation/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -224,8 +220,8 @@ div.csl-indent {
 <li>The first item on the Community Connectedness scale, “You feel you’re a part of the LGBT community,” with four response options ranging from “Agree strongly” to “Disagree strongly.”</li>
 <li>The first item on the Social Wellbeing scale, “I don’t feel I belong to anything I’d call a community,” with seven response options ranging from “Strongly disagree” to “Strongly agree.” (<em>Strongly disagree</em> with this negative statement corresponds in direction to <em>agree strongly</em> on the LGBT Community Connnectedness question, so I align my model results and figures accordingly.)</li>
 </ul>
-<p>For place-based data, I draw on the US Census Bureau’s American Community Survey [CITE] via the tidycensus package [CITE]. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR’s virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.</p>
-<p>In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country [CITE: geographers who say using MSA population density is bad]. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.</p>
+<p>For place-based data, I draw on the US Census Bureau’s American Community Survey via the tidycensus package <span class="citation" data-cites="walker_tidycensus_2023">(<a href="references.html#ref-walker_tidycensus_2023" role="doc-biblioref">Walker and Herman 2023</a>)</span>. At the smallest levels of geography, only pooled 5-year ACS estimates are available. I use the 2019 estimates (from 2015-2019), which overlap with wave 1 of the Generations survey (2017-2018) and also have the highest-quality same-sex couples data. I uploaded relevant covariates, for all ZCTAs and MSAs, to ICPSR’s virtual data enclave, and then joined and filtered them to only the zip codes and MSAs from which respondents in the Generations study were sampled.</p>
+<p>In this paper, I consider two focal place-based covariates from the ACS: population density and prevalence of same-sex couples. I analyze these place variables at two geographic levels available in the restricted Generations data - ZCTA and MSA. At the MSA level, I use population-weighted densities aggregated up from the zip code level, to account for the fact that MSA boundaries - derived from counties - vary hugely across different regions of the country <span class="citation" data-cites="ottensmann_population-weighted_2018">(<a href="references.html#ref-ottensmann_population-weighted_2018" role="doc-biblioref">Ottensmann 2018</a>)</span>. I focus primarily on results at the zip-code level, which turn out to be more substantively and statistically significant.</p>
 <p>In my statistical models, I test four different functional specifications of the association between population density and community/belonging:</p>
 <ul>
 <li><strong>Linear.</strong> The most straightforward specification, allowing me to detect whether denser places are associated with a stronger or weaker experience of community.</li>
@@ -235,10 +231,10 @@ div.csl-indent {
 </ul>
 <p>As I’ll show below, while the more complex specifications sound plausible, there’s no evidence to support their use.</p>
 <p>I use only one specification for the prevalence/abundance of LGBTQ+ people: the proportion of households that are same-sex couples. There are no fine-grained geographic estimates of LGBTQ+ identity (and based on Census Bureau trends, there never will be), so partnered households are the best proxy. I considered instead using <em>counts</em> of same-sex couples, as well as total population counts, rather than constructing two variables that are essentially <em>rates</em>. (Note: Because I pull same-sex couple counts and household counts from separate ACS tables, a few zip codes have nonsensical or extreme values for percent same-sex couples, which I drop from summary statistics. These are zip codes with small populations and/or high proportions of residents in group quarters.) It’s an open question whether the <em>proportion</em> or <em>count</em> of same-sex couples is theoretically more important, but this alternate (and potentially simpler) specification did not turn out be especially promising, so I did not explore it systematically.</p>
-<p>I control for a set of individual demographic, socioeconomic, and other identity-based characteristics from the Generations data: gender (cisgender women, cisgender men, and [some] nonbinary/genderqueer people; transgender potential respondents took the parallel TransPop survey, not the Generations survey), sexual orientation (lesbian/gay, bisexual, queer/other), age cohort (younger, middle, older), race (white, Black/African American, Latino/Hispanic), political affiliation (Republican, Democrat, independent/other), and education (high school or less, more than high school). Some of these traits are associated with community and belonging in interesting ways I won’t discuss in this paper. Individual covariates can be analyzed with the publicly available version of the Generations data set, and so they’re peripheral to my central aim of analyzing the restricted geographic data. (Most notably - and unsurprisingly - the small minority of LGBQ Republicans report low LGBT community connectness and belonging. This finding was previously reported in a bivariate analysis [CITE], but my results show that it holds up in the presence of other controls.) Others of these controls aren’t associated with one or another of the outcomes, but I retain them for consistency across models.</p>
-<p>Beyond potentially being associated with community/belonging, these individual traits vary spatially. Race is of course central to the spatial demography of the United States, and political affiliation is markedly geographically structured as well (both regional and urban/rural divides).In terms of gender and sexuality, gay men are more likely than lesbian women to concentrate in urban centers [CITE]. Education level affects opportunities to relocate, and respondents of different ages may be at different points in their life course that affect where they choose to live (e.g., younger respondents in cities, older respondents in suburbs).</p>
-<p>The marginal effects plots I show below present predicted values and predicted probabilities with the individual controls set at their reference categories: young white lesbian Republican women with a high school education or less. Of course, reference categories are political and theoretically important [CITE: Sasha], but the choice of reference categories does not affect my main results. (Most notably, “white” and “Republican” both shift the level of LGBT belonging and connectedness downward compared to Black/Latinx or Democrat/independent, but they do not alter the interpretations of the place covariates.)</p>
-<p>With 4 outcomes, 2 geographic levels, and 4 functional specifications of density, my main results consist of a series of 32 statistical models – although many of these models turn out to be uninformative. I model the multi-item scale outcomes (which can take fractional values) with linear regressions, and the single-item outcomes with ordered logistic regressions. For the spline functional specification of population density, I use GAM extensions of both model types (from the mgcv package [CITE]). As a robustness check for the multi-item scale outcomes, I test two additional varying-intercept multilevel models grouped at the MSA level. This is not a fruitful approach, but if it had been, it would have been appropriate to recast many of the other models as multilevel models.</p>
+<p>I control for a set of individual demographic, socioeconomic, and other identity-based characteristics from the Generations data: gender (cisgender women, cisgender men, and [some] nonbinary/genderqueer people; transgender potential respondents took the parallel TransPop survey, not the Generations survey), sexual orientation (lesbian/gay, bisexual, queer/other), age cohort (younger, middle, older), race (white, Black/African American, Latino/Hispanic), political affiliation (Republican, Democrat, independent/other), and education (high school or less, more than high school). Some of these traits are associated with community and belonging in interesting ways I won’t discuss in this paper. Individual covariates can be analyzed with the publicly available version of the Generations data set, and so they’re peripheral to my central aim of analyzing the restricted geographic data. (Most notably - and unsurprisingly - the small minority of LGBQ Republicans report low LGBT community connectness and belonging. This finding was previously reported in a bivariate analysis <span class="citation" data-cites="meyer_differences_2020">(<a href="references.html#ref-meyer_differences_2020" role="doc-biblioref">Meyer and Choi 2020</a>)</span>, but my results show that it holds up in the presence of other controls.) Others of these controls aren’t associated with one or another of the outcomes, but I retain them for consistency across models.</p>
+<p>Beyond potentially being associated with community/belonging, these individual traits vary spatially. Race is of course central to the spatial demography of the United States, and political affiliation is markedly geographically structured as well (both regional and urban/rural divides). In terms of gender and sexuality, gay men are more likely than lesbian women to concentrate in urban centers <span class="citation" data-cites="black_demographics_2000">(<a href="references.html#ref-black_demographics_2000" role="doc-biblioref">Black et al. 2000</a>)</span>. Education level affects opportunities to relocate, and respondents of different ages may be at different points in their life course that affect where they choose to live (e.g., younger respondents in cities, older respondents in suburbs).</p>
+<p>The marginal effects plots I show below present predicted values and predicted probabilities with the individual controls set at their reference categories: young white lesbian Republican women with a high school education or less. Of course, reference categories are political and theoretically important <span class="citation" data-cites="johfre_reconsidering_2021">(<a href="references.html#ref-johfre_reconsidering_2021" role="doc-biblioref">Johfre and Freese 2021</a>)</span>, but the choice of reference categories does not affect my main results. (Most notably, “white” and “Republican” both shift the level of LGBT belonging and connectedness downward compared to Black/Latinx or Democrat/independent, but they do not alter the interpretations of the place covariates.)</p>
+<p>With 4 outcomes, 2 geographic levels, and 4 functional specifications of density, my main results consist of a series of 32 statistical models – although many of these models turn out to be uninformative. I model the multi-item scale outcomes (which can take fractional values) with linear regressions, and the single-item outcomes with ordered logistic regressions. For the spline functional specification of population density, I use GAM extensions of both model types (from the mgcv package <span class="citation" data-cites="wood_fast_2011">(<a href="references.html#ref-wood_fast_2011" role="doc-biblioref">Wood 2011</a>)</span>). As a robustness check for the multi-item scale outcomes, I test two additional varying-intercept multilevel models grouped at the MSA level. This is not a fruitful approach, but if it had been, it would have been appropriate to recast many of the other models as multilevel models.</p>
 </section>
 <section id="results" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="results"><span class="header-section-number">2.4</span> Results</h2>
@@ -250,14 +246,26 @@ div.csl-indent {
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-outcomes-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-outcomes" style="flex-basis: 100.0%;justify-content: center;">
 
-<div id="lowicsgcjp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="hismzqhkga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hismzqhkga table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#lowicsgcjp) .gt_table {
+#hismzqhkga thead, #hismzqhkga tbody, #hismzqhkga tfoot, #hismzqhkga tr, #hismzqhkga td, #hismzqhkga th {
+  border-style: none;
+}
+
+#hismzqhkga p {
+  margin: 0;
+  padding: 0;
+}
+
+#hismzqhkga .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -280,24 +288,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#lowicsgcjp) .gt_caption {
+#hismzqhkga .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#lowicsgcjp) .gt_title {
+#hismzqhkga .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -309,25 +305,37 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#lowicsgcjp) .gt_subtitle {
+#hismzqhkga .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#lowicsgcjp) .gt_bottom_border {
+#hismzqhkga .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hismzqhkga .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_col_headings {
+#hismzqhkga .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -342,7 +350,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_col_heading {
+#hismzqhkga .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -362,7 +370,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#lowicsgcjp) .gt_column_spanner_outer {
+#hismzqhkga .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -374,15 +382,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#lowicsgcjp) .gt_column_spanner_outer:first-child {
+#hismzqhkga .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#lowicsgcjp) .gt_column_spanner_outer:last-child {
+#hismzqhkga .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#lowicsgcjp) .gt_column_spanner {
+#hismzqhkga .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -394,7 +402,11 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#lowicsgcjp) .gt_group_heading {
+#hismzqhkga .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hismzqhkga .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -420,7 +432,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#lowicsgcjp) .gt_empty_group_heading {
+#hismzqhkga .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -435,15 +447,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#lowicsgcjp) .gt_from_md > :first-child {
+#hismzqhkga .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#lowicsgcjp) .gt_from_md > :last-child {
+#hismzqhkga .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#lowicsgcjp) .gt_row {
+#hismzqhkga .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -462,7 +474,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#lowicsgcjp) .gt_stub {
+#hismzqhkga .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -475,7 +487,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#lowicsgcjp) .gt_stub_row_group {
+#hismzqhkga .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -489,11 +501,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#lowicsgcjp) .gt_row_group_first td {
+#hismzqhkga .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#lowicsgcjp) .gt_summary_row {
+#hismzqhkga .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hismzqhkga .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -503,16 +519,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#lowicsgcjp) .gt_first_summary_row {
+#hismzqhkga .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_first_summary_row.thick {
+#hismzqhkga .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#lowicsgcjp) .gt_last_summary_row {
+#hismzqhkga .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -522,7 +538,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_grand_summary_row {
+#hismzqhkga .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -532,7 +548,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#lowicsgcjp) .gt_first_grand_summary_row {
+#hismzqhkga .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -542,11 +558,21 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_striped {
+#hismzqhkga .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hismzqhkga .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#lowicsgcjp) .gt_table_body {
+#hismzqhkga .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -555,7 +581,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_footnotes {
+#hismzqhkga .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -569,30 +595,8 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#lowicsgcjp) .gt_footnote {
+#hismzqhkga .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#lowicsgcjp) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#lowicsgcjp) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -600,71 +604,92 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#lowicsgcjp) .gt_left {
+#hismzqhkga .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hismzqhkga .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hismzqhkga .gt_left {
   text-align: left;
 }
 
-:where(#lowicsgcjp) .gt_center {
+#hismzqhkga .gt_center {
   text-align: center;
 }
 
-:where(#lowicsgcjp) .gt_right {
+#hismzqhkga .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#lowicsgcjp) .gt_font_normal {
+#hismzqhkga .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#lowicsgcjp) .gt_font_bold {
+#hismzqhkga .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#lowicsgcjp) .gt_font_italic {
+#hismzqhkga .gt_font_italic {
   font-style: italic;
 }
 
-:where(#lowicsgcjp) .gt_super {
+#hismzqhkga .gt_super {
   font-size: 65%;
 }
 
-:where(#lowicsgcjp) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#hismzqhkga .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#lowicsgcjp) .gt_asterisk {
+#hismzqhkga .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#lowicsgcjp) .gt_indent_1 {
+#hismzqhkga .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#lowicsgcjp) .gt_indent_2 {
+#hismzqhkga .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#lowicsgcjp) .gt_indent_3 {
+#hismzqhkga .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#lowicsgcjp) .gt_indent_4 {
+#hismzqhkga .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#lowicsgcjp) .gt_indent_5 {
+#hismzqhkga .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>(a) Individual item outcomes </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>(a) Individual item outcomes </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="N">N</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="%">%</th>
@@ -724,14 +749,26 @@ div.csl-indent {
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-outcomes-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-outcomes" style="flex-basis: 100.0%;justify-content: center;">
 
-<div id="ewdjxujwep" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="ctatjsprqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ctatjsprqd table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#ewdjxujwep) .gt_table {
+#ctatjsprqd thead, #ctatjsprqd tbody, #ctatjsprqd tfoot, #ctatjsprqd tr, #ctatjsprqd td, #ctatjsprqd th {
+  border-style: none;
+}
+
+#ctatjsprqd p {
+  margin: 0;
+  padding: 0;
+}
+
+#ctatjsprqd .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -754,24 +791,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#ewdjxujwep) .gt_caption {
+#ctatjsprqd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ewdjxujwep) .gt_title {
+#ctatjsprqd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -783,25 +808,37 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#ewdjxujwep) .gt_subtitle {
+#ctatjsprqd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#ewdjxujwep) .gt_bottom_border {
+#ctatjsprqd .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ctatjsprqd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_col_headings {
+#ctatjsprqd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -816,7 +853,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_col_heading {
+#ctatjsprqd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -836,7 +873,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ewdjxujwep) .gt_column_spanner_outer {
+#ctatjsprqd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -848,15 +885,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#ewdjxujwep) .gt_column_spanner_outer:first-child {
+#ctatjsprqd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ewdjxujwep) .gt_column_spanner_outer:last-child {
+#ctatjsprqd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ewdjxujwep) .gt_column_spanner {
+#ctatjsprqd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -868,7 +905,11 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#ewdjxujwep) .gt_group_heading {
+#ctatjsprqd .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ctatjsprqd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -894,7 +935,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#ewdjxujwep) .gt_empty_group_heading {
+#ctatjsprqd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -909,15 +950,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#ewdjxujwep) .gt_from_md > :first-child {
+#ctatjsprqd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ewdjxujwep) .gt_from_md > :last-child {
+#ctatjsprqd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ewdjxujwep) .gt_row {
+#ctatjsprqd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -936,7 +977,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ewdjxujwep) .gt_stub {
+#ctatjsprqd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -949,7 +990,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ewdjxujwep) .gt_stub_row_group {
+#ctatjsprqd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -963,11 +1004,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#ewdjxujwep) .gt_row_group_first td {
+#ctatjsprqd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ewdjxujwep) .gt_summary_row {
+#ctatjsprqd .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ctatjsprqd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -977,16 +1022,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ewdjxujwep) .gt_first_summary_row {
+#ctatjsprqd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_first_summary_row.thick {
+#ctatjsprqd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ewdjxujwep) .gt_last_summary_row {
+#ctatjsprqd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -996,7 +1041,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_grand_summary_row {
+#ctatjsprqd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1006,7 +1051,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ewdjxujwep) .gt_first_grand_summary_row {
+#ctatjsprqd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1016,11 +1061,21 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_striped {
+#ctatjsprqd .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctatjsprqd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ewdjxujwep) .gt_table_body {
+#ctatjsprqd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1029,7 +1084,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_footnotes {
+#ctatjsprqd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1043,30 +1098,8 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ewdjxujwep) .gt_footnote {
+#ctatjsprqd .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#ewdjxujwep) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#ewdjxujwep) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1074,71 +1107,92 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ewdjxujwep) .gt_left {
+#ctatjsprqd .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ctatjsprqd .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctatjsprqd .gt_left {
   text-align: left;
 }
 
-:where(#ewdjxujwep) .gt_center {
+#ctatjsprqd .gt_center {
   text-align: center;
 }
 
-:where(#ewdjxujwep) .gt_right {
+#ctatjsprqd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ewdjxujwep) .gt_font_normal {
+#ctatjsprqd .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ewdjxujwep) .gt_font_bold {
+#ctatjsprqd .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ewdjxujwep) .gt_font_italic {
+#ctatjsprqd .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ewdjxujwep) .gt_super {
+#ctatjsprqd .gt_super {
   font-size: 65%;
 }
 
-:where(#ewdjxujwep) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#ctatjsprqd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#ewdjxujwep) .gt_asterisk {
+#ctatjsprqd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ewdjxujwep) .gt_indent_1 {
+#ctatjsprqd .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ewdjxujwep) .gt_indent_2 {
+#ctatjsprqd .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ewdjxujwep) .gt_indent_3 {
+#ctatjsprqd .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ewdjxujwep) .gt_indent_4 {
+#ctatjsprqd .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ewdjxujwep) .gt_indent_5 {
+#ctatjsprqd .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>(b) Scale outcomes </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>(b) Scale outcomes </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #D3D3D3;" scope="col" id="Mean">Mean</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #D3D3D3;" scope="col" id="Std. dev.">Std. dev.</th>
@@ -1170,14 +1224,26 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="tbl-place" class="anchored">
 
-<div id="ytptmdjrfb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="eyutglqouk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eyutglqouk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#ytptmdjrfb) .gt_table {
+#eyutglqouk thead, #eyutglqouk tbody, #eyutglqouk tfoot, #eyutglqouk tr, #eyutglqouk td, #eyutglqouk th {
+  border-style: none;
+}
+
+#eyutglqouk p {
+  margin: 0;
+  padding: 0;
+}
+
+#eyutglqouk .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1200,24 +1266,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#ytptmdjrfb) .gt_caption {
+#eyutglqouk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ytptmdjrfb) .gt_title {
+#eyutglqouk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1229,25 +1283,37 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-:where(#ytptmdjrfb) .gt_subtitle {
+#eyutglqouk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#ytptmdjrfb) .gt_bottom_border {
+#eyutglqouk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eyutglqouk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_col_headings {
+#eyutglqouk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1262,7 +1328,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_col_heading {
+#eyutglqouk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1282,7 +1348,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ytptmdjrfb) .gt_column_spanner_outer {
+#eyutglqouk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1294,15 +1360,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-:where(#ytptmdjrfb) .gt_column_spanner_outer:first-child {
+#eyutglqouk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ytptmdjrfb) .gt_column_spanner_outer:last-child {
+#eyutglqouk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ytptmdjrfb) .gt_column_spanner {
+#eyutglqouk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1314,7 +1380,11 @@ div.csl-indent {
   width: 100%;
 }
 
-:where(#ytptmdjrfb) .gt_group_heading {
+#eyutglqouk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eyutglqouk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1340,7 +1410,7 @@ div.csl-indent {
   text-align: left;
 }
 
-:where(#ytptmdjrfb) .gt_empty_group_heading {
+#eyutglqouk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1355,15 +1425,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-:where(#ytptmdjrfb) .gt_from_md > :first-child {
+#eyutglqouk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ytptmdjrfb) .gt_from_md > :last-child {
+#eyutglqouk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ytptmdjrfb) .gt_row {
+#eyutglqouk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1382,7 +1452,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-:where(#ytptmdjrfb) .gt_stub {
+#eyutglqouk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1395,7 +1465,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ytptmdjrfb) .gt_stub_row_group {
+#eyutglqouk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1409,11 +1479,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-:where(#ytptmdjrfb) .gt_row_group_first td {
+#eyutglqouk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ytptmdjrfb) .gt_summary_row {
+#eyutglqouk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eyutglqouk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1423,16 +1497,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ytptmdjrfb) .gt_first_summary_row {
+#eyutglqouk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_first_summary_row.thick {
+#eyutglqouk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ytptmdjrfb) .gt_last_summary_row {
+#eyutglqouk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1442,7 +1516,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_grand_summary_row {
+#eyutglqouk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1452,7 +1526,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ytptmdjrfb) .gt_first_grand_summary_row {
+#eyutglqouk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1462,11 +1536,21 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_striped {
+#eyutglqouk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eyutglqouk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ytptmdjrfb) .gt_table_body {
+#eyutglqouk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1475,7 +1559,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_footnotes {
+#eyutglqouk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1489,30 +1573,8 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-:where(#ytptmdjrfb) .gt_footnote {
+#eyutglqouk .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#ytptmdjrfb) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#ytptmdjrfb) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1520,71 +1582,92 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-:where(#ytptmdjrfb) .gt_left {
+#eyutglqouk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eyutglqouk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eyutglqouk .gt_left {
   text-align: left;
 }
 
-:where(#ytptmdjrfb) .gt_center {
+#eyutglqouk .gt_center {
   text-align: center;
 }
 
-:where(#ytptmdjrfb) .gt_right {
+#eyutglqouk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ytptmdjrfb) .gt_font_normal {
+#eyutglqouk .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ytptmdjrfb) .gt_font_bold {
+#eyutglqouk .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ytptmdjrfb) .gt_font_italic {
+#eyutglqouk .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ytptmdjrfb) .gt_super {
+#eyutglqouk .gt_super {
   font-size: 65%;
 }
 
-:where(#ytptmdjrfb) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#eyutglqouk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#ytptmdjrfb) .gt_asterisk {
+#eyutglqouk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ytptmdjrfb) .gt_indent_1 {
+#eyutglqouk .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ytptmdjrfb) .gt_indent_2 {
+#eyutglqouk .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ytptmdjrfb) .gt_indent_3 {
+#eyutglqouk .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ytptmdjrfb) .gt_indent_4 {
+#eyutglqouk .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ytptmdjrfb) .gt_indent_5 {
+#eyutglqouk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table"><caption>Table&nbsp;2.2:  Place characteristics </caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2.2:  Place characteristics </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="Median">Median</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-style: italic; font-weight: normal;" scope="col" id="Mean">Mean</th>
@@ -1708,17 +1791,664 @@ div.csl-indent {
 <p>This chapter has examined the consistencies and discrepancies between multiple measures of community and belonging, at multiple geographic scales, for a unique marginalized identity group. The representative sample of the Generations survey offers systematicity and breadth, even though my models leave considerable variation unexplained. These models draw attention to consistent patterns, which means they don’t afford the same opportunity for nuance found in the qualitative work I’ve engaged with to frame my work. Future work in this vein might use these data to explore how responses related to community, identity, and other experiences fit together into overarching frames and schemas of beliefs. However, I’ve reached the limit of what the Generations data set can tell me about the strength, meaning, and expression of community, and so I turn to different, less conventional sources in the following chapters to explore variations in what community means and how it is expressed.</p>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="appendix-tables" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="appendix-tables"><span class="header-section-number">2.6</span> Appendix: Tables</h2>
-<p>actual appendix: best four statistical models for zip codes, best four models for MSAs.</p>
-<section id="outcome-1-you-feel-youre-part-of-the-lgbt-community." class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="outcome-1-you-feel-youre-part-of-the-lgbt-community."><span class="header-section-number">2.6.1</span> Outcome 1: You feel you’re part of the LGBT community.</h3>
-<p><img src="img/place/lgbt_table.png" class="img-fluid"></p>
-</section>
-<section id="outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community." class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="outcome-2-i-dont-feel-i-belong-to-anything-id-call-a-community."><span class="header-section-number">2.6.2</span> Outcome 2: I don’t feel I belong to anything I’d call a community.</h3>
-<p><img src="img/place/generic_table.png" class="img-fluid"></p>
-<div style="page-break-after: always;"></div>
+<section id="appendix-statistical-tables" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="appendix-statistical-tables"><span class="header-section-number">2.6</span> Appendix: Statistical tables</h2>
+<p>TODO: format two tables with four statistical models for zip codes and four models for MSAs. The zip code table is done but only displays in the html version.</p>
+<div>
+<div class="cell tbl-cap-location-bottom">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 15 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): term, W1Q53, W1Q04, W1CONNECTEDNESS_I, W1SOCIALWB_I
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 4 Columns: 19
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (6): outcome, covariates, density_form, ssc, controls, formula_string
+dbl (13): edf, logLik, AIC, BIC, deviance, df.residual, nobs, df, r.squared,...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="tbl-zip-appendix" class="anchored">
+
+<div id="peysoqbyle" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#peysoqbyle table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#peysoqbyle thead, #peysoqbyle tbody, #peysoqbyle tfoot, #peysoqbyle tr, #peysoqbyle td, #peysoqbyle th {
+  border-style: none;
+}
+
+#peysoqbyle p {
+  margin: 0;
+  padding: 0;
+}
+
+#peysoqbyle .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#peysoqbyle .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#peysoqbyle .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#peysoqbyle .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#peysoqbyle .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#peysoqbyle .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#peysoqbyle .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#peysoqbyle .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#peysoqbyle .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#peysoqbyle .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#peysoqbyle .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#peysoqbyle .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#peysoqbyle .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#peysoqbyle .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#peysoqbyle .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#peysoqbyle .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#peysoqbyle .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#peysoqbyle .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#peysoqbyle .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#peysoqbyle .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#peysoqbyle .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#peysoqbyle .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#peysoqbyle .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#peysoqbyle .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#peysoqbyle .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#peysoqbyle .gt_left {
+  text-align: left;
+}
+
+#peysoqbyle .gt_center {
+  text-align: center;
+}
+
+#peysoqbyle .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#peysoqbyle .gt_font_normal {
+  font-weight: normal;
+}
+
+#peysoqbyle .gt_font_bold {
+  font-weight: bold;
+}
+
+#peysoqbyle .gt_font_italic {
+  font-style: italic;
+}
+
+#peysoqbyle .gt_super {
+  font-size: 65%;
+}
+
+#peysoqbyle .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#peysoqbyle .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#peysoqbyle .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#peysoqbyle .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#peysoqbyle .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#peysoqbyle .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#peysoqbyle .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2.3:  Statistical models predicting four sense of community outcomes using ZCTA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). </caption>
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Zip code place characteristics and sense of community</td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Part of the LGBT community">Part of the LGBT community</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="LGBT Community Connectedness">LGBT Community Connectedness</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Don’t belong to any community">Don’t belong to any community</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Social Wellbeing">Social Wellbeing</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Density (linear, scaled)</p>
+</div></th>
+<td headers="stub_1_1 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>0.078<br>(0.055)</p>
+</div></td>
+<td headers="stub_1_1 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.035<br>(0.015)</p>
+</div></td>
+<td headers="stub_1_1 W1Q04" class="gt_row gt_center">—</td>
+<td headers="stub_1_1 W1SOCIALWB_I" class="gt_row gt_center">—</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Density (logged)</p>
+</div></th>
+<td headers="stub_1_2 W1Q53" class="gt_row gt_center">—</td>
+<td headers="stub_1_2 W1CONNECTEDNESS_I" class="gt_row gt_center">—</td>
+<td headers="stub_1_2 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>0.065<br>(0.067)</p>
+</div></td>
+<td headers="stub_1_2 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.087<br>(0.032)</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Percent same-sex couple households</p>
+</div></th>
+<td headers="stub_1_3 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>16.122<br>(5.175)</p>
+</div></td>
+<td headers="stub_1_3 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>2.322<br>(1.415)</p>
+</div></td>
+<td headers="stub_1_3 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>12.328<br>(5.207)</p>
+</div></td>
+<td headers="stub_1_3 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>5.875<br>(2.342)</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Man<br>(ref. woman)</p>
+</div></th>
+<td headers="stub_1_4 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.162<br>(0.115)</p>
+</div></td>
+<td headers="stub_1_4 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.043<br>(0.033)</p>
+</div></td>
+<td headers="stub_1_4 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.072<br>(0.109)</p>
+</div></td>
+<td headers="stub_1_4 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.061<br>(0.052)</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Non-binary/genderqueer<br>(ref. woman)</p>
+</div></th>
+<td headers="stub_1_5 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.046<br>(0.241)</p>
+</div></td>
+<td headers="stub_1_5 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.005<br>(0.069)</p>
+</div></td>
+<td headers="stub_1_5 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.835<br>(0.226)</p>
+</div></td>
+<td headers="stub_1_5 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.329<br>(0.111)</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Middle cohort<br>(ref. younger)</p>
+</div></th>
+<td headers="stub_1_6 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.313<br>(0.134)</p>
+</div></td>
+<td headers="stub_1_6 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.108<br>(0.038)</p>
+</div></td>
+<td headers="stub_1_6 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.154<br>(0.124)</p>
+</div></td>
+<td headers="stub_1_6 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.008<br>(0.061)</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Older cohort<br>(ref. younger)</p>
+</div></th>
+<td headers="stub_1_7 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.304<br>(0.14)</p>
+</div></td>
+<td headers="stub_1_7 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.135<br>(0.039)</p>
+</div></td>
+<td headers="stub_1_7 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>0.07<br>(0.132)</p>
+</div></td>
+<td headers="stub_1_7 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.026<br>(0.063)</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Black/African American<br>(ref. white)</p>
+</div></th>
+<td headers="stub_1_8 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>0.397<br>(0.149)</p>
+</div></td>
+<td headers="stub_1_8 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.115<br>(0.042)</p>
+</div></td>
+<td headers="stub_1_8 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.326<br>(0.139)</p>
+</div></td>
+<td headers="stub_1_8 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.332<br>(0.068)</p>
+</div></td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Latino/Hispanic<br>(ref. white)</p>
+</div></th>
+<td headers="stub_1_9 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>0.408<br>(0.136)</p>
+</div></td>
+<td headers="stub_1_9 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.12<br>(0.038)</p>
+</div></td>
+<td headers="stub_1_9 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.174<br>(0.126)</p>
+</div></td>
+<td headers="stub_1_9 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.214<br>(0.062)</p>
+</div></td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Bisexual<br>(ref. lesbian/gay)</p>
+</div></th>
+<td headers="stub_1_10 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.797<br>(0.13)</p>
+</div></td>
+<td headers="stub_1_10 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.106<br>(0.037)</p>
+</div></td>
+<td headers="stub_1_10 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.228<br>(0.12)</p>
+</div></td>
+<td headers="stub_1_10 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.213<br>(0.059)</p>
+</div></td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Other sexual minority identity<br>(ref. lesbian/gay)</p>
+</div></th>
+<td headers="stub_1_11 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.357<br>(0.189)</p>
+</div></td>
+<td headers="stub_1_11 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.018<br>(0.054)</p>
+</div></td>
+<td headers="stub_1_11 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>0.114<br>(0.177)</p>
+</div></td>
+<td headers="stub_1_11 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.001<br>(0.086)</p>
+</div></td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Democrat<br>(ref. Republican)</p>
+</div></th>
+<td headers="stub_1_12 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>1.212<br>(0.252)</p>
+</div></td>
+<td headers="stub_1_12 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.502<br>(0.07)</p>
+</div></td>
+<td headers="stub_1_12 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>0.323<br>(0.232)</p>
+</div></td>
+<td headers="stub_1_12 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.359<br>(0.113)</p>
+</div></td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Independent or other<br>(ref. Republican)</p>
+</div></th>
+<td headers="stub_1_13 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>0.749<br>(0.257)</p>
+</div></td>
+<td headers="stub_1_13 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.301<br>(0.072)</p>
+</div></td>
+<td headers="stub_1_13 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>-0.127<br>(0.239)</p>
+</div></td>
+<td headers="stub_1_13 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.149<br>(0.116)</p>
+</div></td></tr>
+    <tr><th id="stub_1_14" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>More than high school education<br>(ref. high school or less)</p>
+</div></th>
+<td headers="stub_1_14 W1Q53" class="gt_row gt_center"><div class="gt_from_md"><p>-0.488<br>(0.138)</p>
+</div></td>
+<td headers="stub_1_14 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>-0.068<br>(0.039)</p>
+</div></td>
+<td headers="stub_1_14 W1Q04" class="gt_row gt_center"><div class="gt_from_md"><p>0.295<br>(0.126)</p>
+</div></td>
+<td headers="stub_1_14 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>0.335<br>(0.062)</p>
+</div></td></tr>
+    <tr><th id="stub_1_15" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Intercept</p>
+</div></th>
+<td headers="stub_1_15 W1Q53" class="gt_row gt_center">—</td>
+<td headers="stub_1_15 W1CONNECTEDNESS_I" class="gt_row gt_center"><div class="gt_from_md"><p>2.665<br>(0.081)</p>
+</div></td>
+<td headers="stub_1_15 W1Q04" class="gt_row gt_center">—</td>
+<td headers="stub_1_15 W1SOCIALWB_I" class="gt_row gt_center"><div class="gt_from_md"><p>3.963<br>(0.15)</p>
+</div></td></tr>
+    <tr><th id="grand_summary_stub_1" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row">Num. obs.</th>
+<td headers="grand_summary_stub_1 W1Q53" class="gt_row gt_center gt_grand_summary_row gt_first_grand_summary_row">1,357</td>
+<td headers="grand_summary_stub_1 W1CONNECTEDNESS_I" class="gt_row gt_center gt_grand_summary_row gt_first_grand_summary_row">1,357</td>
+<td headers="grand_summary_stub_1 W1Q04" class="gt_row gt_center gt_grand_summary_row gt_first_grand_summary_row">1,357</td>
+<td headers="grand_summary_stub_1 W1SOCIALWB_I" class="gt_row gt_center gt_grand_summary_row gt_first_grand_summary_row">1,357</td></tr>
+    <tr><th id="grand_summary_stub_2" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row">Log likelihood</th>
+<td headers="grand_summary_stub_2 W1Q53" class="gt_row gt_center gt_grand_summary_row">−1571.14</td>
+<td headers="grand_summary_stub_2 W1CONNECTEDNESS_I" class="gt_row gt_center gt_grand_summary_row">−1068.10</td>
+<td headers="grand_summary_stub_2 W1Q04" class="gt_row gt_center gt_grand_summary_row">−2524.51</td>
+<td headers="grand_summary_stub_2 W1SOCIALWB_I" class="gt_row gt_center gt_grand_summary_row">−1709.87</td></tr>
+    <tr><th id="grand_summary_stub_3" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row">AIC</th>
+<td headers="grand_summary_stub_3 W1Q53" class="gt_row gt_center gt_grand_summary_row">3174.29</td>
+<td headers="grand_summary_stub_3 W1CONNECTEDNESS_I" class="gt_row gt_center gt_grand_summary_row">2166.20</td>
+<td headers="grand_summary_stub_3 W1Q04" class="gt_row gt_center gt_grand_summary_row">5087.03</td>
+<td headers="grand_summary_stub_3 W1SOCIALWB_I" class="gt_row gt_center gt_grand_summary_row">3449.74</td></tr>
+    <tr><th id="grand_summary_stub_4" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row">BIC</th>
+<td headers="grand_summary_stub_4 W1Q53" class="gt_row gt_center gt_grand_summary_row">3257.69</td>
+<td headers="grand_summary_stub_4 W1CONNECTEDNESS_I" class="gt_row gt_center gt_grand_summary_row">2244.39</td>
+<td headers="grand_summary_stub_4 W1Q04" class="gt_row gt_center gt_grand_summary_row">5186.07</td>
+<td headers="grand_summary_stub_4 W1SOCIALWB_I" class="gt_row gt_center gt_grand_summary_row">3527.94</td></tr>
+    <tr><th id="grand_summary_stub_5" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_last_summary_row">R<sup>2</sup></th>
+<td headers="grand_summary_stub_5 W1Q53" class="gt_row gt_center gt_grand_summary_row gt_last_summary_row">—</td>
+<td headers="grand_summary_stub_5 W1CONNECTEDNESS_I" class="gt_row gt_center gt_grand_summary_row gt_last_summary_row">0.10</td>
+<td headers="grand_summary_stub_5 W1Q04" class="gt_row gt_center gt_grand_summary_row gt_last_summary_row">—</td>
+<td headers="grand_summary_stub_5 W1SOCIALWB_I" class="gt_row gt_center gt_grand_summary_row gt_last_summary_row">0.13</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -1727,6 +2457,9 @@ Abascal, Maria, Janet Xu, and Delia Baldassarri. 2021. <span>“People Use Both 
 </div>
 <div id="ref-bishop_big_2009" class="csl-entry" role="doc-biblioentry">
 Bishop, Bill. 2009. <em><a href="https://books.google.com?id=5q_qDwAAQBAJ">The <span>Big Sort</span>: <span>Why</span> the <span>Clustering</span> of <span>Like-Minded America Is Tearing Us Apart</span></a></em>. <span>Houghton Mifflin Harcourt</span>.
+</div>
+<div id="ref-black_demographics_2000" class="csl-entry" role="doc-biblioentry">
+Black, Dan, Gary Gates, Seth Sanders, and Lowell Taylor. 2000. <span>“Demographics of the <span>Gay</span> and <span>Lesbian Population</span> in the <span>United States</span>: <span>Evidence</span> from <span>Available Systematic Data Sources</span>.”</span> <em>Demography</em> 37(2):139–54. doi: <a href="https://doi.org/10.2307/2648117">10.2307/2648117</a>.
 </div>
 <div id="ref-boessen_networks_2014" class="csl-entry" role="doc-biblioentry">
 Boessen, Adam, John R. Hipp, Emily J. Smith, Carter T. Butts, Nicholas N. Nagle, and Zack Almquist. 2014. <span>“Networks, <span>Space</span>, and <span>Residents</span>’ <span>Perception</span> of <span>Cohesion</span>.”</span> <em>American Journal of Community Psychology</em> 53(3-4):447–61. doi: <a href="https://doi.org/10.1007/s10464-014-9639-1">10.1007/s10464-014-9639-1</a>.
@@ -1773,6 +2506,9 @@ Held, Nina. 2017. <span>“<span>‘<span>They</span> Look at You Like an Insect
 <div id="ref-jacobs_death_1961" class="csl-entry" role="doc-biblioentry">
 Jacobs, Jane. 1961. <em><a href="https://books.google.com?id=2C1UAAAAMAAJ">The <span>Death</span> and <span>Life</span> of <span>Great American Cities</span></a></em>. <span>Random House</span>.
 </div>
+<div id="ref-johfre_reconsidering_2021" class="csl-entry" role="doc-biblioentry">
+Johfre, Sasha Shen, and Jeremy Freese. 2021. <span>“Reconsidering the <span>Reference Category</span>.”</span> <em>Sociological Methodology</em> 0081175020982632. doi: <a href="https://doi.org/10.1177/0081175020982632">10.1177/0081175020982632</a>.
+</div>
 <div id="ref-martin_other_2020" class="csl-entry" role="doc-biblioentry">
 Martin, John Levi, and Alessandra Lembo. 2020. <span>“On the <span>Other Side</span> of <span>Values</span>.”</span> <em>American Journal of Sociology</em> 126(1):52–98. doi: <a href="https://doi.org/10.1086/709778">10.1086/709778</a>.
 </div>
@@ -1784,6 +2520,9 @@ Mattson, Greggor. 2020. <span>“Small-<span>City Gay Bars</span>, <span>Big-Cit
 </div>
 <div id="ref-meyer_generations_2020" class="csl-entry" role="doc-biblioentry">
 Meyer, Ilan H. 2020. <span>“<a href="https://doi.org/10.3886/ICPSR37166.V1">Generations: <span>A Study</span> of the <span>Life</span> and <span>Health</span> of <span>LGB People</span> in a <span>Changing Society</span>, <span>United States</span>, 2016-2019: <span>Version</span> 1</a>.”</span>
+</div>
+<div id="ref-meyer_differences_2020" class="csl-entry" role="doc-biblioentry">
+Meyer, Ilan H., and Soon Kyu Choi. 2020. <em><a href="https://williamsinstitute.law.ucla.edu/publications/lgb-party-affiliation/">Differences <span>Between LGB Democrats</span> and <span>Republicans</span> in <span>Identity</span> and <span>Community Connectedness</span></a></em>. <span>Williams Institute, UCLA School of Law</span>.
 </div>
 <div id="ref-mize_sexual_2016" class="csl-entry" role="doc-biblioentry">
 Mize, Trenton D. 2016. <span>“Sexual <span>Orientation</span> in the <span>Labor Market</span>.”</span> <em>American Sociological Review</em> 0003122416674025. doi: <a href="https://doi.org/10.1177/0003122416674025">10.1177/0003122416674025</a>.
@@ -1799,6 +2538,9 @@ Oldenburg, Ray. 1998. <em><a href="https://books.google.com?id=0aOjHGdSKLMC">The
 </div>
 <div id="ref-orne_boystown_2017" class="csl-entry" role="doc-biblioentry">
 Orne, Jason. 2017. <em>Boystown: <span>Sex</span> and <span>Community</span> in <span>Chicago</span></em>. <span>Chicago ; London</span>: <span>University of Chicago Press</span>.
+</div>
+<div id="ref-ottensmann_population-weighted_2018" class="csl-entry" role="doc-biblioentry">
+Ottensmann, John R. 2018. <span>“<a href="https://doi.org/10.2139/ssrn.3119965">On <span>Population-Weighted Density</span></a>.”</span> Retrieved April 1, 2023.
 </div>
 <div id="ref-simmel_metropolis_1971" class="csl-entry" role="doc-biblioentry">
 Simmel, Georg. [1903] 1971. <span>“<a href="http://www.press.uchicago.edu/ucp/books/book/chicago/G/bo3622859.html">The <span>Metropolis</span> and <span>Mental Life</span></a>.”</span> in <em>Georg <span>Simmel</span> on <span>Individuality</span> and <span>Social Forms</span></em>, <em>Heritage of sociology</em>, edited by D. Levine. <span>Chicago, University of Chicago Press</span>.
@@ -1818,17 +2560,22 @@ Tönnies, Ferdinand. [1887] 2001. <em>Community and <span>Civil Society</span></
 <div id="ref-vaisey_structure_2007" class="csl-entry" role="doc-biblioentry">
 Vaisey, Stephen. 2007. <span>“<a href="http://www.jstor.org/stable/25472500">Structure, <span>Culture</span>, and <span>Community</span>: <span>The Search</span> for <span>Belonging</span> in 50 <span>Urban Communes</span></a>.”</span> <em>American Sociological Review</em> 72(6):851–73.
 </div>
+<div id="ref-walker_tidycensus_2023" class="csl-entry" role="doc-biblioentry">
+Walker, Kyle, and Matt Herman. 2023. <em><a href="https://walker-data.com/tidycensus/">Tidycensus: <span>Load US</span> Census Boundary and Attribute Data as ’Tidyverse’ and ’Sf’-<span>Ready</span> Data Frames</a></em>.
+</div>
 <div id="ref-weston_sexual_1995" class="csl-entry" role="doc-biblioentry">
 Weston, Kath. 1995. <span>“Sexual <span>Imaginary</span> and the <span>Great Gay Migration</span>.”</span> <em>GLQ: A Journal of Lesbian and Gay Studies</em> 2(3):253–77.
 </div>
 <div id="ref-winer_solidarity_2020" class="csl-entry" role="doc-biblioentry">
 Winer, Canton. 2020. <span>“Solidarity, <span>Disdain</span>, and the <span>Imagined Center</span> of the <span>Gay Imagined Community</span>.”</span> <em>Sociological Inquiry</em> n/a(n/a). doi: <a href="https://doi.org/10.1111/soin.12403">10.1111/soin.12403</a>.
 </div>
+<div id="ref-wood_fast_2011" class="csl-entry" role="doc-biblioentry">
+Wood, S. N. 2011. <span>“Fast Stable Restricted Maximum Likelihood and Marginal Likelihood Estimation of Semiparametric Generalized Linear Models.”</span> <em>Journal of the Royal Statistical Society (B)</em> 73(1):3–36.
+</div>
 <div id="ref-zerubavel_taken_2018" class="csl-entry" role="doc-biblioentry">
 Zerubavel, Eviatar. 2018. <em>Taken for <span>Granted</span>: <span>The Remarkable Power</span> of the <span>Unremarkable</span></em>. <span>Princeton ; Oxford</span>: <span>Princeton University Press</span>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->

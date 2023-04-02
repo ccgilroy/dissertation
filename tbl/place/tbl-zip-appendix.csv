@@ -1,0 +1,16 @@
+term,W1Q53,W1Q04,W1CONNECTEDNESS_I,W1SOCIALWB_I
+"Density (linear, scaled)",0.078<br>(0.055),NA,0.035<br>(0.015),NA
+Density (logged),NA,0.065<br>(0.067),NA,0.087<br>(0.032)
+Percent same-sex couple households,16.122<br>(5.175),12.328<br>(5.207),2.322<br>(1.415),5.875<br>(2.342)
+Man<br>(ref. woman),-0.162<br>(0.115),-0.072<br>(0.109),-0.043<br>(0.033),0.061<br>(0.052)
+Non-binary/genderqueer<br>(ref. woman),-0.046<br>(0.241),-0.835<br>(0.226),0.005<br>(0.069),-0.329<br>(0.111)
+Middle cohort<br>(ref. younger),-0.313<br>(0.134),-0.154<br>(0.124),-0.108<br>(0.038),0.008<br>(0.061)
+Older cohort<br>(ref. younger),-0.304<br>(0.14),0.07<br>(0.132),-0.135<br>(0.039),0.026<br>(0.063)
+Black/African American<br>(ref. white),0.397<br>(0.149),-0.326<br>(0.139),0.115<br>(0.042),-0.332<br>(0.068)
+Latino/Hispanic<br>(ref. white),0.408<br>(0.136),-0.174<br>(0.126),0.12<br>(0.038),-0.214<br>(0.062)
+Bisexual<br>(ref. lesbian/gay),-0.797<br>(0.13),-0.228<br>(0.12),-0.106<br>(0.037),-0.213<br>(0.059)
+Other sexual minority identity<br>(ref. lesbian/gay),-0.357<br>(0.189),0.114<br>(0.177),0.018<br>(0.054),0.001<br>(0.086)
+Democrat<br>(ref. Republican),1.212<br>(0.252),0.323<br>(0.232),0.502<br>(0.07),0.359<br>(0.113)
+Independent or other<br>(ref. Republican),0.749<br>(0.257),-0.127<br>(0.239),0.301<br>(0.072),0.149<br>(0.116)
+More than high school education<br>(ref. high school or less),-0.488<br>(0.138),0.295<br>(0.126),-0.068<br>(0.039),0.335<br>(0.062)
+Intercept,NA,NA,2.665<br>(0.081),3.963<br>(0.15)

@@ -1,0 +1,15 @@
+project:
+  output-dir: chapter-place
+
+book:
+  title: "Density and abundance"
+  subtitle: "How place characteristics shape individual sense of community for LGBQ people"
+  output-file: "gilroy-place-chapter"
+  chapters:
+    - index.qmd
+    - place.qmd
+    - references.qmd
+
+format: 
+  pdf: 
+    toc: false
