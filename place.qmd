@@ -260,6 +260,7 @@ TODO: format two tables with four statistical models for zip codes and four mode
 #| tbl-cap: "Statistical models predicting four sense of community outcomes using ZCTA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
 #| tbl-cap-location: bottom
 #| echo: false
+#| message: false
 
 d_zt <- read_csv("tbl/place/tbl-zip-appendix.csv")
 d_best <- read_csv("tbl/place/tbl-zip-stats.csv")
@@ -300,6 +301,54 @@ if (!knitr::is_latex_output()) {
         ) %>%
     fmt_markdown(columns = everything())
 }
+
+```
+
+
+```{r}
+#| label: tbl-msa-appendix
+#| tbl-cap: "Statistical models predicting four sense of community outcomes using MSA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
+#| tbl-cap-location: bottom
+#| echo: false
+#| message: false
+
+d_mt <- read_csv("tbl/place/tbl-msa-appendix.csv")
+d_best_msa <- read_csv("tbl/place/tbl-msa-stats.csv")
+
+get_fit_statistic <- function(x, statistic) {
+    column_name <- names(which(map_lgl(d_mt, ~ identical(., x))))
+
+    d_best_msa %>%
+        filter(outcome == column_name) %>%
+        pull({{ statistic }})
+}
+
+gt(d_mt, rowname_col = "term") %>%
+    tab_header(title = "Metropolitan place characteristics and sense of community") %>%
+    sub_missing(missing_text = "---") %>%
+    cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
+    cols_label(
+        W1Q53 = md("Part of the LGBT community"),
+        W1Q04 = md("Don't belong to any community"),
+        W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
+        W1SOCIALWB_I = md("Social Wellbeing")
+    ) %>%
+    cols_align(align = "center") %>%
+    cols_align_decimal() %>%
+    grand_summary_rows(
+        fns = list(
+            "Num. obs." = ~ get_fit_statistic(., "nobs"),
+            "Log likelihood" = ~ get_fit_statistic(., "logLik"),
+            AIC = ~ get_fit_statistic(., "AIC"),
+            BIC = ~ get_fit_statistic(., "BIC"),
+            list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
+        ),
+        fmt = list(
+            ~ fmt_number(., sep_mark = ""),
+            ~ fmt_integer(., rows = "Num. obs.")
+        )
+    ) %>%
+    fmt_markdown(columns = everything())
 
 ```
 :::
