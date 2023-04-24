@@ -183,16 +183,16 @@ I next attempt to use quantitative measures to systematically characterize diffe
 
 Taken together, these measures show that "community" changes in meaning to some degree between the generic GloVe model and the local soc.motss corpus, but they offer no definitive conclusion on the comparative magnitude of that change.
 
-::: {#fig-metrics}
+<!-- ::: {#fig-metrics layout-ncol=1} -->
 
-![Correlation (between the two models) of (within-model) cosine similarities for every word and all other words.](img/discourse/overall_vocab_correlation.png){#fig-correlation width=75%}
+![Correlation (between the two models) of (within-model) cosine similarities for every word and all other words.](img/discourse/overall_vocab_correlation.png){#fig-correlation width=50%}
 
-![Between-model cosine distances for every word ("linguistic drift", @hamilton_cultural_2016).](img/discourse/overall_vocab_linguistic_drift.png){#fig-drift width=75%}
+![Between-model cosine distances for every word ("linguistic drift", @hamilton_cultural_2016).](img/discourse/overall_vocab_linguistic_drift.png){#fig-drift width=50%}
 
-![Nearest-neighbor distances, k = 25 neighbors ("cultural shift", @hamilton_cultural_2016).](img/discourse/overall_vocab_cultural_shift.png){#fig-shift width=75%}
+![Nearest-neighbor distances, k = 25 neighbors ("cultural shift", @hamilton_cultural_2016).](img/discourse/overall_vocab_cultural_shift.png){#fig-shift width=50%}
 
-Three vocabulary-wide measures of model stability and semantic change. Values for "community" in the distributions are labeled and marked in red.
-:::
+<!-- Three vocabulary-wide measures of model stability and semantic change. Values for "community" in the distributions are labeled and marked in red.
+::: -->
 
 The next logical question, then, is _how_ does the meaning of community in the context of soc.motss differ from the generic context, and how does it remain similar? Using the semantic dimensions I derived from the GloVe model in the previous section, alongside the additional identity-related dimension I curated based on the soc.motss corpus and model, I investigate what changes and why between the two different embeddings for "community." Because these averaged semantic vectors are intrinsically more likely to be closer to the "community" vector derived from the same model, I re-create each of them from the other model's embedding matrix, and I show both sets for consistency. The soc.motss model matrix is aligned to the GloVe model matrix, as are the 40 bootstrapped models for a 95% confidence interval (although the values from the true corpus are in at one case systematically higher than the bootstrapped values). In total, I make 12 comparisons (3 comparison vectors x 2 source models for those vectors x 2 source models for the "community" vector), shown in @fig-semantic.
 
@@ -204,14 +204,14 @@ This key figure shows how "community" in the context of soc.motss de-emphasizes 
 
 This approach offers clear, stable rankings and comparisons, showing that "community" in the generic sense is equally similar to both geography and Gemeinschaft, and less so to identity, while "community" as used in soc.motss carries stronger connotations of identity, roughly comparable connotations of Gemeinschaft, and weaker connotations of geography.
 
-::: {#fig-comparison}
+<!-- ::: {#fig-comparison layout-ncol=1} -->
 
 !["Community" embeddings from GloVe (Wikipedia 2014 + Gigaword 5) model and word2vec soc.motss (Usenet) model compared to semantic dimension vectors based on averages of 10 words.](img/discourse/motss_semantic_similarity_comparison.png){#fig-semantic width=95%}
 
 !["Community" embeddings from GloVe (Wikipedia 2014 + Gigaword 5) model and word2vec soc.motss (Usenet) model compared to orthogonal projections of GloVe "community" embedding away from semantic dimensions.](img/discourse/motss_orthogonal_comparison.png){#fig-orthogonal width=75%}
 
-Semantic change in the meaning of "community" between GloVe and soc.motss models, based on three semantic dimensions.
-:::
+<!-- Semantic change in the meaning of "community" between GloVe and soc.motss models, based on three semantic dimensions.
+::: -->
 
 To bring everything together and confirm that result, the final piece involves applying the orthogonal projections from the end of the previous section. These come from the GloVe model alone, and I compare them to the "community" embeddings from both models in @fig-orthogonal. For reference, I also compare the two "community" embeddings themselves in the third row of the figure. As shown above, both orthogonal projections of the GloVe "community" embedding -- away from the Gemeinschaft words and away from the geography words -- retain high cosine similarities to the original vector, 0.810 and 0.804 respectively. This is not the case for the soc.motss "community" embedding, which is markedly less similar to community-without-Gemeinschaft (or, community-as-geography), with a similarity of 0.374 (0294-0.393). By contrast, it remains equally similar to community-without-geography (or, community-as-Gemeinschaft) as it is to the GloVe "community" embedding overall, with similarities of 0.510 (0.451-0.523) and 0.508 (0.440-0.529) respectively. This is a different way of looking at the problem of semantic similarity and semantic change, and it has implications for using GloVe vectors as a measurement tool that I will explore in the next chapter.
 

@@ -161,17 +161,25 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#proposal-version" id="toc-proposal-version" class="nav-link active" data-scroll-target="#proposal-version"><span class="toc-section-number">3.1</span>  Proposal version</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">3.1</span>  Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">3.2</span>  Background</a>
   <ul class="collapse">
-  <li><a href="#short-version" id="toc-short-version" class="nav-link" data-scroll-target="#short-version"><span class="toc-section-number">3.1.1</span>  Short version</a></li>
-  <li><a href="#long-version" id="toc-long-version" class="nav-link" data-scroll-target="#long-version"><span class="toc-section-number">3.1.2</span>  Long version</a></li>
+  <li><a href="#community-and-the-meanings-of-concepts" id="toc-community-and-the-meanings-of-concepts" class="nav-link" data-scroll-target="#community-and-the-meanings-of-concepts"><span class="toc-section-number">3.2.1</span>  “Community” and the meanings of concepts</a></li>
+  <li><a href="#using-word-embeddings-to-measure-meaning" id="toc-using-word-embeddings-to-measure-meaning" class="nav-link" data-scroll-target="#using-word-embeddings-to-measure-meaning"><span class="toc-section-number">3.2.2</span>  Using word embeddings to measure meaning</a></li>
+  <li><a href="#an-early-lgbtq-virtual-community-the-soc.motss-usenet-newsgroup" id="toc-an-early-lgbtq-virtual-community-the-soc.motss-usenet-newsgroup" class="nav-link" data-scroll-target="#an-early-lgbtq-virtual-community-the-soc.motss-usenet-newsgroup"><span class="toc-section-number">3.2.3</span>  An early LGBTQ virtual community: the soc.motss Usenet newsgroup:</a></li>
   </ul></li>
-  <li><a href="#previous-version" id="toc-previous-version" class="nav-link" data-scroll-target="#previous-version"><span class="toc-section-number">3.2</span>  Previous version</a>
+  <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods"><span class="toc-section-number">3.3</span>  Data and Methods</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="toc-section-number">3.2.1</span>  Introduction</a></li>
-  <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods"><span class="toc-section-number">3.2.2</span>  Data and methods</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="toc-section-number">3.2.3</span>  Results</a></li>
+  <li><a href="#pretrained-model-glove-wikipedia-newswire-text" id="toc-pretrained-model-glove-wikipedia-newswire-text" class="nav-link" data-scroll-target="#pretrained-model-glove-wikipedia-newswire-text"><span class="toc-section-number">3.3.1</span>  Pretrained model (GloVe, Wikipedia + newswire text)</a></li>
+  <li><a href="#local-corpus-and-model-soc.motss-word2vec" id="toc-local-corpus-and-model-soc.motss-word2vec" class="nav-link" data-scroll-target="#local-corpus-and-model-soc.motss-word2vec"><span class="toc-section-number">3.3.2</span>  Local corpus and model (soc.motss, word2vec)</a></li>
   </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="toc-section-number">3.4</span>  Results</a>
+  <ul class="collapse">
+  <li><a href="#semantic-dimensions-of-community-from-a-pretrained-model" id="toc-semantic-dimensions-of-community-from-a-pretrained-model" class="nav-link" data-scroll-target="#semantic-dimensions-of-community-from-a-pretrained-model"><span class="toc-section-number">3.4.1</span>  Semantic dimensions of “community” from a pretrained model</a></li>
+  <li><a href="#semantic-differences-in-an-lgbtq-usenet-group" id="toc-semantic-differences-in-an-lgbtq-usenet-group" class="nav-link" data-scroll-target="#semantic-differences-in-an-lgbtq-usenet-group"><span class="toc-section-number">3.4.2</span>  Semantic differences in an LGBTQ Usenet group</a></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="toc-section-number">3.5</span>  Discussion</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="toc-section-number">3.6</span>  Acknowledgments</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ccgilroy/dissertation/edit/main/discourse.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ccgilroy/dissertation/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -196,153 +204,573 @@ div.csl-indent {
 
 </header>
 
-<section id="proposal-version" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="proposal-version"><span class="header-section-number">3.1</span> Proposal version</h2>
-<section id="short-version" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="short-version"><span class="header-section-number">3.1.1</span> Short version</h3>
-<p>Chapter 1 asks, what can we learn about community from how the word is used in naturally-occurring language? This effort responds, in part, to a call from <span class="citation" data-cites="levine_paradox_2017">Levine (<a href="references.html#ref-levine_paradox_2017" role="doc-biblioref">2017</a>)</span> to investigate the power and ambiguity of “community” in contexts other than local governance. My approach will be to systematically investigate connotations of community in texts generated by different groups of LGBTQ people, using word embeddings – a type of model that mathematically represent words based on the contexts in which they appear. The most basic mathematical model is an overlay of many different contexts; with some tweaks, word embedding models can compare different sets of contexts instead.</p>
-<p>Either in the introduction or in this chapter, I plan to include more basic descriptive contextualization of “community,” e.g., keywords and N-grams over time. Though I think this is a case where underlying meanings are more of interest than surface-level words, readers will expect to see some of the latter.</p>
-<p>As a proof of concept, I have already produced preliminary results come from a single off-the-shelf model trained on a general, generic corpus of text, meaning that there’s nothing LGBTQ-specific about them – yet. Nevertheless, these initial models reveal that the spatial connotations of community are linguistically distinct from the social and cultural connotations of the word, while the latter two hang together, suggesting the existence of a geography-Gemeinschaft continuum. In other words, the theoretical distinction between shared culture and shared social ties does not appear in these generic results. (By contrast, in some of Winer’s interview data, the “imagined community” and the world of everyday social ties are distinguishable.)</p>
-<p>The empirical work I have already done illustrates the inherent breadth and ambiguity of the concept of community, but it doesn’t directly address the adjacent question of valence – generally, empirically, is “community” something with purely positive connotations <span class="citation" data-cites="levine_paradox_2017">(<a href="references.html#ref-levine_paradox_2017" role="doc-biblioref">Levine 2017</a>)</span>, or can it be something more ambivalent <span class="citation" data-cites="winer_solidarity_2020">(<a href="references.html#ref-winer_solidarity_2020" role="doc-biblioref">Winer 2020</a>)</span>? It does, however, suggest that the source for those sentiments is to be found on the Gemeinschaft side, not the geography side.</p>
-<p>The preliminary word embeddings work I have already done will be further developed in the following ways:</p>
-<ol type="1">
-<li>Use the same basic framework to analyze texts from different groups, and compare results. This would allow me to measure variation in how community is used, and by extension, consider what community might “mean” to each. Based on feedback, I think this is the most promising direction for Chapter 1.</li>
-<li>Apply some algebraic transformations and use the existing models as a tool that measures Gemeinschaft. This is how I intend to measure social and cultural expressions of community in Chapter 3, in order to examine the consequences of having a strong sense of community.</li>
-</ol>
-<p>My current plan for Chapter 1 is to fit local word embedding models to informal written text, drawn from queer and trans Usenet groups <span class="citation" data-cites="dame-griff_herding_2019">(<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span>, and compare how the concept of community is used in these groups to the generic model I’ve already explored. This application is appealing for a few reasons. First, informal written text <span class="citation" data-cites="mcculloch_because_2019">(<a href="references.html#ref-mcculloch_because_2019" role="doc-biblioref">McCulloch 2019</a>)</span> is the most logical source for analyzing linguistic expressions of community, because it directly shows how the meaning of community is constructed through specifically social interactions. Social interactions in Usenet groups were text-based, as opposed to increasingly the image-, sound-, and video-centric content of contemporary social media. Spoken language is more ephemeral and harder to collect and analyze; more formal written texts like news articles are further afield from the actual experience of community. (That said, LGBTQ media like The Advocate’s archives would be a reasonable fallback corpus.) Second, while no longer widely-used, Usenet groups are one of the earliest instances of the successful creation of vibrant virtual communities – and in fact, their existence offered critical evidence demonstrating that virtual community is possible at all. Because the two other chapters will draw on contemporary cases, having one that provides a more historical perspective would set up a more general foundation for the dissertation as a whole. For this chapter, the main source of comparative analytic leverage is the generic model I’ve already done a “close read” of; by comparison, I’d expect the geographic connotations of community to be minimal in a virtual context, and the Gemeinschaft connotations to be emphasized in an queer context. I will pay particular attention to whether the social and cultural dimensions of community are distinct in these expressions.</p>
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>“Community” – the literal word and the latent concept – is pervasive in everyday discourse. It appears in extremely varied and distinct contexts, everywhere from corporate mission statements to protest slogans. It’s as likely to show up on neighborhood murals and graffiti as it is to star in PR materials from local banks and apartment complexes. What is it about the meaning of community that makes it so amenable to these varied uses? What might it be doing when it does appear?</p>
+<p>One way to approach the meaning of “community” is by examining how the concept shows up in everyday social contexts. This chapter adopts innovations from natural language processing from the past decade to learn about community from how the word is used in naturally-occurring language. My approach is to systematically investigate connotations of community across text using word embeddings <span class="citation" data-cites="mikolov_efficient_2013">(<a href="references.html#ref-mikolov_efficient_2013" role="doc-biblioref">Mikolov et al. 2013</a>)</span> – a type of model that mathematically represent words based on the contexts in which they appear. The most basic mathematical model of word meanings is an overlay of many different contexts; with some adjustments, however, word embedding models can compare different sets of contexts instead. Here, I compare a generic model trained by researchers with access to very large corpora of texts to a local and specific model that I fit to a corpus of posts from an LGBTQ virtual community.</p>
+<p>The foundation this analysis provides offers a bridge toward investigating two interrelated fundamental questions: first, what is going on when people literally talk about “community”; and second, what is happening when people invoke the latent social concept that the word “community” points to, whether they literally use that word or not. This effort responds, in part, to a call from <span class="citation" data-cites="levine_paradox_2017">Levine (<a href="references.html#ref-levine_paradox_2017" role="doc-biblioref">2017</a>)</span> to investigate the power and ambiguity of “community” in contexts other than his own, where he shows how it operates as a rationale in the case of local governance; it also responds to a host of LGBTQ research that sometimes problematizes community <span class="citation" data-cites="orne_boystown_2017 winer_solidarity_2020">(<a href="references.html#ref-orne_boystown_2017" role="doc-biblioref">Orne 2017</a>; <a href="references.html#ref-winer_solidarity_2020" role="doc-biblioref">Winer 2020</a>)</span> and sometimes takes it for granted <span class="citation" data-cites="frost_measuring_2012">(<a href="references.html#ref-frost_measuring_2012" role="doc-biblioref">Frost and Meyer 2012</a>)</span>. I’m especially interested in how the empirical everyday meaning(s?) of “community” might correspond to or deviate from sociological understandings of <em>Gemeinschaft</em>, of community as a meso-level form of social organization <span class="citation" data-cites="tonnies_community_2001 brint_gemeinschaft_2001">(<a href="references.html#ref-brint_gemeinschaft_2001" role="doc-biblioref">Brint 2001</a>; <a href="references.html#ref-tonnies_community_2001" role="doc-biblioref">Tönnies [1887] 2001</a>)</span>. I show that “community” in the generic sense brings together two semantic domains; in a queer context one of those connotations recedes to the background and a third domain emerges to take precedence – community-as-Gemeinschaft turns out to be the common bridge between the two.</p>
+<p>The computational method of word embeddings offers an empirical technique that is uniquely suited for investigating these questions, because – unlike other methods for computational text analysis – they move from surface-level words to underlying meanings and their relations <span class="citation" data-cites="stoltz_cultural_2021 arseniev-koehler_machine_2022">(<a href="references.html#ref-arseniev-koehler_machine_2022" role="doc-biblioref">Arseniev-Koehler and Foster 2022</a>; <a href="references.html#ref-stoltz_cultural_2021" role="doc-biblioref">Stoltz and Taylor 2021</a>)</span>. While the aim of this project is descriptive and intrinsic, to provide a grounded account of the everyday social life of a social concept, it also potentially furnishes a more precise tool for measuring when social actors implicitly or explicitly invoke community and belonging – in the Gemeinschaft sense – in the course of discursive action and interaction.</p>
+<p>I first undertake a “close read” of the embedding for “community” in a generic set of word embeddings, to understand what “community” means in contemporary English-language discourse. Then, I apply algebraic transformations to show how the spatial and sociological connotations of the word can be disentangled. In the second half of the analysis, I fit a local word embedding model to informal written text drawn from an LGBTQ Usenet newsgroup <span class="citation" data-cites="dame-griff_herding_2019">(<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span>. I compare how the concept of community is used in this group to the generic model.</p>
+<p>This application is appealing for a few reasons. First, informal written text <span class="citation" data-cites="mcculloch_because_2019">(<a href="references.html#ref-mcculloch_because_2019" role="doc-biblioref">McCulloch 2019</a>)</span> is the most logical source for analyzing linguistic expressions of community, because it directly shows how the meaning of community is constructed through specifically social interactions. Because Usenet is an older set of virtual communities, originating in the 1980s and declining in the early 2000s, social interactions in Usenet groups were text-based, as opposed to increasingly the image-, sound-, and video-centric content of contemporary social media. Spoken language is more ephemeral and harder to collect and analyze computationally; more formal written texts like news articles – including the source text for the generic model I compare <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington, Socher, and Manning 2014</a>)</span> – are further afield from the actual experience of community. Second, while no longer widely-used, Usenet groups are one of the earliest instances of the successful creation of vibrant virtual communities – and in fact, their existence offered critical evidence demonstrating that virtual community is possible at all <span class="citation" data-cites="rheingold_virtual_2000">(<a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>. Because the preceding and following chapters draw on more contemporary cases, this historical perspective sets up a more generalizable foundation for the dissertation as a whole.</p>
 </section>
-<section id="long-version" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="long-version"><span class="header-section-number">3.1.2</span> Long version</h3>
-<p>“Community” – the literal word and the latent concept – is pervasive in everyday discourse. It appears in extremely varied and distinct contexts, everywhere from corporate mission statements to protest slogans. What is it about the meaning of community that makes it so amenable to these varied uses? What might it be doing when it does appear? I propose to investigate two interrelated questions: first, what is going on when people literally talk about “community”; and second, what is happening when people invoke the latent social concept that the word “community” points to, whether they literally use that word or not. I’m especially interested in how the empirical everyday meaning(s?) of “community” corresponds to or deviates from sociological understandings of <em>Gemeinschaft</em>, of community as a meso-level form of social organization. The computational method of word embeddings offers an empirical technique that is uniquely suited for investigating these questions, because – unlike other methods for computational text analysis – they move from surface-level words to underlying meanings and their relations <span class="citation" data-cites="stoltz_cultural_2021 arseniev-koehler_machine_2022">(<a href="references.html#ref-arseniev-koehler_machine_2022" role="doc-biblioref">Arseniev-Koehler and Foster 2022</a>; <a href="references.html#ref-stoltz_cultural_2021" role="doc-biblioref">Stoltz and Taylor 2021</a>)</span>. While the main aim of this project is descriptive and intrinsic, to provide a grounded account of the everyday social life of a social concept, it also furnishes a more precise tool for measuring when social actors implicitly or explicitly invoke community and belonging – in the Gemeinschaft sense – in the course of discursive action and interaction. I use a generic set of word embeddings to understand what “community” means in contemporary English-language discourse, and I apply algebraic transformations to show how the spatial and sociological connotations of the word can be disentangled. I’m still evaluating how best to use this new, resultant embedding as a measurement tool. I’ll discuss one preliminary experiment in applying that sociologically-inflected embedding for “community” to map out variation in community-oriented language in a historical set of virtual communities called Usenet, as well as other possible social texts I might draw on instead.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> At the end of this chapter proposal, I’ll describe multiple alternative potential applications and what the payoffs of each might be.</p>
+<section id="background" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
+<section id="community-and-the-meanings-of-concepts" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="community-and-the-meanings-of-concepts"><span class="header-section-number">3.2.1</span> “Community” and the meanings of concepts</h3>
 <p>Community has a power and ambiguity that render it suitable for strategic rhetorical uses in everyday discourse. Two qualitative examples illustrate the shades of meaning that “community” can take on; together, these illustrate the range of variation that I might expect to see in a computational investigation of what community means as a folk concept. First, in the context of local governance, <span class="citation" data-cites="levine_paradox_2017">Levine (<a href="references.html#ref-levine_paradox_2017" role="doc-biblioref">2017</a>)</span> observes that “community” becomes a “floating signifier of the good,” a halo of positivity to cover the real operation of local decision-making and to provide legitimacy for action. For Levine, this is harmful; he notes the impossibility of “the community” wanting one single thing as a uniform entity, and the harms of ascribing collective representational authority to whoever can show up to participatory events <span class="citation" data-cites="levine_constructing_2021">(<a href="references.html#ref-levine_constructing_2021" role="doc-biblioref">Levine 2021</a>)</span>. In his case, the word is constantly used in a positive and justificatory light, but so flexibly as to lose coherent meaning. Second, and in contrast to that wholehearted positivity, <span class="citation" data-cites="winer_solidarity_2020">Winer (<a href="references.html#ref-winer_solidarity_2020" role="doc-biblioref">2020</a>)</span> finds that his interviewees have an ambivalent and distancing relationship with the “imagined gay community,” drawing a distinction between “the community” at large and their own social circles. Rather than pure vagueness, this points to another specific rhetorical use, to critique an in-group’s flaws rather than to justify desired actions. In these accounts, “community” assumes differing valences, with slippery or counterintuitive referents, but in each case the concept does important discursive work. I do not aim to create a taxonomy of these rhetorical strategies; instead I’ll show how all of these uses together add up and contribute to the overall semantic resonance that “community” takes on. Language, after all, is social and shared <span class="citation" data-cites="saussure_cours_1972">(<a href="references.html#ref-saussure_cours_1972" role="doc-biblioref">Saussure [1916] 1972</a>)</span>; later I’ll show how that shared foundation can be a springboard for understanding local deviations.</p>
 <p>For fully understanding the social life of a complex concept, academic definitions are insufficient on their own, but worth reviewing as an anchor for comparison. “Community” is a phenomenon sociologists have elaborated on since <span class="citation" data-cites="tonnies_community_2001">Tönnies (<a href="references.html#ref-tonnies_community_2001" role="doc-biblioref">[1887] 2001</a>)</span>; they’ve created taxonomies of different types of communities <span class="citation" data-cites="brint_gemeinschaft_2001">(<a href="references.html#ref-brint_gemeinschaft_2001" role="doc-biblioref">Brint 2001</a>)</span>; argued over what communities count as “real” <span class="citation" data-cites="driskell_are_2002 rheingold_virtual_2000">(<a href="references.html#ref-driskell_are_2002" role="doc-biblioref">Driskell and Lyon 2002</a>; <a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>; and debated about what features – shared social networks/interactions or shared cultural/moral traits – are most fundamental to the creation and experience of it <span class="citation" data-cites="vaisey_structure_2007 boessen_networks_2014">(<a href="references.html#ref-boessen_networks_2014" role="doc-biblioref">Boessen et al. 2014</a>; <a href="references.html#ref-vaisey_structure_2007" role="doc-biblioref">Vaisey 2007</a>)</span>. What emerges consistently is the metaphor of a tightly knit social fabric, a group of people bound together by shared ties, shared culture, and possibly shared place.</p>
-<!-- Footnote: Using a metaphor here is cheating, because metaphor plays no role in classical categorical definitions at all [CITE: Lakoff and Johnson]. -->
-<p>However, the issue with using academic definitions of “community” as a starting point is that a strict definitional logic of concepts and categories does not apply “out there” in the real social world; classical logic may be useful for technical jargon, but it is not how ordinary human concepts work. Instead, everyday concepts are fuzzy and prototype-based <span class="citation" data-cites="rosch_family_1975 lakoff_women_2008 lakoff_women_2008 bowker_sorting_2000 zerubavel_fine_2002 monk_inequality_2022">(<a href="references.html#ref-bowker_sorting_2000" role="doc-biblioref">Bowker and Star 2000</a>; <a href="references.html#ref-lakoff_women_2008" role="doc-biblioref">Lakoff [1987] 2008</a>, <a href="references.html#ref-lakoff_women_2008" role="doc-biblioref">[1987] 2008</a>; <a href="references.html#ref-monk_inequality_2022" role="doc-biblioref">Monk 2022</a>; <a href="references.html#ref-rosch_family_1975" role="doc-biblioref">Rosch and Mervis 1975</a>; <a href="references.html#ref-zerubavel_fine_2002" role="doc-biblioref">Zerubavel 2002</a>)</span>. One way to see this is to think about how people figure out that something <em>is</em> a community in the first place. As <span class="citation" data-cites="bruckman_should_2022">Bruckman (<a href="references.html#ref-bruckman_should_2022" role="doc-biblioref">2022</a>)</span> argues, we might decide that a virtual community like Wikipedia is a community through mental comparison to prototypes of community like a small town. A given example of community does not have to have all of a specific set of features in order to fall under the concept; rather, concepts and categories are bundles of “intensions,” inherently fuzzy constellations of characteristics and cues. “Community,” as an everyday concept, bundles together a spread of connotations; as I will show, the most notable of these are a geographic sense of “local place” and a sociological sense of “social group” or “object of belonging.”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Because “community” encompasses both, even the most mundane use of community to refer to local place might still invoke the sentiment and connotation of <em>Gemeinschaft</em>. That is partly where the fuzziness and ambiguity of community as a concept could come from, and also part of the concept’s discursive power. However, distinguishing these two senses is necessary in order to open up a window into where and how the underlying meaning of <em>Gemeinschaft</em> and belonging appears in different discursive contexts.</p>
+<p>However, the issue with using academic definitions of “community” as a starting point is that a strict definitional logic of concepts and categories does not apply “out there” in the real social world; classical logic may be useful for technical jargon, but it is not how ordinary human concepts work. Instead, everyday concepts are fuzzy and prototype-based <span class="citation" data-cites="rosch_family_1975 lakoff_women_2008 lakoff_women_2008 bowker_sorting_2000 zerubavel_fine_2002 monk_inequality_2022">(<a href="references.html#ref-bowker_sorting_2000" role="doc-biblioref">Bowker and Star 2000</a>; <a href="references.html#ref-lakoff_women_2008" role="doc-biblioref">Lakoff [1987] 2008</a>, <a href="references.html#ref-lakoff_women_2008" role="doc-biblioref">[1987] 2008</a>; <a href="references.html#ref-monk_inequality_2022" role="doc-biblioref">Monk 2022</a>; <a href="references.html#ref-rosch_family_1975" role="doc-biblioref">Rosch and Mervis 1975</a>; <a href="references.html#ref-zerubavel_fine_2002" role="doc-biblioref">Zerubavel 2002</a>)</span>. One way to see this is to think about how people figure out that something <em>is</em> a community in the first place. As <span class="citation" data-cites="bruckman_should_2022">Bruckman (<a href="references.html#ref-bruckman_should_2022" role="doc-biblioref">2022</a>)</span> argues, we might decide that a virtual community like Wikipedia is a community through mental comparison to prototypes of community like a small town. A given example of community does not have to have all of a specific set of features in order to fall under the concept; rather, concepts and categories are bundles of “intensions,” inherently fuzzy constellations of characteristics and cues. “Community,” as an everyday concept, bundles together a spread of connotations; as I will show, the most notable of these are a geographic sense of “local place” and a sociological sense of “social group” or “object of belonging.” Because “community” encompasses both, even the most mundane use of community to refer to local place might still invoke the sentiment and connotation of <em>Gemeinschaft</em>. That is partly where the fuzziness and ambiguity of community as a concept could come from, and also part of the concept’s discursive power. However, distinguishing these two senses is necessary in order to open up a window into where and how the underlying meaning of <em>Gemeinschaft</em> and belonging appears in different discursive contexts.</p>
+<p>Finally, I’ll introduce the question of the potential overlap between community and identity. Communities can be based on shared social identity characteristics <span class="citation" data-cites="brint_gemeinschaft_2001">(<a href="references.html#ref-brint_gemeinschaft_2001" role="doc-biblioref">Brint 2001</a>)</span>. In the context of the cultural sociology of markedness, <span class="citation" data-cites="zerubavel_taken_2018">Zerubavel (<a href="references.html#ref-zerubavel_taken_2018" role="doc-biblioref">2018</a>)</span> notes that this isn’t necessarily true for unmarked identity categories: “the heterosexual community” is an empty, nonsensical statement, while “the LGBTQ community” is a common and sensical one.</p>
+</section>
+<section id="using-word-embeddings-to-measure-meaning" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="using-word-embeddings-to-measure-meaning"><span class="header-section-number">3.2.2</span> Using word embeddings to measure meaning</h3>
 <p>This project, then, uses an empirical, inductive, and computational approach to discover what community means and compare it to theoretical expectations derived from sociological literature. It integrates the sociological definition of Gemeinschaft in an iterative way, making this an abductive approach <span class="citation" data-cites="brandt_abductive_2021">(<a href="references.html#ref-brandt_abductive_2021" role="doc-biblioref">Brandt and Timmermans 2021</a>)</span>, rather than a purely grounded one <span class="citation" data-cites="nelson_computational_2017">(<a href="references.html#ref-nelson_computational_2017" role="doc-biblioref">Nelson 2017</a>)</span>. To examine the resonances and connotations of community in generic English discourse, word embeddings are my computational method of choice. Word embeddings are a relatively recent <span class="citation" data-cites="mikolov_efficient_2013">(<a href="references.html#ref-mikolov_efficient_2013" role="doc-biblioref">Mikolov et al. 2013</a>)</span> computational operationalization of an old linguistic idea, called the <em>distributional hypothesis</em> <span class="citation" data-cites="sahlgren_distributional_2008">(<a href="references.html#ref-sahlgren_distributional_2008" role="doc-biblioref">Sahlgren 2008</a>)</span>. As <span class="citation" data-cites="firth_synopsis_1957">Firth (<a href="references.html#ref-firth_synopsis_1957" role="doc-biblioref">1957</a>)</span> put it, “You shall know a word by the company it keeps.” Accordingly, these models represent words as a function of all of their immediate contexts. To give one example:</p>
 <blockquote class="blockquote">
 <p>“The history of all hitherto existing <strong>society</strong> is the history of class struggles.” <span class="citation" data-cites="marx_communist_1972">(<a href="references.html#ref-marx_communist_1972" role="doc-biblioref">Marx [1848] 1972</a>)</span></p>
 </blockquote>
-<p>An embeddings model would take this sentence and learn about the semantic connotations of the the word “society” from its position near “history”, “class”, and “struggle”; it might also learn linguistic features common to nouns from its position in relation to words like “is” and “of.”<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Naturally, a model needs many such examples as training data, to produce a single overarching numeric representation for each word in a vocabulary. There are two main commonly-used word embeddings models – word2vec, based on a shallow neural network <span class="citation" data-cites="mikolov_efficient_2013">(<a href="references.html#ref-mikolov_efficient_2013" role="doc-biblioref">Mikolov et al. 2013</a>)</span>, and GloVe, based on cooccurrence matrix factorization <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span>. (The differences are minor, so I choose one or the other based on convenience, not principle.) There are many other innovations and variations on the basic method; the most interesting is a family of models called <em>contextualized</em> word embeddings (e.g.&nbsp;BERT), which allow for more than one vector per word, instead of a single one – of course, these models take much more training data, and are much more complex! Simpler, older models offer a more straightforward and interpretable starting point; tackling the question of what “community” means in everyday English, in practice.</p>
+<p>An embeddings model would take this sentence and learn about the semantic connotations of the the word “society” from its position near “history”, “class”, and “struggle”; it might also learn linguistic features common to nouns from its position in relation to words like “is” and “of.” Naturally, a model needs many such examples as training data, to produce a single overarching numeric representation for each word in a vocabulary. There are two main commonly-used word embeddings models – word2vec, based on a shallow neural network <span class="citation" data-cites="mikolov_efficient_2013">(<a href="references.html#ref-mikolov_efficient_2013" role="doc-biblioref">Mikolov et al. 2013</a>)</span>, and GloVe, based on cooccurrence matrix factorization <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span>. (The differences are minor, so I choose one or the other based on convenience, not principle.) There are many other innovations and variations on the basic method; the most interesting is a family of models called <em>contextualized</em> word embeddings (e.g.&nbsp;BERT), which allow for more than one vector per word, instead of a single one – of course, these models take much more training data, and are much more complex! Simpler, older models offer a more straightforward and interpretable starting point; tackling the question of what “community” means in everyday English, in practice.</p>
 <p>A generic model with a robust, comprehensive view of as many contexts as possible would approximate “the” meaning of every word in a language. To train general models for a given language, the most common corpora are large and publicly accessible texts from the Internet, e.g., Wikipedia pages, newswire articles, social media, or anything else that can be conveniently crawled from the web. (Historical embeddings use digitized book corpora.) These pretrained models can be used for a variety of questions and tasks, but they stand in contrast to locally trained models derived from specific corpora. Of course, meanings of words do vary – over time, over space, and by other social characteristics <span class="citation" data-cites="bamman_distributed_2014 soni_abolitionist_2021">(<a href="references.html#ref-bamman_distributed_2014" role="doc-biblioref">Bamman, Dyer, and Smith 2014</a>; <a href="references.html#ref-soni_abolitionist_2021" role="doc-biblioref">Soni, Klein, and Eisenstein 2021</a>)</span>. A general model trained on easily-accessible data works to the extent that meanings are common or shared; of course, this flattens variation. Given the social characteristics of the authors of formal online texts like Wikipedia or news corpora, in terms of gender, race, education, nationality, etc. <span class="citation" data-cites="hargittai_mind_2015 vrana_16_2020">(<a href="references.html#ref-hargittai_mind_2015" role="doc-biblioref">Hargittai and Shaw 2015</a>; <a href="references.html#ref-vrana_16_2020" role="doc-biblioref">Vrana, Sengupta, and Bouterse 2020</a>)</span>, models trained on those data necessarily overrepresent hegemonic cultural viewpoints. This overrepresentation is a form of bias, but also a matter of substantive interest <span class="citation" data-cites="caliskan_semantics_2017 garg_word_2017 jones_stereotypical_2020">(<a href="references.html#ref-caliskan_semantics_2017" role="doc-biblioref">Caliskan, Bryson, and Narayanan 2017</a>; <a href="references.html#ref-garg_word_2017" role="doc-biblioref">Garg et al. 2017</a>; <a href="references.html#ref-jones_stereotypical_2020" role="doc-biblioref">Jones et al. 2020</a>)</span>.</p>
 <p>Distinct from other text-as-data methods (e.g.&nbsp;keyword dictionaries or topic models), embeddings models create dense, distributed vector representations of words. In this way, word embeddings encode a relational model of meaning; they build up a system of signs <span class="citation" data-cites="saussure_cours_1972">(<a href="references.html#ref-saussure_cours_1972" role="doc-biblioref">Saussure [1916] 1972</a>)</span>, a vocabulary, in which distances (or their inverse, <em>similarity</em> measures) in a high-dimensional space can be calculated between every pair of words. This makes embeddings useful for social-science problems where meaning matters – especially where variations or changes in meaning are of interest; they’ve been applied fruitfully in cultural sociology <span class="citation" data-cites="kozlowski_geometry_2019">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski, Taddy, and Evans 2019</a>)</span> and political science <span class="citation" data-cites="rheault_word_2020">(<a href="references.html#ref-rheault_word_2020" role="doc-biblioref">Rheault and Cochrane 2020</a>)</span>. An embeddings model can be thought of as distilling shared, declarative public culture <span class="citation" data-cites="lizardo_improving_2017">(<a href="references.html#ref-lizardo_improving_2017" role="doc-biblioref">Lizardo 2017</a>)</span>; <span class="citation" data-cites="arseniev-koehler_machine_2022">Arseniev-Koehler and Foster (<a href="references.html#ref-arseniev-koehler_machine_2022" role="doc-biblioref">2022</a>)</span> go even further to argue that the training process is a reasonable heuristic model for actual cultural cognition.</p>
-<p>But the dimensions the models learn are not themselves interpretable (nor are they consistent across models).<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> To derive interpretable dimensions, social scientists use anchor words and simple algebra. One common approach is to construct new binary dimensions through subtraction <span class="citation" data-cites="kozlowski_geometry_2019 taylor_integrating_2020">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>; <a href="references.html#ref-taylor_integrating_2020" role="doc-biblioref">Taylor and Stoltz 2020</a>)</span>, opposing pairs of concepts that can be thought of as antonyms (e.g.&nbsp;rich - poor, woman - man).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> This idea springs from the algebraic analogy tasks that first made word embeddings notable in NLP (e.g., king - man + woman <span class="math inline">\(\approx\)</span> queen). While these binary oppositions have a clear basis in cultural sociology <span class="citation" data-cites="durkheim_elementary_2001 saussure_cours_1972 douglas_purity_1966">(<a href="references.html#ref-douglas_purity_1966" role="doc-biblioref">Douglas 1966</a>; <a href="references.html#ref-durkheim_elementary_2001" role="doc-biblioref">Durkheim [1912] 2001</a>; <a href="references.html#ref-saussure_cours_1972" role="doc-biblioref">Saussure [1916] 1972</a>)</span>, they are not the only possibility. They don’t necessarily make sense for a concept that might bundle together multiple overlapping connotations or characteristics.</p>
+<p>But the dimensions the models learn are not themselves interpretable (nor are they consistent across models, meaning that different embedding matrices must be aligned for comparison). To derive interpretable dimensions, social scientists use anchor words and simple algebra. One common approach is to construct new binary dimensions through subtraction <span class="citation" data-cites="kozlowski_geometry_2019 taylor_integrating_2020">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>; <a href="references.html#ref-taylor_integrating_2020" role="doc-biblioref">Taylor and Stoltz 2020</a>)</span>, opposing pairs of concepts that can be thought of as antonyms (e.g.&nbsp;rich - poor, woman - man). This idea springs from the algebraic analogy tasks that first made word embeddings notable in NLP (e.g., king - man + woman <span class="math inline">\(\approx\)</span> queen). While these binary oppositions have a clear basis in cultural sociology <span class="citation" data-cites="durkheim_elementary_2001 saussure_cours_1972 douglas_purity_1966">(<a href="references.html#ref-douglas_purity_1966" role="doc-biblioref">Douglas 1966</a>; <a href="references.html#ref-durkheim_elementary_2001" role="doc-biblioref">Durkheim [1912] 2001</a>; <a href="references.html#ref-saussure_cours_1972" role="doc-biblioref">Saussure [1916] 1972</a>)</span>, they are not the only possibility. They don’t necessarily make sense for a concept that might bundle together multiple overlapping connotations or characteristics.</p>
 <p>Instead, in this work, I deviate and borrow a different algebraic idea from NLP: “de-biasing” an embedding through orthogonal projection away from a target word vector <span class="citation" data-cites="gonen_lipstick_2019">(<a href="references.html#ref-gonen_lipstick_2019" role="doc-biblioref">Gonen and Goldberg 2019</a>)</span>. This approach originates in an attempt to mitigate gender bias in the words for different professions and occupations – which is undesirable for NLP tasks such as machine translation <span class="citation" data-cites="caliskan_semantics_2017">(<a href="references.html#ref-caliskan_semantics_2017" role="doc-biblioref">Caliskan et al. 2017</a>)</span>, even if it represents cultural associations or demographic facts about particular occupations that might be worth studying in themselves <span class="citation" data-cites="jones_stereotypical_2020">(<a href="references.html#ref-jones_stereotypical_2020" role="doc-biblioref">Jones et al. 2020</a>)</span>. That foundational work on this method makes it clear that it does not remove all the connotations of the undesired word – i.e., it does not fully succeed in de-biasing – but it is successful enough to use to disentangle the connotations of a concept like community.</p>
-<p>I proceed from a standard set of word embeddings pre-trained on Wikipedia and newswire text (i.e., formal, written online English) and publicly released <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span>. This is a generic set of embeddings, with all of the cultural biases that that necessarily entails. Starting with the vector for community, I select the 1000 words that are the nearest neighbors to it in the vocabulary, as measured by cosine similarity. I then decompose that subset of the embeddings space using principal components analysis, which I choose for its relative interpretability compared to other dimensionality reduction methods. I manually inspect the first several of these dimensions for potential substantive interpretations of interest, and select the second dimension for further analysis as representing a contrast between geographic and sociological connotations. I average the vectors for the most extreme words on either end of that PCA dimension, then finally project the original “community” vector away from the geographic end (and, implicitly, toward the Gemeinschaft end), in effect “de-biasing” the new “community” vector of those connotations. I argue that this produces an embedding that means community in a purely sociological sense, rather than a spatial one.</p>
-<p>Word embeddings encode a notion of similarity; a key way to understand what a given word means in a model is to examine the words that are most closely related to it. These are the words that would show up in similar contexts. For a robust picture of what community means, I examine and visualize the 1000 nearest neighbors, shown with example words labeled, in Figure 1. To project the 300-dimensional vectors down into the two dimensions shown in the figure, I decompose those vectors with PCA.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> The first dimension (the x-axis in Figure 1) ranges from words like “if” and “we” and “not” to words like “not-for-profit,” “community-based,” “lgbt,” and “interfaith.” Based on the distributions of words along these dimensions, I label this first dimension as encoding a linguistic distinction between common, functional words and words that are more complex and substantive. While important for structuring the overall space of meaning, this distinction is not relevant for my analysis except potentially as a filtering mechanism. The second dimension (the y-axis in Figure 1), however, is more salient. Ranging from words like “town” and “located” to words like “cooperation,” “governance,” “organizations,” and “collective,” it encodes what I label a distinction between geography and Gemeinschaft. “Community” itself falls nearly in the middle between the two poles of this dimension.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+</section>
+<section id="an-early-lgbtq-virtual-community-the-soc.motss-usenet-newsgroup" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="an-early-lgbtq-virtual-community-the-soc.motss-usenet-newsgroup"><span class="header-section-number">3.2.3</span> An early LGBTQ virtual community: the soc.motss Usenet newsgroup:</h3>
+<p>My case study is an early virtual community, an LGBTQ Usenet group called soc.motss.Usenet is a distributed system for sharing electronic messages which predates the contemporary Internet <span class="citation" data-cites="rheingold_virtual_2000">(<a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>, organized into topical groups such as alt.atheism or rec.motorcycles (to take two examples from the “20 Newsgroups” dataset <span class="citation" data-cites="Lang95">(<a href="references.html#ref-Lang95" role="doc-biblioref">Lang 1995</a>)</span>). Some of these groups are reported to have had a strong sense of community, while others were known for their hostility <span class="citation" data-cites="baym_practice_1994 dame-griff_herding_2019">(<a href="references.html#ref-baym_practice_1994" role="doc-biblioref">Baym 1994</a>; <a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span>. Usenet is of interest because the time period of its heyday is when people were demonstrating that virtual community was, in fact, possible <span class="citation" data-cites="driskell_are_2002 rheingold_virtual_2000 hampton_neighboring_2003 calhoun_community_1998">(<a href="references.html#ref-calhoun_community_1998" role="doc-biblioref">Calhoun 1998</a>; <a href="references.html#ref-driskell_are_2002" role="doc-biblioref">Driskell and Lyon 2002</a>; <a href="references.html#ref-hampton_neighboring_2003" role="doc-biblioref">Hampton and Wellman 2003</a>; <a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>. Moreover, as <span class="citation" data-cites="boyd_its_2014">boyd (<a href="references.html#ref-boyd_its_2014" role="doc-biblioref">2014</a>)</span> points out, even if particular platforms are passé, the social processes that unfold on them are not. Usenet groups are well-suited for studying the creation of community using computational text analysis methods because they are both conversation-oriented and text-based; these kinds of virtual interactions can have similar feedback effects to those associated with face-to-face interaction rituals <span class="citation" data-cites="dimaggio_interaction_2018">(<a href="references.html#ref-dimaggio_interaction_2018" role="doc-biblioref">DiMaggio et al. 2018</a>)</span>.</p>
+<p>LGBTQ people may be especially predisposed to seek out (queer) community in digital spaces. The internet has long been recognized for its potential for marginalized groups <span class="citation" data-cites="mehra_internet_2004 boyd_what_2015">(<a href="references.html#ref-boyd_what_2015" role="doc-biblioref">boyd 2015</a>; <a href="references.html#ref-mehra_internet_2004" role="doc-biblioref">Mehra, Merkel, and Bishop 2004</a>)</span>, with LGBTQ people using virtual communities for connection and support that may be lacking in offline social spaces <span class="citation" data-cites="dym_coming_2019">(<a href="references.html#ref-dym_coming_2019" role="doc-biblioref">Dym et al. 2019</a>)</span>. LGBTQ groups and interests have been present and visible since the earliest virtual spaces <span class="citation" data-cites="rheingold_virtual_2000 auerbach_first_2014">(<a href="references.html#ref-auerbach_first_2014" role="doc-biblioref">Auerbach 2014</a>; <a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>, and LGBTQ people have continued to play a key role as early adopters of new technologies for digital social life (e.g., mobile and location-based platforms <span class="citation" data-cites="orne_boystown_2017">(<a href="references.html#ref-orne_boystown_2017" role="doc-biblioref">Orne 2017</a>)</span>) through to the present day.</p>
+<p>Soc.motss – where “motss” stands for “members of the same sex” – was oldest and largest LGBTQ Usenet group. According to a history recounted by <span class="citation" data-cites="auerbach_first_2014">Auerbach (<a href="references.html#ref-auerbach_first_2014" role="doc-biblioref">2014</a>)</span> in <em>Slate</em>, it was founded in 1983 (as net.motss), not long after Usenet came into existence in 1980. In terms of case selection, soc.motss is worth studying not because it is typical or representative, but because it is unique and historically important. As “the first gay space on the Internet” <span class="citation" data-cites="auerbach_first_2014">(<a href="references.html#ref-auerbach_first_2014" role="doc-biblioref">Auerbach 2014</a>)</span>, it influenced the many queer spaces that would come after it; as one of the largest spaces of its time period, it provides a sufficient corpus for modeling with word embeddings.</p>
+<p>An <a href="https://web.archive.org/web/20010629135057/http://www.soc-motss.org/doc/faq/faq_participants.html">archived version</a> of the soc.motss FAQ from 2001 describes the group as follows (in a section headed ‘Our “we”’):</p>
+<blockquote class="blockquote">
+<p>Soc.motss serves non-heterosexual Internet communities. To signal inclusiveness, we use the acronym LGBTO, for Lesbian, Gay, Bisexual, Transgendered and Others, “others” meaning supportive straight people. The newsgroup is a predominantly non-heterocentric space where we can discuss issues of importance to our communities.</p>
+</blockquote>
+<p>Elsewhere, the FAQ provides ample evidence that this <em>is</em> a cohesive group and a virtual community by any definition of the term. It has norms for participation, a group discursive style <span class="citation" data-cites="eliasoph_culture_2003">(<a href="references.html#ref-eliasoph_culture_2003" role="doc-biblioref">Eliasoph and Lichterman 2003</a>)</span>, and community-building events like in-person meetups (“motss.con”) <span class="citation" data-cites="auerbach_first_2014 rheingold_virtual_2000">(<a href="references.html#ref-auerbach_first_2014" role="doc-biblioref">Auerbach 2014</a>; <a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>. Of course, there were other LGBTQ newsgroups, such as soc.support.youth.gay-lesbian-bi or the several trans Usenet groups <span class="citation" data-cites="dame-griff_herding_2019">Dame-Griff (<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">2019</a>)</span> has already studied. These might be worth analyzing on their own terms or comparing, but it doesn’t make sense to mash a bunch of possibly distinct group cultures and discursive styles together in one corpus. Soc.motss offers a well-defined, prototypical early LGBTQ virtual space.</p>
+</section>
+</section>
+<section id="data-and-methods" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-and-methods"><span class="header-section-number">3.3</span> Data and Methods</h2>
+<p>I analyze the meaning of “community” through mathematical measures of similarity in the contexts of two word embedding models – a generic pretrained GloVe model, and a word2vec model that I train locally on the Usenet soc.motss corpus – and then I compare the two.</p>
+<section id="pretrained-model-glove-wikipedia-newswire-text" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="pretrained-model-glove-wikipedia-newswire-text"><span class="header-section-number">3.3.1</span> Pretrained model (GloVe, Wikipedia + newswire text)</h3>
+<p>The pretrained GloVe embeddings <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span> I use were originally trained on a full English Wikipedia corpus from 2014 and a newswire corpus called Gigaword 5. A social scientist might prefer a more logically bounded population of text for the training corpus, but the more-is-better logic of training data won out. Generally, however, prior social science researchers have found pretrained embeddings to be reasonably robust, stable, and generalizable <span class="citation" data-cites="stoltz_cultural_2020 rodriguez_word_2020">(<a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">Rodriguez and Spirling 2020</a>; <a href="references.html#ref-stoltz_cultural_2020" role="doc-biblioref">Stoltz and Taylor 2020</a>)</span>, and I find similarly in supplemental analyses. The preliminary consensus is that these pretrained models are good enough for typical social science uses. <span class="citation" data-cites="kozlowski_geometry_2019">Kozlowski et al. (<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">2019</a>)</span>, who use historical embeddings, suggest thinking of the associations encoded in these embeddings as coming from a “literary public” with known and unknown biases compared to the general population.</p>
+<p>The GloVe model’s vocabulary is truncated to the 400,000 most prevalent words. Many of these words are quite rare or unusual; I achieve more sensical and interpretable results by subsetting the vocabulary to more common words. In the first section of the results below, I do this by intersecting the vocabulary with a second GloVe model pretrained on a corpus of text drawn from Twitter (for 150,396 words in total).</p>
+<p>To interrogate what potential meanings for the focal concept of “community” are encoded in this generic model, I take the following steps.</p>
+<ol type="1">
+<li>I decompose the local neighborhood, measured using cosine similarity, of words similar to the focal word (N = 1000) through principal components analysis (PCA).</li>
+<li>I inspect the resulting PCA dimensions for the proportion of local variation they explain and for any potential substantive interpretation. Here, even though the embeddings in the neighborhood of “community” do not fall into discrete clusters, I cluster them with K-means to aid in interpretation.</li>
+<li>I average the vectors for extreme words (N = 10) along a PCA axis of substantive interest to “debias” <span class="citation" data-cites="gonen_lipstick_2019">(<a href="references.html#ref-gonen_lipstick_2019" role="doc-biblioref">Gonen and Goldberg 2019</a>)</span> the focal word vector through orthogonal projection.</li>
+</ol>
+<p>This isn’t a purely automatic process, but rather necessarily an interpretive one, so it would take a similar amount of interpretation to extend this method to other complex social-scientific concepts that appear in everyday discourse.</p>
+</section>
+<section id="local-corpus-and-model-soc.motss-word2vec" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="local-corpus-and-model-soc.motss-word2vec"><span class="header-section-number">3.3.2</span> Local corpus and model (soc.motss, word2vec)</h3>
+<p>I build my local corpus and model as follows. I download a set of posts from the soc.motss newsgroup archived in the Usenet Historical Collection (UHC), hosted by the Internet Archive. This archive contains nearly 300,000 posts spanning the years 1999-2013, with a peak in the early 2000s and a continual decline in post volume thereafter (shown in <a href="#fig-posts">Figure&nbsp;<span>3.1</span></a>). According to <span class="citation" data-cites="dame-griff_archiving_2017">Dame-Griff (<a href="references.html#ref-dame-griff_archiving_2017" role="doc-biblioref">2017</a>)</span>, there were no systematic attempts to archive Usenet before 1995. While I investigate other potential archival sources, the UHC archive is so much larger that I do not attempt to merge sources together. (The second available archive, from Google Groups, is spotty; it has only 1,074 posts from net.motss, the first iteration of the group, for 1983-1986. The Google Groups soc.motss archive contains only 60,400 posts from 1986-2022 (though the most recent posts are entirely spam), with only 9,847 posts from before 1999-04-17, when the UHC archive begins.) Archives inherently risk being incomplete, but I believe this corpus is robust enough to characterise the culture and language of the group in the early-2000s time period.</p>
+<div id="fig-posts" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="img/discourse/community_pca1000_kmeans3.png" class="img-fluid figure-img" style="width:95.0%"></p>
-<p></p><figcaption class="figure-caption">PCA decomposition of 1000 nearest word embeddings to “community”, showing the first two dimensions. While the space is continuous, k-means clustering with k = 3 effectively divides it into functional words in green, geography words in blue, and Gemeinschaft words in red. Importantly, the clustering is applied to the original 300-dimension vectors, not the derived PCA results.</figcaption><p></p>
+<p><img src="img/discourse/motss_posts_by_year.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Posts from soc.motss archived in the Usenet Historical Collection by year.</figcaption><p></p>
 </figure>
 </div>
+<p>I load and preprocess the soc.motss UHC archive using Dame-Griff’s <a href="https://github.com/apdame/usenet-tools">Python scripts</a>, developed for analyzing transgender Usenet groups, strip quotes and footers from the text with scikit-learn <span class="citation" data-cites="scikit-learn">(<a href="references.html#ref-scikit-learn" role="doc-biblioref">Pedregosa et al. 2011</a>)</span> tools intended for the 20 Newsgroups dataset, and lowercase and tokenize the text with the gensim package <span class="citation" data-cites="rehurek_lrec">(<a href="references.html#ref-rehurek_lrec" role="doc-biblioref">Řehůřek and Sojka 2010</a>)</span>. This preprocessing is relatively minimal, but I note that any computational text analysis can be sensitive to preprocessing choices <span class="citation" data-cites="denny_assessing_2016 nelson_computational_2017">(<a href="references.html#ref-denny_assessing_2016" role="doc-biblioref">Denny and Spirling 2016</a>; <a href="references.html#ref-nelson_computational_2017" role="doc-biblioref">Nelson 2017</a>)</span>.</p>
+<p>I fit a word2vec model to the processed corpus using gensim <span class="citation" data-cites="rehurek_lrec">(<a href="references.html#ref-rehurek_lrec" role="doc-biblioref">Řehůřek and Sojka 2010</a>)</span>. Key word2vec model parameters are set at a vector size of 200, a context window of 6, and a minimum word occurrence threshold of 5. I use skip-gram with negative sampling as the model architecture and train for 10 epochs. The parameter choices I make are consistent with <span class="citation" data-cites="nelson_leveraging_2021">Nelson (<a href="references.html#ref-nelson_leveraging_2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="rodriguez_word_2020">Rodriguez and Spirling (<a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">2020</a>)</span>, and other social science research using word2vec models. Following <span class="citation" data-cites="nelson_leveraging_2021">Nelson (<a href="references.html#ref-nelson_leveraging_2021" role="doc-biblioref">2021</a>)</span>, I also bootstrap key estimates by fitting forty new models to create a 95% confidence interval. Because Usenet posts are relatively short documents, I bootstrap posts with replacement, not individual sentences.</p>
+<p>After preprocessing and model fitting, there are 287,680 documents, 26,958,729 tokens, and 71,617 unique words in the final vocabulary (with the aforementioned minimum threshold for inclusion set to 5 occurrences). Of that vocabulary, 60,728 words also exist in the GloVe model’s vocabulary. The words found only in the soc.motss vocabulary are largely misspellings, concatenations of words, encoding errors, foreign languages (especially Spanish), and colloquialisms (especially gay slang, Usenet slang, and emotive language).</p>
+<p>Notably, this corpus is larger than all six trans usenet groups that <span class="citation" data-cites="dame-griff_herding_2019">Dame-Griff (<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">2019</a>)</span> has archived put together, and much larger than conventional Usenet data sets like 20 Newsgroups <span class="citation" data-cites="Lang95">(<a href="references.html#ref-Lang95" role="doc-biblioref">Lang 1995</a>)</span> (which uses a smaller temporal slice from more groups). It is still on the lower bound of what might be desirable for model qualtiy, but I believe my results below show that it is robust enough for broad, high-level findings. (Just don’t build a chatbot based on it, I guess.)</p>
+<p>I use three metrics to compare word embeddings, including the embedding for “community,” between this local model and the pretrained GloVe model. The “query rank” correlation measure comes from <span class="citation" data-cites="rodriguez_word_2020">Rodriguez and Spirling (<a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">2020</a>)</span> and is the Pearson correlation between models of within-model cosine similarities for a word and every other word in the vocabulary; they take this metric as a measure of stability and model quality. The remaining two measures come from <span class="citation" data-cites="hamilton_cultural_2016">Hamilton, Leskovec, and Jurafsky (<a href="references.html#ref-hamilton_cultural_2016" role="doc-biblioref">2016a</a>)</span> and are two different applications of cosine distances (= 1 - cosine similarity). Their “linguistic drift” measure compares the cosine distance of the same word directly across models; their “cultural shift” measure is a second-order comparison using the cosine distance of the cosine similarities of the nearest neighbors to the word. Unlike the first measure, these two require mathematically aligning the embeddings matrices as best as possible, using a matrix alignment method called orthogonal Procrustes <span class="citation" data-cites="hamilton_diachronic_2016">(<a href="references.html#ref-hamilton_diachronic_2016" role="doc-biblioref">Hamilton, Leskovec, and Jurafsky 2016b</a>)</span>.</p>
+<p>Finally, to complement the semantic dimensions derived from the PCA decomposition of the GloVe model, I create a third semantic vector of words related to LGBTQ identity. Unlike the other two semantic dimensions, I choose these keywords by hand based on domain knowledge and manual inspection of nearest neighbors. The exact words are therefore more ad hoc and less principled, but this is not an atypical approach; it is no different from previous studies that use keywords to create vectors for concepts like “power” <span class="citation" data-cites="nelson_leveraging_2021">(<a href="references.html#ref-nelson_leveraging_2021" role="doc-biblioref">Nelson 2021</a>)</span> or “social class” <span class="citation" data-cites="kozlowski_geometry_2019">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>)</span>. To match the other dimensions, I pick 10 words: ‘lgbt’, ‘lgbtq’, ‘glbt’, ‘gay’, ‘lesbian’, ‘bi’, ‘bisexual’, ‘transgender’, ‘queer’, and ‘homosexual’. (‘Gay’ is the most common of these words in the soc.motss corpus, appearing 49,486 times; the rarest is ‘lgbtq’, appearing only 18 times.) Again, by taking an average the vector becomes more robust to the inclusion or exclusion of any given word.</p>
+</section>
+</section>
+<section id="results" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="results"><span class="header-section-number">3.4</span> Results</h2>
+<section id="semantic-dimensions-of-community-from-a-pretrained-model" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="semantic-dimensions-of-community-from-a-pretrained-model"><span class="header-section-number">3.4.1</span> Semantic dimensions of “community” from a pretrained model</h3>
+<p>I proceed from a standard set of word embeddings pre-trained on Wikipedia and newswire text (i.e., formal, written online English) and publicly released <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span>. This is a generic set of embeddings, with all of the cultural biases that that necessarily entails. Word embeddings encode a notion of similarity; a key way to understand what a given word means in a model is to examine the words that are most closely related to it. These are the words that would show up in similar contexts. The 10 most similar words to “community” in the GloVe model are ‘communities’, ‘organizations’, ‘society’, ‘local’, ‘established’, ‘area’, ‘part’, ‘within’, ‘public’, and ‘council’; both spatial and social dimensions are evident.</p>
+<p>For a more robust picture of what community means, I expand my view and select the 1000 words that are the nearest neighbors to it in the vocabulary, as measured by cosine similarity. I then decompose that subset of the embeddings space using principal components analysis, which I choose for its relative interpretability compared to other dimensionality reduction methods. <a href="#tbl-glove">Table&nbsp;<span>3.1</span></a> shows the ends of the first six PCA dimensions from the nearest neighbors to “community” in the GloVe model. Each set of 10 words qualitatively shows a reasonable amount of semantic coherence, and in some cases the opposition of each end of a given dimension is also interpretable. Note that the 200 dimensions of the embeddings space encode a substantial amount of subtle information that is lost with dimensionality reduction, so the proportion of variance explained by the first several dimensions is relatively low. (<span class="citation" data-cites="kozlowski_geometry_2019">Kozlowski et al. (<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">2019</a>)</span> have shown similar results in an experiment with PCA and with explicit cultural dimensions, so this is unsurprising.)</p>
+<div id="tbl-glove" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.1: Top 10 and bottom 10 words for first 6 principal components, out of 1000 nearest neighbors to “community,” from pre-trained GloVe model (Wikipedia + Gigaword 5)</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension 1</th>
+<th style="text-align: left;">Dimension 2</th>
+<th style="text-align: left;">Dimension 3</th>
+<th style="text-align: left;">Dimension 4</th>
+<th style="text-align: left;">Dimension 5</th>
+<th style="text-align: left;">Dimension 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">n’t</td>
+<td style="text-align: left;">cooperation</td>
+<td style="text-align: left;">research</td>
+<td style="text-align: left;">teach</td>
+<td style="text-align: left;">populations</td>
+<td style="text-align: left;">historical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">we</td>
+<td style="text-align: left;">promote</td>
+<td style="text-align: left;">management</td>
+<td style="text-align: left;">kids</td>
+<td style="text-align: left;">populated</td>
+<td style="text-align: left;">contemporary</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">if</td>
+<td style="text-align: left;">governance</td>
+<td style="text-align: left;">library</td>
+<td style="text-align: left;">music</td>
+<td style="text-align: left;">farming</td>
+<td style="text-align: left;">political</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">do</td>
+<td style="text-align: left;">awareness</td>
+<td style="text-align: left;">science</td>
+<td style="text-align: left;">teaching</td>
+<td style="text-align: left;">areas</td>
+<td style="text-align: left;">history</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">get</td>
+<td style="text-align: left;">stakeholders</td>
+<td style="text-align: left;">facility</td>
+<td style="text-align: left;">religion</td>
+<td style="text-align: left;">sustainable</td>
+<td style="text-align: left;">founding</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">could</td>
+<td style="text-align: left;">initiatives</td>
+<td style="text-align: left;">university</td>
+<td style="text-align: left;">contemporary</td>
+<td style="text-align: left;">infrastructure</td>
+<td style="text-align: left;">influential</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">what</td>
+<td style="text-align: left;">sustainable</td>
+<td style="text-align: left;">provides</td>
+<td style="text-align: left;">teacher</td>
+<td style="text-align: left;">vast</td>
+<td style="text-align: left;">described</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">know</td>
+<td style="text-align: left;">understanding</td>
+<td style="text-align: left;">institute</td>
+<td style="text-align: left;">traditions</td>
+<td style="text-align: left;">cultures</td>
+<td style="text-align: left;">cultural</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">would</td>
+<td style="text-align: left;">commitment</td>
+<td style="text-align: left;">facilities</td>
+<td style="text-align: left;">tradition</td>
+<td style="text-align: left;">population</td>
+<td style="text-align: left;">role</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">really</td>
+<td style="text-align: left;">implement</td>
+<td style="text-align: left;">program</td>
+<td style="text-align: left;">feel</td>
+<td style="text-align: left;">coastal</td>
+<td style="text-align: left;">movement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">baptist</td>
+<td style="text-align: left;">district</td>
+<td style="text-align: left;">minorities</td>
+<td style="text-align: left;">government</td>
+<td style="text-align: left;">alumni</td>
+<td style="text-align: left;">families</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">african-american</td>
+<td style="text-align: left;">county</td>
+<td style="text-align: left;">refugees</td>
+<td style="text-align: left;">infrastructure</td>
+<td style="text-align: left;">meeting</td>
+<td style="text-align: left;">parents</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">encompasses</td>
+<td style="text-align: left;">situated</td>
+<td style="text-align: left;">arab</td>
+<td style="text-align: left;">aid</td>
+<td style="text-align: left;">met</td>
+<td style="text-align: left;">workers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nonprofit</td>
+<td style="text-align: left;">township</td>
+<td style="text-align: left;">settlers</td>
+<td style="text-align: left;">region</td>
+<td style="text-align: left;">member</td>
+<td style="text-align: left;">employees</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">methodist</td>
+<td style="text-align: left;">nearby</td>
+<td style="text-align: left;">orthodox</td>
+<td style="text-align: left;">regional</td>
+<td style="text-align: left;">joined</td>
+<td style="text-align: left;">teachers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">interfaith</td>
+<td style="text-align: left;">near</td>
+<td style="text-align: left;">ethnic</td>
+<td style="text-align: left;">economic</td>
+<td style="text-align: left;">university</td>
+<td style="text-align: left;">volunteers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lgbt</td>
+<td style="text-align: left;">village</td>
+<td style="text-align: left;">jews</td>
+<td style="text-align: left;">summit</td>
+<td style="text-align: left;">attending</td>
+<td style="text-align: left;">residents</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">community-based</td>
+<td style="text-align: left;">suburb</td>
+<td style="text-align: left;">muslim</td>
+<td style="text-align: left;">nations</td>
+<td style="text-align: left;">invited</td>
+<td style="text-align: left;">kids</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">non-profit</td>
+<td style="text-align: left;">town</td>
+<td style="text-align: left;">christians</td>
+<td style="text-align: left;">security</td>
+<td style="text-align: left;">attend</td>
+<td style="text-align: left;">homes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">not-for-profit</td>
+<td style="text-align: left;">located</td>
+<td style="text-align: left;">muslims</td>
+<td style="text-align: left;">cooperation</td>
+<td style="text-align: left;">attended</td>
+<td style="text-align: left;">educate</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<p>Drawing on each end of this geography-Gemeinschaft continuum, I select the 10 words (from the 1000-word neighborhood) that are the most extreme on either end. Figure 2 lists these two sets of words and shows that they do in fact fall into two distinct blocks – highly similar within each group, and highly distinct from the other group. By construction, the word “community” is highly similar to both groups – it quite literally bundles these two connotations together in a single concept. To produce a more robust vector measure for each underlying connotation of “geography” and “Gemeinschaft,” I average the 10 individual word vectors, as is common practice <span class="citation" data-cites="kozlowski_geometry_2019 waller_quantifying_2021">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>; <a href="references.html#ref-waller_quantifying_2021" role="doc-biblioref">Waller and Anderson 2021</a>)</span>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<p><a href="#fig-pca">Figure&nbsp;<span>3.2</span></a> focuses on the first two dimensions, effectively projecting the 200-dimensional vectors down into two-dimensional space. The first dimension (the x-axis in Figure 1) ranges from words like “if” and “we” and “not” to words like “not-for-profit,” “community-based,” “lgbt,” and “interfaith.” Based on the distributions of words along these dimensions, I label this first dimension as encoding a linguistic distinction between common, functional words and words that are more complex and substantive. While important for structuring the overall space of meaning, this distinction is not relevant for my analysis (except potentially as a filtering mechanism). The second dimension (the y-axis in Figure 1), however, is more salient. Ranging from words like “town” and “located” to words like “cooperation,” “governance,” “organizations,” and “collective,” it encodes what I label a distinction between geography and Gemeinschaft. “Community” itself falls nearly in the middle between the two poles of this dimension. In the figure, I have highlighted three clusters derived from <em>k</em>-means clustering to aid in interpretation. The first cluster captures the functional linguistic words on dimension 1, which are not differentiated much on dimension 2; the second and third clusters separate out the more substantive words on dimension 1 into two semantic groupings: geography words on the high end of dimension 2 and Gemeinschaft words on the lower end. While there’s no evidence clustering would have been a better approach than dimensionality reduction, the consistency is additional evidence that the principal components are robust.</p>
+<div id="fig-pca" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="img/discourse/gemeinschaft_geography_words.png" class="img-fluid figure-img" style="width:95.0%"></p>
-<p></p><figcaption class="figure-caption">Similarities of the 10 highest and 10 lowest words along PCA dimension 2, which I have labeled geography – Gemeinschaft.</figcaption><p></p>
+<p><img src="img/discourse/community_pca1000_kmeans3.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: PCA decomposition of 1000 nearest word embeddings to “community”, showing the first two dimensions. While the space is continuous, k-means clustering with k = 3 effectively divides it into functional words in green, geography words in blue, and Gemeinschaft words in red.</figcaption><p></p>
 </figure>
 </div>
+<p>Based on that interpretation, I select the second dimension for further analysis as representing a contrast between spatial and sociological connotations. Drawing on each end of this geography-Gemeinschaft continuum, I select the 10 words (from the 1000-word neighborhood) that are the most extreme on either end. <a href="#fig-dim-2">Figure&nbsp;<span>3.3</span></a> displays these two sets of words again and shows that they do in fact fall into two distinct blocks – highly similar within each group, and highly distinct from the other group. By construction, the word “community” is highly similar to both groups – it quite literally bundles these two connotations together in a single concept. To produce a more robust vector measure for each underlying connotation of “geography” and “Gemeinschaft,” I average the 10 individual word vectors, as is common practice <span class="citation" data-cites="kozlowski_geometry_2019 waller_quantifying_2021">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>; <a href="references.html#ref-waller_quantifying_2021" role="doc-biblioref">Waller and Anderson 2021</a>)</span>.</p>
+<div id="fig-dim-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/discourse/gemeinschaft_geography_words.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Similarities of the 10 highest and 10 lowest words along PCA dimension 2, which I have labeled geography – Gemeinschaft.</figcaption><p></p>
+</figure>
 </div>
-</div>
-<p>Finally, using the “de-biasing” method I explained previously, I project the vector for “community” away from the averaged geography vector, creating a new concept vector I label community-as-Gemeinschaft. Figure 3 is a two-dimensional projection of this process that illustrates the results. In the figure, the x-axis represents similarity to the new community-as-Gemeinschaft vector; the y-axis represents similarity to the averaged geography words. By definition, each vector has a similarity to itself of 1, and the result of orthogonal projection is that the community-as-Gemeinschaft vector has a similarity to the geography vector of exactly 0. This has two consequences: community-as-Gemeinschaft remains very similar to the original community vector <em>and</em> to the averaged Gemeinschaft vector. An alternative approach – subtracting out the geography domain – does not result in a vector with the same properties.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<p>Finally, I project the vector for “community” away from the averaged geography vector (and, implicitly, toward the Gemeinschaft end of the continuum). In effect, this “de-biases” <span class="citation" data-cites="gonen_lipstick_2019">(<a href="references.html#ref-gonen_lipstick_2019" role="doc-biblioref">Gonen and Goldberg 2019</a>)</span> the new “community” vector of those connotations, creating a new concept vector I label community-without-geography – or, alternatively, community-as-Gemeinschaft. <a href="#fig-proj">Figure&nbsp;<span>3.4</span></a> is a two-dimensional projection of this process that illustrates the results. In the figure, the x-axis represents similarity to the new community-as-Gemeinschaft vector; the y-axis represents similarity to the averaged geography words. By definition, each vector has a similarity to itself of 1, and the result of orthogonal projection is that the community-as-Gemeinschaft vector has a similarity to the geography vector of exactly 0. This has two consequences: community-as-Gemeinschaft remains very similar to the original community vector <em>and</em> to the averaged Gemeinschaft vector. An alternative approach – subtracting out the geography domain – does not result in a vector with the same properties. I argue that the projection approach produces an embedding that means community in a purely sociological sense, rather than a spatial one. This provides a comparative tool for analyzing the meaning of community in the context of a different corpus in the next section, as well as a more general measurement tool in ways that I will outline in the discussion.</p>
+<div id="fig-proj" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/discourse/despatializing_community.png" class="img-fluid figure-img" style="width:95.0%"></p>
-<p></p><figcaption class="figure-caption">Orthogonal projection of the embedding for “community” away from the averaged vector of 10 geography-related words. The resultant embedding (community | geography) is highly similar to the averaged vector of 10 Gemeinschaft words. A binary opposition (community - geography) is shown for comparison, but is less similar to the Gemeinschaft words.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: Orthogonal projection of the embedding for “community” away from the averaged vector of 10 geography-related words. The resultant embedding (community | geography) is highly similar to the averaged vector of 10 Gemeinschaft words. A binary opposition (community - geography) is shown for comparison, but is less similar to the Gemeinschaft words.</figcaption><p></p>
 </figure>
 </div>
+</section>
+<section id="semantic-differences-in-an-lgbtq-usenet-group" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="semantic-differences-in-an-lgbtq-usenet-group"><span class="header-section-number">3.4.2</span> Semantic differences in an LGBTQ Usenet group</h3>
+<p>After fitting a word2vec model to the soc.motss corpus, I examine the neighborhood of words similar to “community” in this model, in order to determine what <em>community</em> “means” in this context and how it might differ from the more generic and general contexts that produced the GloVe model. In the soc.motss model, the 10 most similar words to “community” include words that are identical or thematically similar to words in the GloVe model (“communities,” “organizations,” “collectives”), words about queer identities (“glbt”, “lgbt”, “lgbtq”), as well as words related to religious entities: “keshet,” an LGBTQ Jewish organization, and both “metropolitan” and “churches.” (The 10th word is “webshots”.) The similarity between “metropolitan” and “community” is <em>not</em> a geographic reference, but rather a reference to the Metropolitan Community Church (MCC), an LGBTQ-focused Protestant church.</p>
+<p>As with the GloVe model, I then select the embeddings for the 1,000 nearest neighboring words to the word “community,” and decompose this subset of embeddings with PCA. To exclude marginal words, I only include words shared between the GloVe and soc.motss vocabularies. (With more – or fewer – words overall, the PCA dimensions do not appear to remain consistent. By contrast, the PCA dimensions for the GloVe model neighborhood are more robust to different subsets of the vocabulary.) The first six dimensions, shown in <a href="#tbl-motss">Table&nbsp;<span>3.2</span></a>, are considerably less interpretable than those for the GloVe model. There are some thematic groupings; for instance, dimension 2 ranges from geographic words like ‘neighborhood’ and ‘village’ to religious words like ‘clergy’ and ‘congregations’. This dimension comes closest to reproducing the geography-Gemeinschaft continuum of the GloVe model, although the semantic scope of the words at the latter end is much narrower. Many of the extreme words are duplicated across dimensions (e.g., there are similar religion-themed words at the bottom of dimension 3), making it difficult to label them distinctly, and many sets of words are semantically mixed or contain too many rare words or proper nouns to characterize. Qualitatively, this shows that while there is some overlap with the connotations of “community” found in the GloVe model above, the same structure of those meanings cannot be discerned here. Instead, more context-specific themes start to appear.</p>
+<div id="tbl-motss" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.2: Top 10 and bottom 10 words for first 6 principal components, out of 1000 nearest neighbors to “community,” from soc.motss word2vec model</caption>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension 1</th>
+<th style="text-align: left;">Dimension 2</th>
+<th style="text-align: left;">Dimension 3</th>
+<th style="text-align: left;">Dimension 4</th>
+<th style="text-align: left;">Dimension 5</th>
+<th style="text-align: left;">Dimension 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">neighborhood</td>
+<td style="text-align: left;">wellness</td>
+<td style="text-align: left;">potpourri</td>
+<td style="text-align: left;">officials</td>
+<td style="text-align: left;">croome</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">deepen</td>
+<td style="text-align: left;">scoured</td>
+<td style="text-align: left;">stumbleupon</td>
+<td style="text-align: left;">ahrens</td>
+<td style="text-align: left;">centers</td>
+<td style="text-align: left;">activists</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">subgroups</td>
+<td style="text-align: left;">village</td>
+<td style="text-align: left;">msm</td>
+<td style="text-align: left;">irminsul</td>
+<td style="text-align: left;">nonprofit</td>
+<td style="text-align: left;">activist</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">disparities</td>
+<td style="text-align: left;">thrift</td>
+<td style="text-align: left;">transgender</td>
+<td style="text-align: left;">troth</td>
+<td style="text-align: left;">auspices</td>
+<td style="text-align: left;">transgender</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hindered</td>
+<td style="text-align: left;">metreon</td>
+<td style="text-align: left;">mobilization</td>
+<td style="text-align: left;">weintraub</td>
+<td style="text-align: left;">lockup</td>
+<td style="text-align: left;">parade</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">inequalities</td>
+<td style="text-align: left;">wildflower</td>
+<td style="text-align: left;">nonprofit</td>
+<td style="text-align: left;">yahad</td>
+<td style="text-align: left;">disparities</td>
+<td style="text-align: left;">quintero</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">personhood</td>
+<td style="text-align: left;">mayfair</td>
+<td style="text-align: left;">disparities</td>
+<td style="text-align: left;">badb</td>
+<td style="text-align: left;">epidemic</td>
+<td style="text-align: left;">lesbian</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">institutionalize</td>
+<td style="text-align: left;">etobicoke</td>
+<td style="text-align: left;">outreach</td>
+<td style="text-align: left;">gitlin</td>
+<td style="text-align: left;">sectors</td>
+<td style="text-align: left;">gay</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">salience</td>
+<td style="text-align: left;">telmo</td>
+<td style="text-align: left;">visibility</td>
+<td style="text-align: left;">pittman</td>
+<td style="text-align: left;">courtrooms</td>
+<td style="text-align: left;">auckland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">assimilate</td>
+<td style="text-align: left;">area</td>
+<td style="text-align: left;">linkedin</td>
+<td style="text-align: left;">gajic</td>
+<td style="text-align: left;">pediatric</td>
+<td style="text-align: left;">staged</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">morristown</td>
+<td style="text-align: left;">pastors</td>
+<td style="text-align: left;">communion</td>
+<td style="text-align: left;">clientele</td>
+<td style="text-align: left;">gajic</td>
+<td style="text-align: left;">universal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">metropolitan</td>
+<td style="text-align: left;">clergy</td>
+<td style="text-align: left;">catholics</td>
+<td style="text-align: left;">walkable</td>
+<td style="text-align: left;">glbt</td>
+<td style="text-align: left;">membership</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sholom</td>
+<td style="text-align: left;">tongzhi</td>
+<td style="text-align: left;">parishes</td>
+<td style="text-align: left;">influx</td>
+<td style="text-align: left;">facilitator</td>
+<td style="text-align: left;">haifa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">alejandro</td>
+<td style="text-align: left;">laity</td>
+<td style="text-align: left;">congregations</td>
+<td style="text-align: left;">communities</td>
+<td style="text-align: left;">chatroom</td>
+<td style="text-align: left;">stumbleupon</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cla</td>
+<td style="text-align: left;">churches</td>
+<td style="text-align: left;">unitarian</td>
+<td style="text-align: left;">bathhouses</td>
+<td style="text-align: left;">queer</td>
+<td style="text-align: left;">nypl</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bradenton</td>
+<td style="text-align: left;">advocacy</td>
+<td style="text-align: left;">church</td>
+<td style="text-align: left;">affluent</td>
+<td style="text-align: left;">bisexual</td>
+<td style="text-align: left;">affiliated</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">citywide</td>
+<td style="text-align: left;">soulforce</td>
+<td style="text-align: left;">congregation</td>
+<td style="text-align: left;">areas</td>
+<td style="text-align: left;">transgendered</td>
+<td style="text-align: left;">metropolitan</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">auckland</td>
+<td style="text-align: left;">rivalries</td>
+<td style="text-align: left;">episcopal</td>
+<td style="text-align: left;">businesses</td>
+<td style="text-align: left;">newsgroup</td>
+<td style="text-align: left;">user</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rodeph</td>
+<td style="text-align: left;">congregations</td>
+<td style="text-align: left;">denomination</td>
+<td style="text-align: left;">populations</td>
+<td style="text-align: left;">poc</td>
+<td style="text-align: left;">fellowship</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">montclair</td>
+<td style="text-align: left;">interfaith</td>
+<td style="text-align: left;">presbyterian</td>
+<td style="text-align: left;">neighborhoods</td>
+<td style="text-align: left;">webshots</td>
+<td style="text-align: left;">webshots</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<p>The key outstanding question is what to do with what I’ve learned so far. How might I apply this novel, empirical understanding of “community” in generic English discourse to cases of sociological interest? I’ll discuss several options. A first possibility is to use this derived vector as a measurement tool, to measure how much a text resonates overall with the concept of community in the Gemeinschaft sense. Uniquely, compared to other text-as-data methods, embeddings models uncover both explicit and implicit references, due to their relational nature. This application is what I’ve experimented with so far, on an easy-to-use test corpus that isn’t necessarily the most compelling final choice. To move from individual words to longer texts – sentences or paragraphs or entire documents – some kind of aggregation method is necessary. Multiple such methods for summing or averaging word embeddings exists; one normalized or weighted method with advocates in sociology is called Word Mover’s Distance <span class="citation" data-cites="kusner_word_2015">(<a href="references.html#ref-kusner_word_2015" role="doc-biblioref">Kusner et al. 2015</a>)</span> or Concept Mover’s Distance (CMD) <span class="citation" data-cites="stoltz_concept_2019">(<a href="references.html#ref-stoltz_concept_2019" role="doc-biblioref">Stoltz and Taylor 2019</a>)</span>. CMD calculates a distance metric between any given text and a target vector – in this case, the despatialized community vector representing community-as-Gemeinschaft. I applied this CMD measure to a corpus of texts from a set of virtual communities, with the idea that social text, where people are potentially building a community together through words, is where invocations of Gemeinschaft are most likely to appear and where they will have the most impact.</p>
-<!-- Footnote: Note about the psychologists and political scientists who Just Don't Care about CMD. I like Stoltz and Taylor, but they're overselling it, in my opinion. -->
-<p>For convenience, I start by applying CMD to a public data set called 20 Newsgroups <span class="citation" data-cites="Lang95">(<a href="references.html#ref-Lang95" role="doc-biblioref">Lang 1995</a>)</span>; this is a collection of texts from 1993 from Usenet groups with distinct sets of topics ranging from religion and politics to computers and sports, and it’s a conventional test data set for text-related machine learning classification problems <span class="citation" data-cites="wallach_topic_2006 albishre_effective_2015 silge_text_2017 shalaby_learning_2017 sia_tired_2020">(<a href="references.html#ref-albishre_effective_2015" role="doc-biblioref">Albishre, Albathan, and Li 2015</a>; <a href="references.html#ref-shalaby_learning_2017" role="doc-biblioref">Shalaby and Zadrozny 2017</a>; <a href="references.html#ref-sia_tired_2020" role="doc-biblioref">Sia, Dalmia, and Mielke 2020</a>, among many others; <a href="references.html#ref-silge_text_2017" role="doc-biblioref">Silge and Robinson 2017</a>; <a href="references.html#ref-wallach_topic_2006" role="doc-biblioref">Wallach 2006</a>)</span>. Usenet is one of the earliest virtual communities, a decentralized discussion platform that predates the internet <span class="citation" data-cites="rheingold_virtual_2000">(<a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>. Importantly, Usenet groups vary in terms of their cultures as well as in terms of their substantive content; some are friendly and welcoming and inspire a sense of belonging in their members, while others are contentious and hostile <span class="citation" data-cites="baym_practice_1994">(<a href="references.html#ref-baym_practice_1994" role="doc-biblioref">Baym 1994</a>)</span>. Thus far, what I’ve been able to show is that there is significant between-group variation among the 20 newsgroups in how much their discussion posts resonate<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> with community-as-Gemeinschaft (R<sup>2</sup> = .19); of course, there is substantial within-group heterogeneity as well. I haven’t figured why this between-group variation exists: is it because some groups are more welcoming, and some more hostile, for instance? Is it a spurious artifact of topical differences? Ascertaining what drives that variation would take a closer read of the source texts <span class="citation" data-cites="nelson_computational_2017">(<a href="references.html#ref-nelson_computational_2017" role="doc-biblioref">Nelson 2017</a>)</span>; whether I decide to delve deeper into this particular corpus or not, it might provide a good reference case as I seriously interrogate the applicability of the CMD method.</p>
-<!-- Consider: show a figure? The figures I have now show too much! -->
-<p>A second possibility is, instead of using the community vector from the pretrained model on a corpus in a direct application, to fit local models to that corpus and then examine deviations from the meanings encoded in the generic, pretrained model – comparing models, in effect. To continue my example, what would “community” mean in a model that only saw it used in contexts from a place like Usenet? Given that Usenet is a virtual community, would the word have a geographic connotation at all? Or would it already be despatialized? That would show how early users of virtual platforms worked to remake and redefine community and establish their digital spaces as “real” communities; this trend might even be carried forward into contemporary virtual communities (of the sort I discuss in the Chapter 3 proposal). In different contexts, community might be more strongly tied to the idea of local place, even devoid of any sense of social organization; in still others, it might be associated more strongly with particular social identities. In any of these cases, comparing to both the overall generic embedding for “community” and the derived vector for community-as-Gemeinschaft would allow me to triangulate and obtain a clearer signal for how local relations of meaning are organized.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
-<!-- TODO: Add citations for contextual embeddings models -->
-<p>In conjunction with either of the above approaches, I might tackle the question of valence directly: is community always inherently good, or does it shade into ambivalence in certain cases? Perhaps community has become increasingly positive over time, or perhaps it loses its affective charge as it becomes more ubiquitous – if community language has, indeed, become more prevalent. Addressing the valence and prevalence of community language requires reaching for text analysis tools beyond word embeddings. Embeddings-derived vocabularies of belonging might provide a robust set of keywords to trace in a descriptive way, and near-neighbor words in embeddings spaces can be combined with valence lexicons to measure positivity <span class="citation" data-cites="mendelsohn_framework_2020">(<a href="references.html#ref-mendelsohn_framework_2020" role="doc-biblioref">Mendelsohn, Tsvetkov, and Jurafsky 2020</a>)</span>. I might show, for instance, that the positive valence of community comes from the <em>Gemeinschaft</em> part of its connotation, where the geography words are more neutral. But particular methodological care must be taken to avoid spurious results <span class="citation" data-cites="van_loon_regional_2022">(<a href="references.html#ref-van_loon_regional_2022" role="doc-biblioref">van Loon et al. 2022</a>)</span>.</p>
-<p>Finally, I’m not committed to using a corpus from a virtual community like Usenet or its contemporary successors; instead, as I develop the this project I’ll consider which corpora might provide interesting sources of variation. The key consideration here is the correspondence between the sources of textual data and the conceptual questions of interest.</p>
-<p>For instance, change over time is one conventional dimension of variation in social science applications of word embeddings <span class="citation" data-cites="kozlowski_geometry_2019 rheault_word_2020">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>; <a href="references.html#ref-rheault_word_2020" role="doc-biblioref">Rheault and Cochrane 2020</a>)</span>. However, my initial experiments with historical word embeddings <span class="citation" data-cites="hamilton_diachronic_2016">(<a href="references.html#ref-hamilton_diachronic_2016" role="doc-biblioref">Hamilton et al. 2016</a>)</span> have so far turned up little evidence that “community” changes in any interesting way over the course of the 20th century. It’s still useful to outline multiple historical data sources for examining semantic changes over time, and note their advantages and shortcomings:</p>
+<p>I next attempt to use quantitative measures to systematically characterize differences between the soc.motss-derived and pretrained GloVe models. By situating the metric values for “community” in comparison to all other words in the vocabulary shared between the two models, I contextualize, in a relative sense, how different “community” is overall between the generic and specific contexts. Simultaneously, this offers a form of evaluation for the general quality of the soc.motss model – if all word embeddings shift dramatically compared to the GloVe model, we might suspect that the local model has failed to uncover anything that makes sense. For the vocabulary as a whole, the three measures are largely consistent, with moderate-to-high correlations between metrics. However, the metric values for the word embedding for “community” are <em>not</em> consistent in the amount of change they indicate:</p>
 <ul>
-<li><p>Google Ngrams and other standard corpora used for historical embeddings have produced interesting general results, especially related to social biases and stereotypes encoded in language <span class="citation" data-cites="garg_word_2017">(<a href="references.html#ref-garg_word_2017" role="doc-biblioref">Garg et al. 2017</a>)</span>. Unfortunately, these have severe limitations in consistency post-2000, injecting bias into both descriptive frequency measures of terms and embeddings models themselves <span class="citation" data-cites="pechenick_characterizing_2015">(<a href="references.html#ref-pechenick_characterizing_2015" role="doc-biblioref">Pechenick, Danforth, and Dodds 2015</a>)</span>. This limits the use of these sources for studying contemporary changes that have taken place, like the rise of social media, that might have led to the fragmentation, proliferation, or some other reshaping of the meaning of community.</p></li>
-<li><p>Media articles from sources like the New York Times offer a different means of constructing embedding sets over time that extends from the 1980s to the 2010s <span class="citation" data-cites="arseniev-koehler_machine_2022 mendelsohn_framework_2020">(<a href="references.html#ref-arseniev-koehler_machine_2022" role="doc-biblioref">Arseniev-Koehler and Foster 2022</a>; <a href="references.html#ref-mendelsohn_framework_2020" role="doc-biblioref">Mendelsohn et al. 2020</a>)</span>, pushing temporal comparisons into an interesting time frame. However, I’m unconvinced that newspapers of record are where I will observe the most interesting invocations of community.</p></li>
-<li><p>By contrast to the New York Times, alternative and identity-focused media, like <em>The Advocate</em> and other long-running LGBTQ magazines, might be more salient, but would require me to assemble a corpus that has never been analyzed in this way before. Other researchers have assembled similar corpora from feminist movement literature <span class="citation" data-cites="nelson_cycles_2021">(<a href="references.html#ref-nelson_cycles_2021" role="doc-biblioref">Nelson 2021a</a>)</span> and ethnic newspapers <span class="citation" data-cites="kim_how_2022">(<a href="references.html#ref-kim_how_2022" role="doc-biblioref">Kim 2022</a>)</span> for forms of text analysis other than word embeddings; they’ve also trained embeddings models on 19th-century text data, namely abolitionist newspapers and narratives of lives in the US South <span class="citation" data-cites="soni_abolitionist_2021 nelson_leveraging_2021">(<a href="references.html#ref-nelson_leveraging_2021" role="doc-biblioref">Nelson 2021b</a>; <a href="references.html#ref-soni_abolitionist_2021" role="doc-biblioref">Soni et al. 2021</a>)</span>. All of these have produced intriguing and important results, but in some cases these corpora were the bases for entire dissertations in themselves.</p></li>
-<li><p>Another comparison with a temporal dimension would be to take literally the notion that the concept “community” spans informal, everyday use and formal, academic use – and compare the two. In this case, I might ask what “community” would mean if a model learned its meaning inductively from sociological abstracts or social theory, and whether that meaning shifts to trace key intellectual currents like the Chicago School’s community ecology or the late 20th debates over “community lost” and the rise of virtual and identity-based communities. <span class="citation" data-cites="kozlowski_geometry_2019">Kozlowski et al. (<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">2019</a>)</span> have a supplemental analysis that does something like this with social class. Again, the lack of consistency in digitized corpora that aim to be generic or all-encompassing is a significant limitation in terms of what time frames can be compared.</p></li>
+<li><p><a href="#fig-correlation">Figure&nbsp;<span>3.5</span></a> shows the distribution of between-model correlation of within-model cosine similarities for all 60,728 words shared between the GloVe model and the soc.motss model vocabularies. Compared to the correlations that <span class="citation" data-cites="rodriguez_word_2020">Rodriguez and Spirling (<a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">2020</a>)</span> report between a pretrained GloVe model and word2vec models trained on the <em>Congressional Record</em> corpus, which range between 0.3-0.5 for randomly selected words and 0.5-0.7 for political concepts, the distribution of correlation values is somewhat lower on the whole, but in the same range. (Rodriguez and Spirling pick out only a handful of words for comparison rather than systematically comparing every word in the vocabulary.) “Community” has a between-model correlation of only 0.151 (95% confidence interval from bootstrapped models: 0.116-0.153). This falls at the low end of this distribution and indicates only a weak association of all cosine similarities across the models.</p></li>
+<li><p><a href="#fig-drift">Figure&nbsp;<span>3.6</span></a> shows between-model cosine distances for every word, after aligning the matrix of soc.motss embeddings to the matrix of GloVe embeddings. <span class="citation" data-cites="hamilton_cultural_2016">Hamilton et al. (<a href="references.html#ref-hamilton_cultural_2016" role="doc-biblioref">2016a</a>)</span> claim that these are a global measure of linguistic drift. The cosine distance for “community” is 0.492 (95% confidence interval from bootstrapped models: 0.471-0.560). This is substantially below the average distance of 0.672, implying that by this semantic measure community changes less than the typical word. Subjectively, these distance values seem quite high in general – in a <a href="https://ccgilroy.com/community-discourse/historical-change.html#self-similarity">previous experiment</a> using historical word embeddings from <span class="citation" data-cites="hamilton_diachronic_2016">Hamilton et al. (<a href="references.html#ref-hamilton_diachronic_2016" role="doc-biblioref">2016b</a>)</span> to replicate the work of <span class="citation" data-cites="kulkarni_statistically_2015">Kulkarni et al. (<a href="references.html#ref-kulkarni_statistically_2015" role="doc-biblioref">2015</a>)</span>, I found that the word “community” shifts by a distance of only 0.403 from 1900 to 1990. By comparison, the word “gay,” which undergoes a strong shift in meaning, changes by a distance of 0.822 over the course of the same century. The GloVe and soc.motss corpora are from similar time periods, so I surmise that these differences arise from distinct linguistic styles – formal newswire and Wikipedia articles versus less formal social text <span class="citation" data-cites="mcculloch_because_2019">(<a href="references.html#ref-mcculloch_because_2019" role="doc-biblioref">McCulloch 2019</a>)</span>. (Different model architectures are another possibility.)</p></li>
+<li><p><a href="#fig-shift">Figure&nbsp;<span>3.7</span></a> shows what is in some sense an intermediate measure – it is also a cosine distance, but of within-model cosine similarities to a given focal word, of the local neighborhood of words around that word. <span class="citation" data-cites="hamilton_cultural_2016">Hamilton et al. (<a href="references.html#ref-hamilton_cultural_2016" role="doc-biblioref">2016a</a>)</span> develop this “cultural shift” measure on the premise that these neighbors are semantically relevant in a way that more distance words (which were included in the first correlation measure) are not.On this metric, “community” shows a slightly above average shift of 0.303 (95% confidence interval from bootstrapped models: 0.177-0.396, median cultural shift for all words = 0.264). The wide bootstrapped interval, however, implies that this is the least stable of all three measures.</p></li>
 </ul>
-<p>Time isn’t the only covariate of potential interest. Social texts also offer the possibility of categorical comparisons between groups:</p>
+<p>Taken together, these measures show that “community” changes in meaning to some degree between the generic GloVe model and the local soc.motss corpus, but they offer no definitive conclusion on the comparative magnitude of that change.</p>
+<!-- ::: {#fig-metrics layout-ncol=1} -->
+<div id="fig-correlation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/discourse/overall_vocab_correlation.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: Correlation (between the two models) of (within-model) cosine similarities for every word and all other words.</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-drift" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/discourse/overall_vocab_linguistic_drift.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: Between-model cosine distances for every word (“linguistic drift”, <span class="citation" data-cites="hamilton_cultural_2016">Hamilton et al. (<a href="references.html#ref-hamilton_cultural_2016" role="doc-biblioref">2016a</a>)</span>).</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-shift" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/discourse/overall_vocab_cultural_shift.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: Nearest-neighbor distances, k = 25 neighbors (“cultural shift”, <span class="citation" data-cites="hamilton_cultural_2016">Hamilton et al. (<a href="references.html#ref-hamilton_cultural_2016" role="doc-biblioref">2016a</a>)</span>).</figcaption><p></p>
+</figure>
+</div>
+<!-- Three vocabulary-wide measures of model stability and semantic change. Values for "community" in the distributions are labeled and marked in red.
+::: -->
+<p>The next logical question, then, is <em>how</em> does the meaning of community in the context of soc.motss differ from the generic context, and how does it remain similar? Using the semantic dimensions I derived from the GloVe model in the previous section, alongside the additional identity-related dimension I curated based on the soc.motss corpus and model, I investigate what changes and why between the two different embeddings for “community.” Because these averaged semantic vectors are intrinsically more likely to be closer to the “community” vector derived from the same model, I re-create each of them from the other model’s embedding matrix, and I show both sets for consistency. The soc.motss model matrix is aligned to the GloVe model matrix, as are the 40 bootstrapped models for a 95% confidence interval (although the values from the true corpus are in at one case systematically higher than the bootstrapped values). In total, I make 12 comparisons (3 comparison vectors x 2 source models for those vectors x 2 source models for the “community” vector), shown in <a href="#fig-semantic">Figure&nbsp;<span>3.8</span></a>.</p>
+<p>This key figure shows how “community” in the context of soc.motss de-emphasizes geography but foregrounds identity instead. At the same time, it retains the Gemeinschaft connotations of community.</p>
 <ul>
-<li><p>Returning briefly to Usenet, 20 Newsgroups isn’t the only data source; there are historical archives of queer and trans Usenet communities <span class="citation" data-cites="dame-griff_herding_2019">(<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span> that might contrast with more general topical newsgroups, and I might compare any of these to contemporary social media-based groups as well.</p></li>
-<li><p>Lastly, different kinds of corpora with distinct logics of production offer yet another possibility for constructing comparisons, and not necessarily temporally-based ones; for instance, corporate marketing versus political texts like speeches and activist literature. Intuitively, the latter might encode a clearer and more authentic expression of Gemeinschaft into the meaning of “community” – but the tone of corporate slogans strikes me as eager to exude the positive valence that “community” generally has, and so the reverse could well be true.</p></li>
+<li>When the averaged vector of geographic words is derived from the GloVe model, the gap in cosine similarities is the largest among any of the comparisons: the soc.motss embedding for “community” has a cosine similarity with the geography vector of only 0.165 (0.108-0.185), compared to 0.594 for the GloVe “community” embedding. The gap narrows to essentially 0 when the geography vector is re-derived from the same 10 words in the soc.motss model, with a similarity of 0.398 (0.374-0.437) for “community” in soc.motss vs 0.404 for “community” in GloVe – but the following two semantic dimensions have wider gaps in the opposite direction when constructed in this way.</li>
+<li>The Gemeinschaft vector in the GloVe model is almost identical to the geography vector in its similarity to the GloVe embedding for “community” (0.586), but its similarity to the soc.motss “community” embedding increases to 0.398 (0.374-0.437) – still lower, but a narrower gap. Recreated with the same words from the soc.motss vectors, the similarities flip: the similarity to “community” from GloVe is 0.386 (almost the same as the comparable geography vector), but the similarity to soc.motss “community” is now higher, at 0.508 (0.440-0.511).</li>
+<li>The averaged vector for LGBTQ identity-related words is unambiguously more similar to “community” in soc.motss than in the GloVe model, no matter which model’s word vectors are used to derive it. The cosine similarities to the soc.motss “community” embedding are 0.497 (0.429-0.485) when derived from the GloVe model and 0.627 (0.585-0.641) from the soc.motss model (the highest within both sets of comparisons). These compare to similarities of only 0.367 and 0.333 for the GloVe “community” embedding respectively (the lowest in both sets of comparisons).</li>
 </ul>
-<!-- Note: it's still not obvious I've articulated the different sociological questions here. -->
-<p>Even if the data are unsettled, I have many possibilities for deploying word embeddings as an analytic and measurement tool to study variations in the meaning of and invocation of community.</p>
-</section>
-</section>
-<section id="previous-version" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="previous-version"><span class="header-section-number">3.2</span> Previous version</h2>
-<section id="introduction" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.2.1</span> Introduction</h3>
-<p>Community is an ambiguous concept with both sociological and everyday uses. Understanding what is essential and what is incidental to the meaning of the term opens up the ability to analyze how much people engage with or invoke the underlying meaning of community in different social groups or social contexts. Experiences of community, participation, and belonging are important both intrinsically, as one facet of individual experiences in social groups, and extrinsically as one potential motivation for social action. Using a computational approach to text analysis, I offer an empirical understanding of how “community” is used in popular English-language discourse. I apply that understanding to a set of virtual communities to demonstrate how they vary.</p>
-<p>In one view, community is a product of moral or cultural unity combined with social or interactional density <span class="citation" data-cites="tavory_summoned_2016">(e.g. <a href="references.html#ref-tavory_summoned_2016" role="doc-biblioref">Tavory 2016</a>, drawing on Durkheim)</span>. This way of thinking about community treats <em>Gemeinschaft</em> as the core element of community, and geographic proximity as incidental. As one line of evidence in favor of this view, extensive research has shown that virtual communities are real communities, in the sense that they really do instill a feeling of <em>Gemeinschaft</em> in their members <span class="citation" data-cites="rheingold_virtual_2000 driskell_are_2002">(<a href="references.html#ref-driskell_are_2002" role="doc-biblioref">Driskell and Lyon 2002</a>; e.g, <a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>. Of course, geography still structures much of social life; propinquity may enable community without being synonymous with it <span class="citation" data-cites="spiro_persistence_2016">(<a href="references.html#ref-spiro_persistence_2016" role="doc-biblioref">Spiro, Almquist, and Butts 2016</a>)</span>. Despite this theoretical distinction, the word “community” in everyday use may still entail geographic as well as sociological or psychological senses. Disentangling or disambiguating these senses is a core challenge for computational work. The payoff is that we might then be able to observe in real settings when people create, invoke, or experience a deep sense of community.</p>
-<p>I use word embeddings to analyze the meaning of community. Embeddings models are an ideal method for this problem, as opposed to other text-as-data techniques like descriptive frequencies of word counts or topic models, because they encode meaning relationally. I use the similarities between “community” and other words in tandem with sociological definitions of community to determine what meanings are being brought together in the vector representation of the word. Preliminarily, I rely on pretrained GloVe embeddings, originally developed from a large corpus of Wikipedia and other online data <span class="citation" data-cites="pennington2014glove">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington et al. 2014</a>)</span>.</p>
-<p>Groups and individuals vary in the extent to which they experience a sense of community, and in the extent to which they communicate that sense of community through their language. I demonstrate this variation by adapting Concept Mover’s Distance <span class="citation" data-cites="stoltz_concept_2019">(<a href="references.html#ref-stoltz_concept_2019" role="doc-biblioref">Stoltz and Taylor 2019</a>)</span> and applying it to posts from 20 Usenet newsgroups from the 1990s. These virtual communities were a precursor to present-day online and social media communities. Different Usenet groups have different cultures, and I show that average engagement with the concept of community differs between groups based on their topical focus. My initial findings are in line with my prior expectations in some cases, and diverge in others.</p>
-<p>These analyses inform each other. The more theoretical analysis of the general discursive meaning of community is needed in order to interpret how people in different groups invoke that underlying meaning. The more empirical application to real communities not only shows the utility of the theory and method, but can allow me to refine it in an iterative process. In particular, I plan to use the theoretical dimensions I develop to difference out the geographic aspect of community in my empirical analysis.</p>
-<p>This work makes two contributions. Substantively, it offers a new way of studying experiences of community across different groups, with potential applications in offline as well as online contexts. Methodologically, it combines prior sociological theory and text data to bring empirical clarity to a complex abstraction, with potential relevance for studies of other sociological concepts. I contribute to a growing literature adapting embeddings for sociological ends by extending the method to a concept that is rather less concrete and clear-cut. For instance, “community” is not quite like binary concepts such as social class <span class="citation" data-cites="kozlowski_geometry_2019">(<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">Kozlowski et al. 2019</a>)</span>, health or morality <span class="citation" data-cites="arseniev-koehler_machine_2022">(<a href="references.html#ref-arseniev-koehler_machine_2022" role="doc-biblioref">Arseniev-Koehler and Foster 2022</a>)</span>, or conservative or liberal politics <span class="citation" data-cites="taylor_integrating_2020">(<a href="references.html#ref-taylor_integrating_2020" role="doc-biblioref">Taylor and Stoltz 2020</a>)</span>. Community has no one clear antonym. While one might conceptually oppose community to the individual, one could just as easily oppose community to society writ large. Disentangling the meaning of community with word embeddings requires making these sorts of theoretically-informed analytic choices.</p>
-</section>
-<section id="data-and-methods" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="data-and-methods"><span class="header-section-number">3.2.2</span> Data and methods</h3>
-<p>Word embeddings are dense vector representations of words based on their contexts. These models were developed by natural language processing (NLP) researchers <span class="citation" data-cites="pennington2014glove">Mikolov et al. (<a href="references.html#ref-mikolov_efficient_2013" role="doc-biblioref">2013</a>)</span>, and have been imported into the social sciences, especially cultural sociology and political science (e.g.&nbsp;Kozlowski). I use pretrained GloVe embeddings, rather than training models locally on the Usenet data set. Generally, prior social science researchers have found pretrained embeddings to be reasonably robust, stable, and generalizable <span class="citation" data-cites="stoltz_cultural_2020">Rodriguez and Spirling (<a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">2020</a>)</span>, and I find similarly in supplemental analyses.</p>
-<p>To measure engagement with community in at the level of individual Usenet posts, I use Concept Mover’s Distance <span class="citation" data-cites="stoltz_concept_2019">(<a href="references.html#ref-stoltz_concept_2019" role="doc-biblioref">Stoltz and Taylor 2019</a>)</span>. Concept Mover’s Distance is a sociological adaptation of Word Mover’s Distance <span class="citation" data-cites="kusner_word_2015">(<a href="references.html#ref-kusner_word_2015" role="doc-biblioref">Kusner et al. 2015</a>)</span>, which aggregates all of the word-level embeddings in a document and compares them to another. Because I use the Python implementation of Word Mover’s Distance in the gensim package, there are minor differences in the distance metric and algorithm; I expect the results reported below to be robust to such minor variations. I also do not standardize or invert the values I report.</p>
-<p>Usenet is a distributed system for sharing electronic messages which predates the contemporary Internet, organized into topical groups such as alt.atheism or rec.motorcycles. Some of these groups are reported to have had a strong sense of community, while others were known for their hostility <span class="citation" data-cites="baym_practice_1994 dame-griff_herding_2019">(<a href="references.html#ref-baym_practice_1994" role="doc-biblioref">Baym 1994</a>; <a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span>. This expected variation makes Usenet a compelling data source for analyzing how community-oriented different groups might be.</p>
-<p>The 20 Newsgroups data set was compiled in 1995 and consists of nearly 20,000 messages approximately evenly distributed across those 20 groups <span class="citation" data-cites="Lang95">(<a href="references.html#ref-Lang95" role="doc-biblioref">Lang 1995</a>)</span>. It is a purposive sample of groups collected to represent diverse topical categories, originally intended for machine learning classification research <span class="citation" data-cites="dai_semi-supervised_2015">(e.g. <a href="references.html#ref-dai_semi-supervised_2015" role="doc-biblioref">Dai and Le 2015</a>)</span> and also used as a teaching tool for topic modeling <span class="citation" data-cites="silge_text_2017">(e.g. <a href="references.html#ref-silge_text_2017" role="doc-biblioref">Silge and Robinson 2017</a>)</span>. These data are both convenient to obtain (through scikit-learn) and relevant, and so I repurpose them here for a more sociologically-oriented analysis.</p>
-</section>
-<section id="results" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="results"><span class="header-section-number">3.2.3</span> Results</h3>
-<p>I analyze what, exactly, about the meaning of community is encoded in an embedding model by examining how similar words are to each other, according to the cosine similarity of their vectors. Figure 1 shows this schematically with a small set of words I selected. The axes of the figure are “similarity to ‘community’” and “similarity to ‘individual.’” “Neighborhood,” for instance, is far more similar to “community” than to “individual.”</p>
-<p>More systematically, an initial qualitative analysis examining the nearest neighboring words to community (Figure 2) reveals both words related to geography (e.g.&nbsp;“local”, “area”, “residents”) and words related to <em>Gemeinschaft</em> (e.g.&nbsp;“organization”, “support”). PCA of a larger set of neighboring words (N = 100) reveals similar trends, and formal clustering or dimension-creation is a logical next step.</p>
-<p>In additional analyses, I show that the meaning of community is stable across corpora and over time. I follow Rodriguez and Stirling and confirm that the meaning of community has a moderately high correlation across embedding models pretrained on two independent data sources, Wikipedia and Twitter (Pearson correlation between cosine similarities = 0.636). I also confirm that the meaning of community is moderately stable over the course of the 20th century, using historical word embeddings pretrained with Google n-grams <span class="citation" data-cites="hamilton_diachronic_2016">(<a href="references.html#ref-hamilton_diachronic_2016" role="doc-biblioref">Hamilton et al. 2016</a>)</span>. These results increase my confidence that these pretrained embedding models encode a core definition of community and can be fruitfully applied to the Usenet data.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
-<p>Turning to those data, I apply Concept Mover’s Distance (CMD) to each of the posts from the 20 Usenet groups included in the data set (N = 18,296 posts in total). For now, I simply measure the distance of each post from the undifferentiated concept “community,” though I plan to difference out the geographic dimension of community in subsequent refinements of the analysis.</p>
-<p>The full distribution of CMD values in Figure 3 shows substantial overlap between Usenet groups, as well as substantial variation within groups. This is unsurprising, because each of these groups is a virtual community of some sort, and individual posts might be expected to vary in their tone and content substantially, just as individual experiences might vary.</p>
-<p>At the same time, the different Usenet groups do in fact differ substantially and significantly in the average closeness of their posts to the concept of “community.” Figure 4 shows the predicted mean CMD for each group (R<sup>2</sup> = 0.133, F = 147.17, p = 0.0). This simple statistical test shows that a small but substantial proportion of the variation in CMD is variation between different Usenet groups, rather than variation within groups. In some cases, this variation is in line with what we might expect topically: religion groups are more community-like, the forsale group is the least. In other cases, such as politics or sports, it may be that the specific norms and tone of the communities serve to generate a sense of community, regardless of how contentious or communal the topic might be.</p>
-<div class="quarto-figure quarto-figure-center">
+<p>This approach offers clear, stable rankings and comparisons, showing that “community” in the generic sense is equally similar to both geography and Gemeinschaft, and less so to identity, while “community” as used in soc.motss carries stronger connotations of identity, roughly comparable connotations of Gemeinschaft, and weaker connotations of geography.</p>
+<!-- ::: {#fig-comparison layout-ncol=1} -->
+<div id="fig-semantic" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="img/discourse/community_projection2.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">2-dimensional projection of word similarities</figcaption><p></p>
+<p><img src="img/discourse/motss_semantic_similarity_comparison.png" class="img-fluid figure-img" style="width:95.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.8: “Community” embeddings from GloVe (Wikipedia 2014 + Gigaword 5) model and word2vec soc.motss (Usenet) model compared to semantic dimension vectors based on averages of 10 words.</figcaption><p></p>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-orthogonal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="img/discourse/community_top20.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Most similar words to “community”, N = 20</figcaption><p></p>
+<p><img src="img/discourse/motss_orthogonal_comparison.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.9: “Community” embeddings from GloVe (Wikipedia 2014 + Gigaword 5) model and word2vec soc.motss (Usenet) model compared to orthogonal projections of GloVe “community” embedding away from semantic dimensions.</figcaption><p></p>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/discourse/usenet_cmd_full.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Full distribution of CMD values for 20 Newsgroups</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/discourse/usenet_cmd_predicted.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Usenet groups differ in their average sense of community</figcaption><p></p>
-</figure>
-</div>
+<!-- Semantic change in the meaning of "community" between GloVe and soc.motss models, based on three semantic dimensions.
+::: -->
+<p>To bring everything together and confirm that result, the final piece involves applying the orthogonal projections from the end of the previous section. These come from the GloVe model alone, and I compare them to the “community” embeddings from both models in <a href="#fig-orthogonal">Figure&nbsp;<span>3.9</span></a>. For reference, I also compare the two “community” embeddings themselves in the third row of the figure. As shown above, both orthogonal projections of the GloVe “community” embedding – away from the Gemeinschaft words and away from the geography words – retain high cosine similarities to the original vector, 0.810 and 0.804 respectively. This is not the case for the soc.motss “community” embedding, which is markedly less similar to community-without-Gemeinschaft (or, community-as-geography), with a similarity of 0.374 (0294-0.393). By contrast, it remains equally similar to community-without-geography (or, community-as-Gemeinschaft) as it is to the GloVe “community” embedding overall, with similarities of 0.510 (0.451-0.523) and 0.508 (0.440-0.529) respectively. This is a different way of looking at the problem of semantic similarity and semantic change, and it has implications for using GloVe vectors as a measurement tool that I will explore in the next chapter.</p>
+</section>
+</section>
+<section id="discussion" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="discussion"><span class="header-section-number">3.5</span> Discussion</h2>
+<p>The structure of meaning around “community” in the generic GloVe embeddings shows, mathematically, how the word bundles and links together two sets of connotations: on the one hand spatial or geographic, and on the other hand social or <em>gemeinschaftlich</em>. This dual structure might appear intuitive, but it wasn’t predictable in advance.</p>
+<p>At the same time, this structure doesn’t fully carry over into the local context of an LGBTQ virtual community. In soc.motss, the meaning of community is not totally alien or unrecognizable from the generic meaning (and why would it be?), but it is clearly distinct. Across both contexts, the sociological element of community is present in everyday usage. In the soc.motss corpus, “community” retains the <em>Gemeinschaft</em> connotations of social organization and groupness, but incorporates markedly less of the geographic or spatial connotations of community. Instead, it substitutes language related to LGBTQ identities. This case is notable in part because it comes from a time period where groups like soc.motss were proving that virtual community was in fact possible <span class="citation" data-cites="rheingold_virtual_2000">(<a href="references.html#ref-rheingold_virtual_2000" role="doc-biblioref">Rheingold 2000</a>)</span>, and it affirms the presence and visibility of LGBTQ community to that process.</p>
+<p>Potential limitations of this work relate to robustness, scope, and generalization.While I am convinced that the findings I present here are robust, a key limitation of any text analysis work centers around corpus and model quality. It would be possible to do even more to evaluate the stability and viability of the locally-trained embeddings <span class="citation" data-cites="antoniak_evaluating_2018-1">(see <a href="references.html#ref-antoniak_evaluating_2018-1" role="doc-biblioref">Antoniak and Mimno 2018</a>)</span>, or to incorporate corpora from additional groups – although there is little evidence from prior work to expect that the results would differ dramatically <span class="citation" data-cites="dame-griff_herding_2019">(<a href="references.html#ref-dame-griff_herding_2019" role="doc-biblioref">Dame-Griff 2019</a>)</span>. This work also demonstrates that there is some payoff to closely interrogating the embedding representation of a single word, provided that the associated concept has enough theoretical and empirical complexity to warrant a close read. The downside, then, is that generalizing to other complex concepts is inherently slow and requires interpretative work.</p>
+<p>This chapter analyzed the meaning of “community” at a discursive and cultural level. While I qualitatively contextualized the social environment of Usenet and the soc.motss newsgroup, I didn’t explicitly connect any social characteristics to discourse about “community.” In the following chapter, I will attempt to characterize the structural, relational, and interactional characteristics of group conversations that invoke the idea of community.</p>
+</section>
+<section id="acknowledgments" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">3.6</span> Acknowledgments</h2>
+<p>I thank Avery Dame-Griff for sharing code, advice, and encouragement for working with Usenet archives, and Steve Goodreau for the initial suggestion to look more closely at soc.motss in particular. Previous versions of this chapter received generous feedback from the Community Data Science Collective and the Metaphors and Meaning roundtable at ASA 2021.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-albishre_effective_2015" class="csl-entry" role="doc-biblioentry">
-Albishre, K., M. Albathan, and Y. Li. 2015. <span>“Effective 20 <span>Newsgroups Dataset Cleaning</span>.”</span> Pp. 98–101 in <em>2015 <span>IEEE</span>/<span>WIC</span>/<span>ACM International Conference</span> on <span>Web Intelligence</span> and <span>Intelligent Agent Technology</span> (<span>WI-IAT</span>)</em>. Vol. 3. doi: <a href="https://doi.org/10.1109/WI-IAT.2015.90">10.1109/WI-IAT.2015.90</a>.
+<div id="ref-antoniak_evaluating_2018-1" class="csl-entry" role="doc-biblioentry">
+Antoniak, Maria, and David Mimno. 2018. <span>“Evaluating the <span>Stability</span> of <span class="nocase">Embedding-based Word Similarities</span>.”</span> <em>Transactions of the Association for Computational Linguistics</em> 6:107–19. doi: <a href="https://doi.org/10.1162/tacl_a_00008">10.1162/tacl_a_00008</a>.
 </div>
 <div id="ref-arseniev-koehler_machine_2022" class="csl-entry" role="doc-biblioentry">
 Arseniev-Koehler, Alina, and Jacob G. Foster. 2022. <span>“Machine <span>Learning</span> as a <span>Model</span> for <span>Cultural Learning</span>: <span>Teaching</span> an <span>Algorithm What</span> It <span>Means</span> to Be <span>Fat</span>.”</span> <em>Sociological Methods &amp; Research</em> 51(4):1484–1539. doi: <a href="https://doi.org/10.1177/00491241221122603">10.1177/00491241221122603</a>.
+</div>
+<div id="ref-auerbach_first_2014" class="csl-entry" role="doc-biblioentry">
+Auerbach, David. 2014. <span>“The <span>First Gay Space</span> on the <span>Internet</span>.”</span> <em>Slate</em>, August 20. Retrieved April 21, 2023 (<a href="https://slate.com/technology/2014/08/online-gay-culture-and-soc-motss-how-a-usenet-group-anticipated-how-we-use-facebook-and-twitter-today.html">https://slate.com/technology/2014/08/online-gay-culture-and-soc-motss-how-a-usenet-group-anticipated-how-we-use-facebook-and-twitter-today.html</a>).
 </div>
 <div id="ref-bamman_distributed_2014" class="csl-entry" role="doc-biblioentry">
 Bamman, David, Chris Dyer, and Noah A. Smith. 2014. <span>“Distributed <span>Representations</span> of <span>Geographically Situated Language</span>.”</span> Pp. 828–34 in <em>Proceedings of the 52nd <span>Annual Meeting</span> of the <span>Association</span> for <span>Computational Linguistics</span> (<span>Volume</span> 2: <span>Short Papers</span>)</em>. <span>Baltimore, Maryland</span>: <span>Association for Computational Linguistics</span>. doi: <a href="https://doi.org/10.3115/v1/P14-2134">10.3115/v1/P14-2134</a>.
@@ -356,6 +784,12 @@ Boessen, Adam, John R. Hipp, Emily J. Smith, Carter T. Butts, Nicholas N. Nagle,
 <div id="ref-bowker_sorting_2000" class="csl-entry" role="doc-biblioentry">
 Bowker, Geoffrey C., and Susan Leigh Star. 2000. <em>Sorting <span>Things Out</span>: <span>Classification</span> and <span>Its Consequences</span></em>. n edition edition. <span>Cambridge, Massachusetts London, England</span>: <span>The MIT Press</span>.
 </div>
+<div id="ref-boyd_its_2014" class="csl-entry" role="doc-biblioentry">
+boyd, danah. 2014. <em>It’s <span>Complicated</span>: <span>The Social Lives</span> of <span>Networked Teens</span></em>. <span>New Haven</span>: <span>Yale University Press</span>.
+</div>
+<div id="ref-boyd_what_2015" class="csl-entry" role="doc-biblioentry">
+boyd, danah. 2015.<span>“<a href="http://www.danah.org/papers/talks/2015/ParkerLecture.html">What <span>World Are We Building</span>?</a>”</span> Presented at the Everett <span>C Parker Lecture</span>, October 20, <span>Washington, DC</span>.
+</div>
 <div id="ref-brandt_abductive_2021" class="csl-entry" role="doc-biblioentry">
 Brandt, Philipp, and Stefan Timmermans. 2021. <span>“Abductive <span>Logic</span> of <span>Inquiry</span> for <span>Quantitative Research</span> in the <span>Digital Age</span>.”</span> <em>Sociological Science</em> 8:191–210. doi: <a href="https://doi.org/10.15195/v8.a10">10.15195/v8.a10</a>.
 </div>
@@ -365,14 +799,23 @@ Brint, Steven. 2001. <span>“<a href="https://www.jstor.org/stable/223289">Geme
 <div id="ref-bruckman_should_2022" class="csl-entry" role="doc-biblioentry">
 Bruckman, Amy S. 2022. <em><a href="https://doi.org/10.1017/9781108780704">Should <span>You Believe Wikipedia</span>?: <span>Online Communities</span> and the <span>Construction</span> of <span>Knowledge</span></a></em>. <span>Cambridge</span>: <span>Cambridge University Press</span>.
 </div>
+<div id="ref-calhoun_community_1998" class="csl-entry" role="doc-biblioentry">
+Calhoun, Craig. 1998. <span>“Community Without <span>Propinquity Revisited</span>: <span>Communications Technology</span> and the <span>Transformation</span> of the <span>Urban Public Sphere</span>.”</span> <em>Sociological Inquiry</em> 68(3):373–97. doi: <a href="https://doi.org/10.1111/j.1475-682X.1998.tb00474.x">10.1111/j.1475-682X.1998.tb00474.x</a>.
+</div>
 <div id="ref-caliskan_semantics_2017" class="csl-entry" role="doc-biblioentry">
 Caliskan, Aylin, Joanna J. Bryson, and Arvind Narayanan. 2017. <span>“Semantics Derived Automatically from Language Corpora Contain Human-Like Biases.”</span> <em>Science</em> 356(6334):183–86. doi: <a href="https://doi.org/10.1126/science.aal4230">10.1126/science.aal4230</a>.
 </div>
-<div id="ref-dai_semi-supervised_2015" class="csl-entry" role="doc-biblioentry">
-Dai, Andrew M., and Quoc V. Le. 2015. <span>“<a href="https://arxiv.org/abs/1511.01432v1">Semi-Supervised <span>Sequence Learning</span></a>.”</span>
+<div id="ref-dame-griff_archiving_2017" class="csl-entry" role="doc-biblioentry">
+Dame-Griff, Avery. 2017. <span>“Archiving <span>Usenet</span>: <span>Adopting</span> an <span>Ethics</span> of <span>Care</span>.”</span> Retrieved April 20, 2023 (<a href="https://mith.umd.edu/news/archiving-usenet-adopting-ethics-care/">https://mith.umd.edu/news/archiving-usenet-adopting-ethics-care/</a>).
 </div>
 <div id="ref-dame-griff_herding_2019" class="csl-entry" role="doc-biblioentry">
 Dame-Griff, Avery. 2019. <span>“Herding the <span>‘<span>Performing Elephants</span>:’</span> <span>Using Computational Methods</span> to <span>Study Usenet</span>.”</span> <em>Internet Histories</em> 3(3-4):223–44. doi: <a href="https://doi.org/10.1080/24701475.2019.1652456">10.1080/24701475.2019.1652456</a>.
+</div>
+<div id="ref-denny_assessing_2016" class="csl-entry" role="doc-biblioentry">
+Denny, Matthew James, and Arthur Spirling. 2016. <em><a href="http://papers.ssrn.com/abstract=2849145">Assessing the <span>Consequences</span> of <span>Text Preprocessing Decisions</span></a></em>. <em>SSRN Scholarly Paper</em>. ID 2849145. <span>Rochester, NY</span>: <span>Social Science Research Network</span>.
+</div>
+<div id="ref-dimaggio_interaction_2018" class="csl-entry" role="doc-biblioentry">
+DiMaggio, Paul, Clark Bernier, Charles Heckscher, and David Mimno. 2018. <span>“Interaction <span>Ritual Threads</span>: <span>Does IRC Theory Apply Online</span>?”</span> P. 50 in <em>Ritual, emotion, violence: Studies on the micro-sociology of <span>Randall Collins</span></em>.
 </div>
 <div id="ref-douglas_purity_1966" class="csl-entry" role="doc-biblioentry">
 Douglas, Mary. 1966. <em><a href="https://books.google.com?id=MTm1AAAAIAAJ">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em>. <span>Routledge &amp; K. Paul</span>.
@@ -383,8 +826,17 @@ Driskell, Robyn Bateman, and Larry Lyon. 2002. <span>“Are <span>Virtual Commun
 <div id="ref-durkheim_elementary_2001" class="csl-entry" role="doc-biblioentry">
 Durkheim, Émile. [1912] 2001. <em>The <span>Elementary Forms</span> of <span>Religious Life</span></em>. <span>Oxford University Press</span>.
 </div>
+<div id="ref-dym_coming_2019" class="csl-entry" role="doc-biblioentry">
+Dym, Brianna, Jed R. Brubaker, Casey Fiesler, and Bryan Semaan. 2019. <span>“"<span>Coming Out Okay</span>": <span>Community Narratives</span> for <span>LGBTQ Identity Recovery Work</span>.”</span> <em>Proceedings of the ACM on Human-Computer Interaction</em> 3:1–28. doi: <a href="https://doi.org/10.1145/3359256">10.1145/3359256</a>.
+</div>
+<div id="ref-eliasoph_culture_2003" class="csl-entry" role="doc-biblioentry">
+Eliasoph, Nina, and Paul Lichterman. 2003. <span>“Culture in <span>Interaction</span>.”</span> <em>American Journal of Sociology</em> 108(4):735–94. doi: <a href="https://doi.org/10.1086/367920">10.1086/367920</a>.
+</div>
 <div id="ref-firth_synopsis_1957" class="csl-entry" role="doc-biblioentry">
 Firth, John R. 1957. <span>“<a href="https://cir.nii.ac.jp/crid/1570854175539816192">A Synopsis of Linguistic Theory, 1930-1955</a>.”</span> <em>Studies in Linguistic Analysis</em>.
+</div>
+<div id="ref-frost_measuring_2012" class="csl-entry" role="doc-biblioentry">
+Frost, David M., and Ilan H. Meyer. 2012. <span>“Measuring <span>Community Connectedness</span> Among <span>Diverse Sexual Minority Populations</span>.”</span> <em>Journal of Sex Research</em> 49(1):36–49. doi: <a href="https://doi.org/10.1080/00224499.2011.565427">10.1080/00224499.2011.565427</a>.
 </div>
 <div id="ref-garg_word_2017" class="csl-entry" role="doc-biblioentry">
 Garg, Nikhil, Londa Schiebinger, Dan Jurafsky, and James Zou. 2017. <span>“<a href="http://arxiv.org/abs/1711.08412">Word <span>Embeddings Quantify</span> 100 <span>Years</span> of <span>Gender</span> and <span>Ethnic Stereotypes</span></a>.”</span>
@@ -392,8 +844,14 @@ Garg, Nikhil, Londa Schiebinger, Dan Jurafsky, and James Zou. 2017. <span>“<a 
 <div id="ref-gonen_lipstick_2019" class="csl-entry" role="doc-biblioentry">
 Gonen, Hila, and Yoav Goldberg. 2019. <span>“<a href="http://arxiv.org/abs/1903.03862">Lipstick on a <span>Pig</span>: <span>Debiasing Methods Cover</span> up <span>Systematic Gender Biases</span> in <span>Word Embeddings But</span> Do Not <span>Remove Them</span></a>.”</span>
 </div>
+<div id="ref-hamilton_cultural_2016" class="csl-entry" role="doc-biblioentry">
+Hamilton, William L., Jure Leskovec, and Dan Jurafsky. 2016a. <span>“<a href="http://arxiv.org/abs/1606.02821">Cultural <span>Shift</span> or <span>Linguistic Drift</span>? <span>Comparing Two Computational Measures</span> of <span>Semantic Change</span></a>.”</span>
+</div>
 <div id="ref-hamilton_diachronic_2016" class="csl-entry" role="doc-biblioentry">
-Hamilton, William L., Jure Leskovec, and Dan Jurafsky. 2016. <span>“<a href="http://arxiv.org/abs/1605.09096">Diachronic <span>Word Embeddings Reveal Statistical Laws</span> of <span>Semantic Change</span></a>.”</span>
+Hamilton, William L., Jure Leskovec, and Dan Jurafsky. 2016b. <span>“<a href="http://arxiv.org/abs/1605.09096">Diachronic <span>Word Embeddings Reveal Statistical Laws</span> of <span>Semantic Change</span></a>.”</span>
+</div>
+<div id="ref-hampton_neighboring_2003" class="csl-entry" role="doc-biblioentry">
+Hampton, Keith, and Barry Wellman. 2003. <span>“Neighboring in <span>Netville</span>: <span>How</span> the <span>Internet Supports Community</span> and <span>Social Capital</span> in a <span>Wired Suburb</span>.”</span> <em>City &amp; Community</em> 2(4):277–311. doi: <a href="https://doi.org/10.1046/j.1535-6841.2003.00057.x">10.1046/j.1535-6841.2003.00057.x</a>.
 </div>
 <div id="ref-hargittai_mind_2015" class="csl-entry" role="doc-biblioentry">
 Hargittai, Eszter, and Aaron Shaw. 2015. <span>“Mind the Skills Gap: The Role of <span>Internet</span> Know-How and Gender in Differentiated Contributions to <span>Wikipedia</span>.”</span> <em>Information, Communication &amp; Society</em> 18(4):424–42. doi: <a href="https://doi.org/10.1080/1369118X.2014.957711">10.1080/1369118X.2014.957711</a>.
@@ -401,14 +859,11 @@ Hargittai, Eszter, and Aaron Shaw. 2015. <span>“Mind the Skills Gap: The Role 
 <div id="ref-jones_stereotypical_2020" class="csl-entry" role="doc-biblioentry">
 Jones, Jason, Mohammad Amin, Jessica Kim, and Steven Skiena. 2020. <span>“Stereotypical <span>Gender Associations</span> in <span>Language Have Decreased Over Time</span>.”</span> <em>Sociological Science</em> 7:1–35. doi: <a href="https://doi.org/10.15195/v7.a1">10.15195/v7.a1</a>.
 </div>
-<div id="ref-kim_how_2022" class="csl-entry" role="doc-biblioentry">
-Kim, Jae Yeon. 2022. <span>“How <span>Other Minorities Gained Access</span>: <span>The War</span> on <span>Poverty</span> and <span>Asian American</span> and <span>Latino Community Organizing</span>.”</span> <em>Political Research Quarterly</em> 75(1):89–102. doi: <a href="https://doi.org/10.1177/1065912920983456">10.1177/1065912920983456</a>.
-</div>
 <div id="ref-kozlowski_geometry_2019" class="csl-entry" role="doc-biblioentry">
 Kozlowski, Austin C., Matt Taddy, and James A. Evans. 2019. <span>“The <span>Geometry</span> of <span>Culture</span>: <span>Analyzing</span> the <span>Meanings</span> of <span>Class</span> Through <span>Word Embeddings</span>.”</span> <em>American Sociological Review</em> 0003122419877135. doi: <a href="https://doi.org/10.1177/0003122419877135">10.1177/0003122419877135</a>.
 </div>
-<div id="ref-kusner_word_2015" class="csl-entry" role="doc-biblioentry">
-Kusner, Matt J., Yu Sun, Nicholas I. Kolkin, and Kilian Q. Weinberger. 2015. <span>“From <span>Word Embeddings To Document Distances</span>.”</span> 10.
+<div id="ref-kulkarni_statistically_2015" class="csl-entry" role="doc-biblioentry">
+Kulkarni, Vivek, Rami Al-Rfou, Bryan Perozzi, and Steven Skiena. 2015. <span>“Statistically <span>Significant Detection</span> of <span>Linguistic Change</span>.”</span> Pp. 625–35 in <em>Proceedings of the 24th <span>International Conference</span> on <span>World Wide Web</span> - <span>WWW</span> ’15</em>. <span>Florence, Italy</span>: <span>ACM Press</span>. doi: <a href="https://doi.org/10.1145/2736277.2741627">10.1145/2736277.2741627</a>.
 </div>
 <div id="ref-lakoff_women_2008" class="csl-entry" role="doc-biblioentry">
 Lakoff, George. [1987] 2008. <em><a href="https://books.google.com?id=CfCnzSF9de8C">Women, <span>Fire</span>, and <span>Dangerous Things</span>: <span>What Categories Reveal</span> about the <span>Mind</span></a></em>. <span>University of Chicago Press</span>.
@@ -431,8 +886,8 @@ Marx, Karl. [1848] 1972. <span>“The <span>Communist Manifesto</span>.”</span
 <div id="ref-mcculloch_because_2019" class="csl-entry" role="doc-biblioentry">
 McCulloch, Gretchen. 2019. <em><a href="https://books.google.com?id=Tfo5DwAAQBAJ">Because <span>Internet</span>: <span>Understanding</span> the <span>New Rules</span> of <span>Language</span></a></em>. <span>Penguin</span>.
 </div>
-<div id="ref-mendelsohn_framework_2020" class="csl-entry" role="doc-biblioentry">
-Mendelsohn, Julia, Yulia Tsvetkov, and Dan Jurafsky. 2020. <span>“A <span>Framework</span> for the <span>Computational Linguistic Analysis</span> of <span>Dehumanization</span>.”</span> <em>Frontiers in Artificial Intelligence</em> 3. doi: <a href="https://doi.org/10.3389/frai.2020.00055">10.3389/frai.2020.00055</a>.
+<div id="ref-mehra_internet_2004" class="csl-entry" role="doc-biblioentry">
+Mehra, Bharat, Cecelia Merkel, and Ann Peterson Bishop. 2004. <span>“The Internet for Empowerment of Minority and Marginalized Users.”</span> <em>New Media &amp; Society</em> 6(6):781–802. doi: <a href="https://doi.org/10.1177/146144804047513">10.1177/146144804047513</a>.
 </div>
 <div id="ref-mikolov_efficient_2013" class="csl-entry" role="doc-biblioentry">
 Mikolov, Tomas, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. <span>“<a href="https://arxiv.org/abs/1301.3781v3">Efficient <span>Estimation</span> of <span>Word Representations</span> in <span>Vector Space</span></a>.”</span>
@@ -443,17 +898,20 @@ Monk, Ellis P. 2022. <span>“Inequality Without <span>Groups</span>: <span>Cont
 <div id="ref-nelson_computational_2017" class="csl-entry" role="doc-biblioentry">
 Nelson, Laura K. 2017. <span>“Computational <span>Grounded Theory</span>: <span>A Methodological Framework</span>.”</span> <em>Sociological Methods &amp; Research</em> 0049124117729703. doi: <a href="https://doi.org/10.1177/0049124117729703">10.1177/0049124117729703</a>.
 </div>
-<div id="ref-nelson_cycles_2021" class="csl-entry" role="doc-biblioentry">
-Nelson, Laura K. 2021a. <span>“Cycles of <span>Conflict</span>, a <span>Century</span> of <span>Continuity</span>: <span>The Impact</span> of <span>Persistent Place-Based Political Logics</span> on <span>Social Movement Strategy</span>.”</span> <em>American Journal of Sociology</em> 127(1):1–59. doi: <a href="https://doi.org/10.1086/714915">10.1086/714915</a>.
-</div>
 <div id="ref-nelson_leveraging_2021" class="csl-entry" role="doc-biblioentry">
-Nelson, Laura K. 2021b. <span>“Leveraging the Alignment Between Machine Learning and Intersectionality: <span>Using</span> Word Embeddings to Measure Intersectional Experiences of the Nineteenth Century <span>U</span>.<span>S</span>. <span>South</span>.”</span> <em>Poetics</em> 101539. doi: <a href="https://doi.org/10.1016/j.poetic.2021.101539">10.1016/j.poetic.2021.101539</a>.
+Nelson, Laura K. 2021. <span>“Leveraging the Alignment Between Machine Learning and Intersectionality: <span>Using</span> Word Embeddings to Measure Intersectional Experiences of the Nineteenth Century <span>U</span>.<span>S</span>. <span>South</span>.”</span> <em>Poetics</em> 101539. doi: <a href="https://doi.org/10.1016/j.poetic.2021.101539">10.1016/j.poetic.2021.101539</a>.
 </div>
-<div id="ref-pechenick_characterizing_2015" class="csl-entry" role="doc-biblioentry">
-Pechenick, Eitan Adam, Christopher M. Danforth, and Peter Sheridan Dodds. 2015. <span>“Characterizing the <span>Google Books Corpus</span>: <span>Strong Limits</span> to <span>Inferences</span> of <span>Socio-Cultural</span> and <span>Linguistic Evolution</span>.”</span> <em>PLOS ONE</em> 10(10):e0137041. doi: <a href="https://doi.org/10.1371/journal.pone.0137041">10.1371/journal.pone.0137041</a>.
+<div id="ref-orne_boystown_2017" class="csl-entry" role="doc-biblioentry">
+Orne, Jason. 2017. <em>Boystown: <span>Sex</span> and <span>Community</span> in <span>Chicago</span></em>. <span>Chicago ; London</span>: <span>University of Chicago Press</span>.
+</div>
+<div id="ref-scikit-learn" class="csl-entry" role="doc-biblioentry">
+Pedregosa, F., G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. 2011. <span>“Scikit-Learn: <span>Machine</span> Learning in <span>Python</span>.”</span> <em>Journal of Machine Learning Research</em> 12:2825–30.
 </div>
 <div id="ref-pennington2014glove" class="csl-entry" role="doc-biblioentry">
 Pennington, Jeffrey, Richard Socher, and Christopher D. Manning. 2014. <span>“<a href="http://www.aclweb.org/anthology/D14-1162"><span>GloVe</span>: <span>Global</span> Vectors for Word Representation</a>.”</span> Pp. 1532–43 in <em>Empirical methods in natural language processing (<span>EMNLP</span>)</em>.
+</div>
+<div id="ref-rehurek_lrec" class="csl-entry" role="doc-biblioentry">
+Řehůřek, Radim, and Petr Sojka. 2010. <span>“Software Framework for Topic Modelling with Large Corpora.”</span> Pp. 45–50 in <em>Proceedings of the <span>LREC</span> 2010 workshop on new challenges for <span>NLP</span> frameworks</em>. <span>Valletta, Malta</span>: <span>ELRA</span>.
 </div>
 <div id="ref-rheault_word_2020" class="csl-entry" role="doc-biblioentry">
 Rheault, Ludovic, and Christopher Cochrane. 2020. <span>“Word <span>Embeddings</span> for the <span>Analysis</span> of <span>Ideological Placement</span> in <span>Parliamentary Corpora</span>.”</span> <em>Political Analysis</em> 28(1):112–33. doi: <a href="https://doi.org/10.1017/pan.2019.26">10.1017/pan.2019.26</a>.
@@ -473,32 +931,14 @@ Sahlgren, Magnus. 2008. <span>“The Distributional Hypothesis.”</span> <em>It
 <div id="ref-saussure_cours_1972" class="csl-entry" role="doc-biblioentry">
 Saussure, Ferdinand de. [1916] 1972. <em><a href="https://books.google.com?id=sAVZAAAAMAAJ">Cours de linguistique générale</a></em>. <span>Paris</span>: <span>Payot</span>.
 </div>
-<div id="ref-shalaby_learning_2017" class="csl-entry" role="doc-biblioentry">
-Shalaby, Walid, and Wlodek Zadrozny. 2017. <span>“Learning <span>Concept Embeddings</span> for <span class="nocase">Efficient Bag-of-Concepts Densification</span>.”</span> doi: <a href="https://doi.org/10.1007/s10115-018-1321-8">10.1007/s10115-018-1321-8</a>.
-</div>
-<div id="ref-sia_tired_2020" class="csl-entry" role="doc-biblioentry">
-Sia, Suzanna, Ayush Dalmia, and Sabrina J. Mielke. 2020. <span>“<a href="http://arxiv.org/abs/2004.14914">Tired of <span>Topic Models</span>? <span>Clusters</span> of <span>Pretrained Word Embeddings Make</span> for <span>Fast</span> and <span>Good Topics</span> Too!</a>”</span>
-</div>
-<div id="ref-silge_text_2017" class="csl-entry" role="doc-biblioentry">
-Silge, Julia, and David Robinson. 2017. <em>Text <span>Mining</span> with <span>R</span>: <span>A Tidy Approach</span></em>. 1st edition. <span>Beijing ; Boston</span>: <span>O’Reilly Media</span>.
-</div>
 <div id="ref-soni_abolitionist_2021" class="csl-entry" role="doc-biblioentry">
 Soni, Sandeep, Lauren F. Klein, and Jacob Eisenstein. 2021. <span>“Abolitionist <span>Networks</span>: <span>Modeling Language Change</span> in <span>Nineteenth-Century Activist Newspapers</span>.”</span> <em>Journal of Cultural Analytics</em> 18841. doi: <a href="https://doi.org/10.22148/001c.18841">10.22148/001c.18841</a>.
-</div>
-<div id="ref-spiro_persistence_2016" class="csl-entry" role="doc-biblioentry">
-Spiro, Emma S., Zack W. Almquist, and Carter T. Butts. 2016. <span>“The <span>Persistence</span> of <span>Division</span>: <span>Geography</span>, <span>Institutions</span>, and <span>Online Friendship Ties</span>.”</span> <em>Socius: Sociological Research for a Dynamic World</em> 2:2378023116634340. doi: <a href="https://doi.org/10.1177/2378023116634340">10.1177/2378023116634340</a>.
-</div>
-<div id="ref-stoltz_concept_2019" class="csl-entry" role="doc-biblioentry">
-Stoltz, Dustin S., and Marshall A. Taylor. 2019. <span>“Concept <span>Mover</span>’s <span>Distance</span>: Measuring Concept Engagement via Word Embeddings in Texts.”</span> <em>Journal of Computational Social Science</em> 2(2):293–313. doi: <a href="https://doi.org/10.1007/s42001-019-00048-6">10.1007/s42001-019-00048-6</a>.
 </div>
 <div id="ref-stoltz_cultural_2020" class="csl-entry" role="doc-biblioentry">
 Stoltz, Dustin S., and Marshall A. Taylor. 2020. <em><a href="https://doi.org/10.31235/osf.io/5djcn">Cultural <span>Cartography</span> with <span>Word Embeddings</span></a></em>. <span>SocArXiv</span>.
 </div>
 <div id="ref-stoltz_cultural_2021" class="csl-entry" role="doc-biblioentry">
 Stoltz, Dustin S., and Marshall A. Taylor. 2021. <span>“Cultural Cartography with Word Embeddings.”</span> <em>Poetics</em> 88:101567. doi: <a href="https://doi.org/10.1016/j.poetic.2021.101567">10.1016/j.poetic.2021.101567</a>.
-</div>
-<div id="ref-tavory_summoned_2016" class="csl-entry" role="doc-biblioentry">
-Tavory, Iddo. 2016. <em><a href="https://books.google.com?id=vPIfswEACAAJ">Summoned: <span>Identification</span> and <span>Religious Life</span> in a <span>Jewish Neighborhood</span></a></em>. <span>University of Chicago Press</span>.
 </div>
 <div id="ref-taylor_integrating_2020" class="csl-entry" role="doc-biblioentry">
 Taylor, Marshall A., and Dustin S. Stoltz. 2020. <span>“Integrating <span>Semantic Directions</span> with <span>Concept Mover</span>’s <span>Distance</span> to <span>Measure Binary Concept Engagement</span>.”</span> 18.
@@ -509,14 +949,8 @@ Tönnies, Ferdinand. [1887] 2001. <em>Community and <span>Civil Society</span></
 <div id="ref-vaisey_structure_2007" class="csl-entry" role="doc-biblioentry">
 Vaisey, Stephen. 2007. <span>“<a href="http://www.jstor.org/stable/25472500">Structure, <span>Culture</span>, and <span>Community</span>: <span>The Search</span> for <span>Belonging</span> in 50 <span>Urban Communes</span></a>.”</span> <em>American Sociological Review</em> 72(6):851–73.
 </div>
-<div id="ref-van_loon_regional_2022" class="csl-entry" role="doc-biblioentry">
-van Loon, Austin, Salvatore Giorgi, Robb Willer, and Johannes Eichstaedt. 2022. <span>“<a href="http://arxiv.org/abs/2201.08451">Regional <span>Negative Bias</span> in <span class="nocase">Word Embeddings Predicts Racial Animus–but</span> Only via <span>Name Frequency</span></a>.”</span>
-</div>
 <div id="ref-vrana_16_2020" class="csl-entry" role="doc-biblioentry">
 Vrana, Adele Godoy, Anasuya Sengupta, and Siko Bouterse. 2020. <span>“<a href="https://wikipedia20.pubpub.org/pub/myb725ma/release/2">16 <span>Toward</span> a <span>Wikipedia For</span> and <span>From Us All</span></a>.”</span> in <em>::wikipedia @ 20</em>.
-</div>
-<div id="ref-wallach_topic_2006" class="csl-entry" role="doc-biblioentry">
-Wallach, Hanna M. 2006. <span>“Topic Modeling: Beyond Bag-of-Words.”</span> Pp. 977–84 in <em>Proceedings of the 23rd international conference on <span>Machine</span> learning - <span>ICML</span> ’06</em>. <span>Pittsburgh, Pennsylvania</span>: <span>ACM Press</span>. doi: <a href="https://doi.org/10.1145/1143844.1143967">10.1145/1143844.1143967</a>.
 </div>
 <div id="ref-waller_quantifying_2021" class="csl-entry" role="doc-biblioentry">
 Waller, Isaac, and Ashton Anderson. 2021. <span>“Quantifying Social Organization and Political Polarization in Online Platforms.”</span> <em>Nature</em> 1–5. doi: <a href="https://doi.org/10.1038/s41586-021-04167-x">10.1038/s41586-021-04167-x</a>.
@@ -527,23 +961,10 @@ Winer, Canton. 2020. <span>“Solidarity, <span>Disdain</span>, and the <span>Im
 <div id="ref-zerubavel_fine_2002" class="csl-entry" role="doc-biblioentry">
 Zerubavel, Eviatar. 2002. <span>“The <span>Fine Line</span>: <span>Making Distinctions</span> in <span>Everyday Life</span>.”</span> Pp. 223–32 in <em>Cultural <span>Sociology</span></em>, edited by L. Spillman. <span>Malden, MA</span>: <span>Wiley-Blackwell</span>.
 </div>
+<div id="ref-zerubavel_taken_2018" class="csl-entry" role="doc-biblioentry">
+Zerubavel, Eviatar. 2018. <em>Taken for <span>Granted</span>: <span>The Remarkable Power</span> of the <span>Unremarkable</span></em>. <span>Princeton ; Oxford</span>: <span>Princeton University Press</span>.
 </div>
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>I’ve <a href="https://ccgilroy.com/community-discourse/">experimented</a> with applying a toy version of half a dozen variations on word embedding methods to the word/concept of “community”. What I discuss here is what struck me as having the most potential.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Importantly, having multiple connotations is not quite the same thing as the pure linguistic phenomenon of polysemy <span class="citation" data-cites="hamilton_diachronic_2016">(<a href="references.html#ref-hamilton_diachronic_2016" role="doc-biblioref">Hamilton, Leskovec, and Jurafsky 2016</a>)</span>, where a word has two totally separate meanings that context clearly disambiguates (e.g.&nbsp;“river bank” and “money in the bank”).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>The size of the context “window” is an important parameter embeddings models can vary, as is the size of the vector representation that is output. For instance, 6 might be a reasonable window, 300 might be a reasonable embedding size <span class="citation" data-cites="pennington2014glove rodriguez_word_2020">(<a href="references.html#ref-pennington2014glove" role="doc-biblioref">Pennington, Socher, and Manning 2014</a>; <a href="references.html#ref-rodriguez_word_2020" role="doc-biblioref">Rodriguez and Spirling 2020</a>)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>When comparing embeddings models, there are methods to <em>align</em> the embeddings spaces to facilitate comparison.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>The mathematical reification of binary gender is one example where the shortcomings of binary axes are obvious; what if masculinity and femininity are thought of as orthogonal rather than opposed?<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>The 300 dimensions of the embeddings space encode a substantial amount of subtle information that is lost with dimensionality reduction, so the proportion of variance explained by the first several dimensions is relatively low. <span class="citation" data-cites="kozlowski_geometry_2019">Kozlowski et al. (<a href="references.html#ref-kozlowski_geometry_2019" role="doc-biblioref">2019</a>)</span> have shown similar results in an experiment with PCA and with explicit cultural dimensions.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>My results are robust to two checks: first, using 100 neighboring words instead of 100; second, using a separate set of embeddings trained from Twitter rather than Wikipedia data, using the same GloVe method.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>Stoltz and Taylor say “engage with” a concept instead of “resonate,” but I think they imply too much intentionality.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p>In a similar vein, contextual embeddings models like BERT also offer a separate, distinct way to study local variation – but with even greater reliance on a complex pretrained black-box model derived from large data sets.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10"><p>These supplementary analyses can be viewed at https://ccgilroy.github.io/community-discourse/<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -1,0 +1,15 @@
+project:
+  output-dir: chapter-discourse
+
+book:
+  title: "Geography or Gemeinschaft?"
+  subtitle: "Disentangling the meaning of \"community\" through word embeddings"
+  output-file: "gilroy-discourse-chapter"
+  chapters:
+    - index.qmd
+    - discourse.qmd
+    - references.qmd
+
+format: 
+  pdf: 
+    toc: false
