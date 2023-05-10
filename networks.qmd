@@ -107,7 +107,19 @@ I construct measures of community talk from the text of the Reddit comments. Due
 
 Rather than construct a latent continuous measure of distance from the concept of "community," represented through its GloVe word embedding [@pennington2014glove], for each comment, a simpler approach might measure the comments that explicit reference "community" (or "communities"). To contextualize this analytic choice, there is a methodological debate within the literature on computation text analysis for social science, about whether to measure surface-level, explicit keywords or latent, implicit meanings, and about the tradeoffs between each family of approaches [@stoltz_cultural_2021]. In the context of morality, @kennedy_moral_2021 use averages of word embeddings instead of WMD, but also provide evidence in favor of embeddings approaches over explicit lexicon-based approaches. For many instances where measuring culture through the meanings of text [@mohr_measuring_2020] is the desired aim, I tend to agree that the latter is more appropriate. I described and used such an approach with word-level embeddings in the previous chapter. However, as I will show, issues arise when moving from single-word embeddings to overarching document-level measures. Because of this, I choose to compare both explicit and implicit measurement approaches here.
 
-I obtain subreddit data through ConvoKit [@chang_convokit_2020], a Python-based toolkit for retrieving and analyzing conversation-based data sets. While I do not use many of the conversation-specific features of the toolkit, the format is ideal for extracting interaction and their metadata, making it easy to retrieve both textual data and the interaction network structure. (A limitation of this choice is that it would be hard to automatically generalize my data processing code to Reddit data stored in a more typical database format.) I calculate Word Mover's Distance using gensim [CITE]. I transform interaction pairs into a network and calculate network statistics using igraph [CITE]. Following @lucy_characterizing_2021, I use closeness centrality as my key measure of user embeddedness in the subreddit conversation networks. (By contrast, @foote_communication_2023 look at inequality in *betweenness* centrality. These two measures, plus eigenvector centrality, do not give consistent results.) Unlike @lucy_characterizing_2021, I do not restrict the user networks to the 20% of users who are most active; instead, I subset to users within the largest connected component of each of the networks. (This drops the number of users in each subreddit considerably, but users outside the largest component are almost all singletons with minimal  activity in the group.) I report subreddit descriptive statistics in [TABLE ID].
+I obtain subreddit data through ConvoKit [@chang_convokit_2020], a Python-based toolkit for retrieving and analyzing conversation-based data sets. While I do not use many of the conversation-specific features of the toolkit, the format is ideal for extracting interaction and their metadata, making it easy to retrieve both textual data and the interaction network structure. (A limitation of this choice is that it would be hard to automatically generalize my data processing code to Reddit data stored in a more typical database format.) I calculate Word Mover's Distance using gensim [CITE]. I transform interaction pairs into a network and calculate network statistics using igraph [CITE], dropping deleted users and the AutoModerator (a bot). Following @lucy_characterizing_2021, I use closeness centrality as my key measure of user embeddedness in the subreddit conversation networks. (By contrast, @foote_communication_2023 look at inequality in *betweenness* centrality. These two measures, plus eigenvector centrality, do not give consistent results.) Unlike @lucy_characterizing_2021, I do not restrict the user networks to the 20% of users who are most active; instead, I subset to users within the largest connected component of each of the networks. (This drops the number of users in each subreddit considerably, but users outside the largest component are almost all singletons with minimal activity in the group.) 
+
+One key measurement issue makes it difficult to use Word Mover's Distance from "community" as the sole outcome measure. When calculated at the comment level, Word Mover's Distance exhibits a systematic variation in a way that appears to make it ill-suited for statistically modeling with other variables. Specifically, short texts, especially one- or two-word texts, exhibit very high variability; longer texts converge to roughly the average value overall. This makes theoretical sense when WMD is used to compare a variable-length document to a one-word concept, as @stoltz_concept_2019 do with their Concept Mover's Distance adaptation of the measure: WMD measures the effort it would take to transform one text into another, normalized for document length; in this view, single words can be quite far apart. Longer texts are a sort of average of all the words they can contain; the longer the document, the closer it becomes to what might be an average distance from, perhaps, the corpus overall. Variation washes out. I suspect this issue has not been previously reported because prior work has compared texts of roughly similar sizes, e.g., sentences, speeches, or books [@stoltz_concept_2019], and has compared relatively few documents. Reddit comments are highly variable in length -- many are only a few tokens long, while some stretch to thousands of words, and there are millions to compare. This makes the problem quite visible, as shown in [FIGURE ID]. A simple correction might be to use weighted least squares and weight longer comments more highly; more advanced approaches might incorporate and estimate that heteroskedasticity within the model itself. Still, this ignores something fundamental about the measure itself, with no obvious solution.
+
+![](img/networks/funnel.png)
+
+Similarly, when I average WMD values across a user's comments, the same phenomenon occurs; users with more comments have converging average WMD values. In this case, I use weighted least squares weighted by the number of comments per user. (In modeling the explicit use of "community," I control for the number of comments instead; I explore controling for average comment length.) Moreover, the network measures are calculated at the user level, meaning that differences (especially for explicit mentions of community) are diminished at the comment level. Even for users who talk about community frequently, most of their comments will not include the word. 
+
+With all of these considerations in mind, I present user-level models below. In addition to using weighted least squares to model WMD by user closeness centrality and subreddit, I use logistic regression to model the probability that a user ever writes "community" in any comment and negative binomial regression to model the number of times a user writes comments with the word "community." (Given that the majority of users do not write about community explicitly, a zero-inflated model would be theoretically justified, but model fit metrics do not support this additional complexity.) While initially I fit separate models for each subreddit, in the final results I present a pooled model with centrality by subreddit interaction terms, which are generally warranted by measures of model fit.
+
+## Results
+
+[TABLE ID] reports descriptive statistics for each subreddit. 
 
 In table, present: 
 
@@ -115,43 +127,58 @@ In table, present:
 
 - N connected users, edges, density, avg closeness centrality
 
-One key measurement issue makes it difficult to use Word Mover's Distance from "community" as the sole outcome measure. When calculated at the comment level, Word Mover's Distance exhibits a systematic variation in a way that appears to make it ill-suited for statistically modeling with other variables. Specifically, short texts, especially one- or two-word texts, exhibit very high variability; longer texts converge to roughly the average value overall. This makes theoretical sense when WMD is used to compare a variable-length document to a one-word concept, as @stoltz_concept_2019 do with their Concept Mover's Distance adaptation of the measure: WMD measures the effort it would take to transform one text into another, normalized for document length; in this view, single words can be quite far apart. Longer texts are a sort of average of all the words they can contain; the longer the document, the closer it becomes to what might be an average distance from, perhaps, the corpus overall. Variation washes out. I suspect this issue has not been previously reported because prior work has compared texts of roughly similar sizes, e.g., sentences, speeches, or books [@stoltz_concept_2019], and has compared relatively few documents. Reddit comments are highly variable in length -- many are only a few tokens long, while some stretch to thousands of words, and there are millions to compare. This makes the problem quite visible, as shown in [FIGURE ID]. A simple correction might be to use weighted least squares and weight longer comments more highly; more advanced approaches might incorporate and estimate that heteroskedasticity within the model itself. Still, this ignores something fundamental about the measure itself, with no obvious solution.
+I first present model results for one large subreddit as an example, and then show the full range. While r/lgbt has more users and is the most general, r/gaybros has more comments and more edges, and thus more overall activity. Only the r/ask* subreddits (r/askgaybros and r/asktransgender) are more active, but these are intrinsically oriented toward question-answering and discussion rather than community-building per se, so it makes sense to treat them as distinct rather than representative. In any case, r/lgbt and r/gaybros show generally similar trends -- which is not true for all of the remaining nine. In another signal of the robustness of my findings, the two measures of community talk, explicit and implicit, are often consistent. As with the other trends, this does not necessarily generalize to the full set of subreddits.
 
-![](img/networks/funnel.png)
+The models control for the number of comments per user, logged. In the context of the negative binomial model, this means that the outcome can be considered approximately as rates rather than counts. (Fixing the coefficient for log(number of comments) at 1 as an offset would be a true rate, but estimating the coefficient results in a better model fit.) This control is essential because a user's closeness centrality and number of comments are highly correlated. As [FIGURE ID] shows, there is still sufficient conditional variation to model. (However, bear in mind the constrained conditional range when viewing the model prediction figures below, which means that some predictions are beyond the scale observed in the actual data.) Other controls I considered, average comment length and membership duration, did not affect estimates of the closeness centrality coefficient, and so I exclude them here.
 
-Similarly, when I average WMD values across a user's comments, the same phenomenon occurs; users with more comments have converging average WMD values. In this case, I use weighted least squares weighted by the number of comments per user. (In modeling the explicit use of "community," I control for the number of comments instead; I explore controling for average comment length.) Moreover, the network measures are calculated at the user level, meaning that differences (especially for explicit mentions of community) are diminished at the comment level. Even for users who talk about community frequently, most of their comments will not include the word. With all of these considerations in mind, I present user-level models below.
+As is typical for online communities, the distribution of user activity is highly skewed, with a handful of users providing the bulk of interactions and many contributing only once. Accordingly, I illustrate predicted values by closeness centrality with the number of comments held at the median (6), mean (30), and 95th percentile (113) values for members of r/gaybros. [FIGURE ID] shows the results for the three models: one of implicit Word Mover's Distance from "community," and two predicting whether a user explicitly mentions community. At n = 30 comments, an increase in closeness centrality from 0.2 to 0.3 increases a user's probability of ever mentioning "community" from 25% to 31%. At n = 113, a user is predicted to mention community 1.17 times at a closeness centrality of 0.2, and 1.52 times at a closeness centrality of 0.3. The implicit community results are consistent; the average WMD of a user's comments from "community" declines as the user's centrality increases, although the meaning of the decrease is not as concrete to interpret.
 
-## Results
+[TODO: combine three figures into panels of one figure.]
 
-I present one large subreddit as an example, and then show the full range. While r/lgbt has more users, r/gaybros has more comments and more edges. These two subreddits show generally similar trends -- which is not true for all of the remaining nine. In other positive news for the robustness of my findings, the two measures of community talk, explicit and implicit, are often consistent -- but not always.
+Modeled at the comment level, results are much less interpretable. There is no association with closeness centrality in a logistic regression of explicit community mentions -- which makes sense, given that users who mention community will also have comments where they do not. There appears to be a small *positive* association between closeness centrality and Word Mover's Distance from community ($\beta$ = 0.002), in a linear model weighted by comment length; this is an order of magnitude smaller than the user-level coefficient ($\beta$ = -0.029), and so it is substantively unimportant. That the result is not consistent with the user-averaged finding suggests that weighting and aggregating may not have overcome the mathematical issues inherent in the funnel-shaped distribution of WMD values. Because these results are difficult to interpret, and because there are millions of comments across all of these subreddits, I do not pursue a pooled model at the comment level.
 
-Logistic regression: does a user ever use the word community in a comment?
+I next present results from combined models of all 11 subreddits, allowing coefficients and levels to vary by subreddit with interaction terms. Here I show predicted values by subreddit and closeness centrality with the number of comments fixed at 30, the mean for r/gaybros (which is, again, one of the most active subreddits). While users may actually overlap between subreddits, centralities and text measures are calculated on a per-group basis, meaning that observations are actually user by subreddit. [FIGURE ID] shows predicted probabilities from a logistic regression of whether a user ever mentions "community" in a comment. [FIGURE ID] shows predicted counts of the number of comments mentioning community that a user makes (again, effectively rates, given that a user's total number of comments is controlled for). Finally, [FIGURE ID] shows predicted WMD from "community" in a linear regression weighted by number of comments.
+
+Logistic regression: does a user ever use the word "community" in a comment?
 
 ![](img/networks/logistic_all.png)
 
-Negative binomial regression: how many times does a user use the word community in a comment?
+Negative binomial regression: how many times does a user use the word "community" in a comment?
 
 ![](img/networks/negbin_all.png)
 
-Weighted least squares: WMD from community (smaller = closer to community).
+Weighted least squares: Word Mover's Distance from "community" (smaller = closer to community).
 
 ![](img/networks/wls_all.png)
 
-<!-- - three ways
+Rather than consistency, these results show considerable variation in levels and trends. r/lgbt aligns in direction with the previously described results for r/gaybros, although it tends to have higher predicted values of community overall (consistent with the much higher proportion of comments explicitly mentioning community, 3.5% compared to 1.5%). 
 
-- wmd
+- the ones for specific identities under the LGBT umbrella
 
-- says community ever or nah?
+- r/askgaybros and r/asktransgender
 
-- how many times tho? / is a rate-ish.
+what's r/ainbow? r/gaymers
 
-    - you might think of zinb, but nb on its own turns out to be fine
-
-
-- oh and btw here's what it looks like at the comment level, who the fuck knows what that means. -->
+Finally, the subreddit with the fewest mentions of community and highest WMD, as well as the fewest tokenizable comments overall, is r/gay_irl. This subreddit is for memes, which may provoke different types of discussion and which also heavily incorporate images, a medium not accounted for by the text-centric methods I use.
 
 
-<!-- ## Discussion
+subreddit-lgbt: positive (but inverted at comment level!)
+subreddit-gaybros: positive
+subreddit-actuallesbians: none or negative
+subreddit-gaymers: none or positive association
+subreddit-bisexual: mixed - none or positive for explicit, negative for wmd
+subreddit-askgaybros: no association
+subreddit-ainbow: negative association
+subreddit-gay: none (explicit) or positive (wmd)
+subreddit-gay_irl: none or negative
+subreddit-asktransgender: negative association
+subreddit-transgender: none or positive
+
+okay, there's not a coherent story across subreddits. just write that up. oh well.
+
+<!-- TODO: make and format tables of model statistics. -->
+
+## Discussion
 
 what might it mean that the signals are so mixed?
 
@@ -168,7 +195,6 @@ what someone could do, speculate freely bc I'm not going to do those things
 
 - maybe this is more evidence for pessimism a la foote et al. it's also kinda consistent with lucy and bamman. maybe the structure of interactions _doesn't_ matter all that much.
 
-
 - compared to the previous chapter, what went wrong here? aggregation is a fucking bitch. 
 
     - someone should do more careful work than this, I guess. or not, whatever. I won't be doing it.
@@ -179,4 +205,9 @@ The research degrees of freedom here are, quite frankly, overwhelming.
 
 I tried this dozens of different ways.
 
-I did keep back most of the subreddits for evaluation. ... and my results *weren't* robust. -->
+I did keep back most of the subreddits for evaluation. ... and my results *weren't* robust.
+
+=> what predicts whether a comment / speaker / conversation mentions community?
+    - i.e, are folks talking about community when it seems like they're actually building it?
+
+is talking about community a lot the same as creating it?
