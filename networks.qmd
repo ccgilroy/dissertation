@@ -92,3 +92,91 @@ Reddit, Wikipedia, and Twitter present three distinct options for studying socia
 
 ```{r child='table_ch3_proposal.Rmd'}
 ```
+
+## Data and methods
+
+<!-- JUST TOSS SOME GARBAGE TOGETHER. -->
+
+Previously, I had examined text data from the 20 Newsgroups data set [@Lang95], an archive of Usenet messages from spring 1993. A substantial proportion of the variation in community-like language (measured through Word Mover's Distance [WMD]), approximately 13%, was between groups. In that case, I didn't have a substantive explanation for the variation; the current work originated as part of an attempt to figure that out using a different data set with more structural information. [TODO: consider showing that figure.]
+
+I examine the relation between interaction networks and comment text across 11 LGBTQ-centered online groups ("subreddits") on Reddit. These subreddits come from an internal taxonomy of subreddits ([r/ListOfSubreddits/](https://www.reddit.com/r/ListOfSubreddits/wiki/listofsubreddits/)), referenced in @lucy_characterizing_2021. They are likely to be the among the largest, most well-known, and most general LGBTQ-themed subreddits, although there are many more. There, the groups are categorized specifically under "Communities" alongside other recognizable groups (e.g., parents, teachers, vegans, people with beards), and as opposed categories like "Discussion" and "Entertainment," suggesting that community-building will be an intentional focus in a way that is not necessarily true for all online groups. Notably, Reddit (the company and platform) itself also recognizes LGBTQ-themed groups as a paradigmatic case for on-platform community-building -- their 2020 [comments to the FCC](https://www.redditinc.com/blog/elevating-the-voice-of-our-moderators-reddits-fcc-comments-on-section-230-rulemaking) in defense of volunteer moderation under Section 230 specifically choose to highlight and give voice to community moderators from r/lgbt. 
+
+I construct measures of community talk from the text of the Reddit comments. Due to their relational nature, word embeddings are well-suited for uncovering implicit references in a text. But to move from individual words to longer texts -- sentences or paragraphs or entire documents -- some kind of aggregation method is necessary. Multiple such methods for summing or averaging word embeddings exists; one normalized or weighted method with advocates in sociology is called Word Mover's Distance (WMD) [@kusner_word_2015] or Concept Mover's Distance (CMD) [@stoltz_concept_2019]. CMD calculates a distance metric between any given text and a target vector -- in this case, the vector for "community". In disciplines other than sociology, simple averages of embeddings are used instead [@kennedy_moral_2021], but my brief investigations show little difference from WMD. Because I use the Python implementation of Word Mover's Distance in the gensim package, there are minor differences in the distance metric and algorithm from Stoltz and Taylor's implementation of CMD; I expect the results reported below to be robust to such minor variations. I also do not standardize or invert the values I report.
+
+<!-- I applied this measure to a corpus of texts from a set of virtual communities, with the idea that social text, where people are potentially building a community together through words, is where invocations of Gemeinschaft are most likely to appear and where they will have the most impact. -->
+
+Rather than construct a latent continuous measure of distance from the concept of "community," represented through its GloVe word embedding [@pennington2014glove], for each comment, a simpler approach might measure the comments that explicit reference "community" (or "communities"). To contextualize this analytic choice, there is a methodological debate within the literature on computation text analysis for social science, about whether to measure surface-level, explicit keywords or latent, implicit meanings, and about the tradeoffs between each family of approaches [@stoltz_cultural_2021]. In the context of morality, @kennedy_moral_2021 use averages of word embeddings instead of WMD, but also provide evidence in favor of embeddings approaches over explicit lexicon-based approaches. For many instances where measuring culture through the meanings of text [@mohr_measuring_2020] is the desired aim, I tend to agree that the latter is more appropriate. I described and used such an approach with word-level embeddings in the previous chapter. However, as I will show, issues arise when moving from single-word embeddings to overarching document-level measures. Because of this, I choose to compare both explicit and implicit measurement approaches here.
+
+I obtain subreddit data through ConvoKit [@chang_convokit_2020], a Python-based toolkit for retrieving and analyzing conversation-based data sets. While I do not use many of the conversation-specific features of the toolkit, the format is ideal for extracting interaction and their metadata, making it easy to retrieve both textual data and the interaction network structure. (A limitation of this choice is that it would be hard to automatically generalize my data processing code to Reddit data stored in a more typical database format.) I calculate Word Mover's Distance using gensim [CITE]. I transform interaction pairs into a network and calculate network statistics using igraph [CITE]. Following @lucy_characterizing_2021, I use closeness centrality as my key measure of user embeddedness in the subreddit conversation networks. (By contrast, @foote_communication_2023 look at inequality in *betweenness* centrality. These two measures, plus eigenvector centrality, do not give consistent results.) Unlike @lucy_characterizing_2021, I do not restrict the user networks to the 20% of users who are most active; instead, I subset to users within the largest connected component of each of the networks. (This drops the number of users in each subreddit considerably, but users outside the largest component are almost all singletons with minimal  activity in the group.) I report subreddit descriptive statistics in [TABLE ID].
+
+In table, present: 
+
+- % community (comments), % community (users), avg wmd
+
+- N connected users, edges, density, avg closeness centrality
+
+One key measurement issue makes it difficult to use Word Mover's Distance from "community" as the sole outcome measure. When calculated at the comment level, Word Mover's Distance exhibits a systematic variation in a way that appears to make it ill-suited for statistically modeling with other variables. Specifically, short texts, especially one- or two-word texts, exhibit very high variability; longer texts converge to roughly the average value overall. This makes theoretical sense when WMD is used to compare a variable-length document to a one-word concept, as @stoltz_concept_2019 do with their Concept Mover's Distance adaptation of the measure: WMD measures the effort it would take to transform one text into another, normalized for document length; in this view, single words can be quite far apart. Longer texts are a sort of average of all the words they can contain; the longer the document, the closer it becomes to what might be an average distance from, perhaps, the corpus overall. Variation washes out. I suspect this issue has not been previously reported because prior work has compared texts of roughly similar sizes, e.g., sentences, speeches, or books [@stoltz_concept_2019], and has compared relatively few documents. Reddit comments are highly variable in length -- many are only a few tokens long, while some stretch to thousands of words, and there are millions to compare. This makes the problem quite visible, as shown in [FIGURE ID]. A simple correction might be to use weighted least squares and weight longer comments more highly; more advanced approaches might incorporate and estimate that heteroskedasticity within the model itself. Still, this ignores something fundamental about the measure itself, with no obvious solution.
+
+![](img/networks/funnel.png)
+
+Similarly, when I average WMD values across a user's comments, the same phenomenon occurs; users with more comments have converging average WMD values. In this case, I use weighted least squares weighted by the number of comments per user. (In modeling the explicit use of "community," I control for the number of comments instead; I explore controling for average comment length.) Moreover, the network measures are calculated at the user level, meaning that differences (especially for explicit mentions of community) are diminished at the comment level. Even for users who talk about community frequently, most of their comments will not include the word. With all of these considerations in mind, I present user-level models below.
+
+## Results
+
+I present one large subreddit as an example, and then show the full range. While r/lgbt has more users, r/gaybros has more comments and more edges. These two subreddits show generally similar trends -- which is not true for all of the remaining nine. In other positive news for the robustness of my findings, the two measures of community talk, explicit and implicit, are often consistent -- but not always.
+
+Logistic regression: does a user ever use the word community in a comment?
+
+![](img/networks/logistic_all.png)
+
+Negative binomial regression: how many times does a user use the word community in a comment?
+
+![](img/networks/negbin_all.png)
+
+Weighted least squares: WMD from community (smaller = closer to community).
+
+![](img/networks/wls_all.png)
+
+<!-- - three ways
+
+- wmd
+
+- says community ever or nah?
+
+- how many times tho? / is a rate-ish.
+
+    - you might think of zinb, but nb on its own turns out to be fine
+
+
+- oh and btw here's what it looks like at the comment level, who the fuck knows what that means. -->
+
+
+<!-- ## Discussion
+
+what might it mean that the signals are so mixed?
+
+what someone could do, speculate freely bc I'm not going to do those things
+
+- qualitative stuff
+
+- I'd zoom in not zoom out (e.g., temporality, context, not "add a whole bunch of subreddits and pray")
+
+- some of that is because text analysis is hard and the number of choices can be overwhelming [cite: Nelson]
+
+
+- I don't see the point in aggregating to group-level outcomes if I can't make any of the more micro stuff make sense. 
+
+- maybe this is more evidence for pessimism a la foote et al. it's also kinda consistent with lucy and bamman. maybe the structure of interactions _doesn't_ matter all that much.
+
+
+- compared to the previous chapter, what went wrong here? aggregation is a fucking bitch. 
+
+    - someone should do more careful work than this, I guess. or not, whatever. I won't be doing it.
+
+the fact that we see so much variation -- even among groups for similar purposes, even among similar identities -- should lead us to expect to see even more if we widened our gaze.
+
+The research degrees of freedom here are, quite frankly, overwhelming.
+
+I tried this dozens of different ways.
+
+I did keep back most of the subreddits for evaluation. ... and my results *weren't* robust. -->
