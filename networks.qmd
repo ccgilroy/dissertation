@@ -119,7 +119,7 @@ With all of these considerations in mind, I present user-level models below. In 
 
 ## Results
 
-[TABLE ID] reports descriptive statistics for each subreddit. 
+[TABLE ID] reports descriptive statistics for each subreddit. [TODO: unpack table with words.]
 
 In table, present: 
 
@@ -151,18 +151,9 @@ Weighted least squares: Word Mover's Distance from "community" (smaller = closer
 
 ![](img/networks/wls_all.png)
 
-Rather than consistency, these results show considerable variation in levels and trends. r/lgbt aligns in direction with the previously described results for r/gaybros, although it tends to have higher predicted values of community overall (consistent with the much higher proportion of comments explicitly mentioning community, 3.5% compared to 1.5%). 
+Rather than consistency, these results show considerable variation in levels and trends. r/lgbt aligns in direction with the previously described results for r/gaybros, although it tends to have higher predicted values of community overall (consistent with the much higher proportion of comments explicitly mentioning community, 3.5% compared to 1.5%). r/ainbow, [a split](https://www.reddit.com/r/ainbow/comments/vh7js/whats_the_difference_between_rlgbt_and_rainbow/) from r/lgbt with a looser moderation policy, does not show consistent trends, neither across the three outcomes nor with the other subreddits. The r/gaymers group aligns with r/lgbt and r/gaybros on the implicit community measure, but shows little association on the explicit measures. There is no particular pattern among the groups for specific identities under the LGBT umbrella (r/actuallesbians, r/bisexual, r/gay, r/transgender); all except r/actuallesbians show increasing probabilities and rates of explicit community talk with increasing closeness centrality, but implicit community WMD values go in both directions. The two question-and-discussion groups, r/askgaybros and r/asktransgender, show inverted or no associations between community talk and closeness centrality. Finally, the subreddit with the fewest mentions of community and highest WMD, as well as the fewest tokenizable comments overall, is r/gay_irl, which shows a declining pattern of explicit mentions of community with closeness centrality. This subreddit is for memes, which may provoke different types of discussion and which also heavily incorporate images, a medium not accounted for by the text-centric methods I use.
 
-- the ones for specific identities under the LGBT umbrella
-
-- r/askgaybros and r/asktransgender
-
-what's r/ainbow? r/gaymers
-
-Finally, the subreddit with the fewest mentions of community and highest WMD, as well as the fewest tokenizable comments overall, is r/gay_irl. This subreddit is for memes, which may provoke different types of discussion and which also heavily incorporate images, a medium not accounted for by the text-centric methods I use.
-
-
-subreddit-lgbt: positive (but inverted at comment level!)
+<!-- subreddit-lgbt: positive (but inverted at comment level!)
 subreddit-gaybros: positive
 subreddit-actuallesbians: none or negative
 subreddit-gaymers: none or positive association
@@ -172,42 +163,16 @@ subreddit-ainbow: negative association
 subreddit-gay: none (explicit) or positive (wmd)
 subreddit-gay_irl: none or negative
 subreddit-asktransgender: negative association
-subreddit-transgender: none or positive
-
-okay, there's not a coherent story across subreddits. just write that up. oh well.
+subreddit-transgender: none or positive -->
 
 <!-- TODO: make and format tables of model statistics. -->
 
 ## Discussion
 
-what might it mean that the signals are so mixed?
+What seemed like a potentially coherent empirical signal in the context of a single subreddit loses narrative coherence across the other ten. What might it mean that the signals are so mixed? The fact that I observe so much variation -- even among groups for similar purposes, even among similar identities -- leads me to expect to see even more variation if I were to widen my lens to other popular and active groups on Reddit.
 
-what someone could do, speculate freely bc I'm not going to do those things
+One interpretation is that the structure of interactions in online groups does not have much bearing on the production of community-oriented talk. This negative finding might be surprising, but it would align with other recent work on the network structure of virtual communities. First, @lucy_characterizing_2021 find, also using subreddits as data, that use of distinctive in-group language -- which they take to indicate belonging -- is not predicted by user centrality. Second, @foote_communication_2023 find that multiple network measures do not predict successful outcomes in peer production communities; because those groups are organized around work and information, rather than community-building per se, it remains surprising evidence for generalization that I observe such heterogeneous and unclear results in a more purely social context.
 
-- qualitative stuff
+Another way to view these results is to cast doubt on how I've operationalized "community" from text-based signals.Text analysis involves an overwhelming number of analytic choices, and researcher degrees of freedom are known to be a serious problem for reproducibility and validity [@lucas_computer-assisted_2015; @wilkerson_large-scale_2017; @nelson_measure_2019]. In particular, I have shown reasons for concern when moving from word-level analyses using word embeddings to aggregating to document-level analyses using methods like Word Mover's Distance, and I believe the mathematical properties of these aggregate measures need to be better understood before they are more widely adopted. This methodological work might look similar to prior work assessing the validity of word embeddings at the micro scale [e.g., @antoniak_evaluating_2018-1; @van_loon_regional_2022]. To mitigate those concerns, I used a very simple keyword-based approach [@stoltz_cultural_2021], and am most confident in my findings where those two measures align with each other. Still, my results were not terribly robust when I extended them to a wider range of subreddits for evaluation.
 
-- I'd zoom in not zoom out (e.g., temporality, context, not "add a whole bunch of subreddits and pray")
-
-- some of that is because text analysis is hard and the number of choices can be overwhelming [cite: Nelson]
-
-
-- I don't see the point in aggregating to group-level outcomes if I can't make any of the more micro stuff make sense. 
-
-- maybe this is more evidence for pessimism a la foote et al. it's also kinda consistent with lucy and bamman. maybe the structure of interactions _doesn't_ matter all that much.
-
-- compared to the previous chapter, what went wrong here? aggregation is a fucking bitch. 
-
-    - someone should do more careful work than this, I guess. or not, whatever. I won't be doing it.
-
-the fact that we see so much variation -- even among groups for similar purposes, even among similar identities -- should lead us to expect to see even more if we widened our gaze.
-
-The research degrees of freedom here are, quite frankly, overwhelming.
-
-I tried this dozens of different ways.
-
-I did keep back most of the subreddits for evaluation. ... and my results *weren't* robust.
-
-=> what predicts whether a comment / speaker / conversation mentions community?
-    - i.e, are folks talking about community when it seems like they're actually building it?
-
-is talking about community a lot the same as creating it?
+Is talking about community the same as creating it? Not necessarily. To complement this cursory investigation, I have a few suggestions that might be taken up in future work. My initial qualitative explorations showed that even this small collection of outwardly similar subreddits varies substantially in their orientations (e.g. in attitudes toward community moderation, types of content that it is normative to share, etc.). Qualitatively examining conversations that appear to be about community (implicitly or explicitly) and the trajectories of users engaged in those conversations might uncover potential dynamics or mechanism at play. Rather than broadening the scope of analyses, more granular and contextualized quantitative analyses might be worth pursuing. If the micro-, user-level findings are not consistent, it strikes me unlikely that aggregating to macro-, group-level outcomes would reveal anything systematic and meaningful. I skirted over the temporality of the network structure and treated it as static, but interaction networks are dynamic and both individual and group trajectories change over time; incorporating that information might sort out the circumstances under which community talk might be either a cause or a consequence of structural features of groups.
