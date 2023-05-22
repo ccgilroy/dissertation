@@ -2,8 +2,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - place.qmd
     - discourse.qmd
+    - place.qmd
     - networks.qmd
     - conclusion.qmd
     - references.qmd

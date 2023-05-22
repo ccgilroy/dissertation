@@ -20,31 +20,15 @@ Attaining these substantive insights required methodological innovations, a cont
 
 ## Limitations
 
-can't do everything. here are the problems.
+This dissertation is perfect. It's beautiful. It looks like Linda Evangelista. It's a model.
 
-mixed signals, not entirely consistent with qual work
+This dissertation is not without its limitations. The empirical results, while largely pointing toward community as foregrounded and central rather than backgrounded and ambient, do contain mixed signals. This is most apparent in the varied results from different LGBTQ groups on Reddit in Chapter 4. In addition, the spatial patterns in Chapter 3 are not entirely consistent with qualitative work finding between-place heterogeneity, most notably ambient community in places like Ithaca, New York [@brown-saracino_how_2017]. This points toward a fundamental limitation of a partial and triangulated approach -- I am unable to observe any one context fully. A comprehensive view would instead measure locations, interactions, expressions, and subjective experiences for the same people in the same groups. With that level of detail, heterogeneity between communities, rather than common patterns among them, might come into view.
 
-My approach here is partial and triangulated.
+This work is a broad examination of fundamentally dynamic processes that are hard to model. If structural density and embeddedness leads to subjective and expressive forms of community belonging, and these in turn promote proximity, connection, and interaction, then this feedback loop is difficult to disentangle. Some of this is micro-scale, unfolding at the level of repeated participation in group conversations and activities; future work might investigate the fine-grained temporality that forms and sustains LGBTQ spaces and groups. Some of this unfolds at the temporal scale of entire lifetimes, as LGBTQ people with the motivation and means self-select into places where they hope to find belonging; following LGBTQ individuals across the life course as they migrate and make other key life choices might show how central LGBTQ community can be for life trajectories. 
 
-locations, interactions, expressions, and subjective experiences for the same people in the same groups
+The entwined nature of the factors influencing community limits the concepts I am able to operationalize. While I operationalize signs of density, abundance, and embeddedness, those factors obscure the role of heterogeneity, diversity, and inclusivity. Empirically, I found these two sets of attributes to be too correlated to disentangle. Theoretically, I continue to believe inclusivity is important as one of the key features of some queer spaces, and absolutely essential for understanding the moral boundaries of LGBTQ community [@vaisey_structure_2007; @meyer_differences_2020]. 
 
-what's missing? dream might be a comprehensive view for the _same_ people; instead I triangulated across multiple contexts.
-
-it's a broad look at fundamentally dynamic processes that are hard to model.
-
-hard to know
-
-anglophone, US-only or US-centric => affects generalizability. 
-
-virtual communities have the potential for international reach, but are still US-centric
-
-(what does place attachment mean in the context of a settler colonial society, anyway? what would "community" mean outside the context of imposed colonial language?) [is any of that gonna resonate?]
-
-not adequately able to treat heterogeneity/diversity/inclusivity. I think this is really important, one of the key features of some queer spaces, and absolutely essential for understanding the moral boundaries of LGBTQ community
-
-But signals of density, abundance, embeddedness, etc. make it hard to go one step further, but future work might do that.
-
-broad, feels like a hammer, not a scalpel
+While my data span two decades and multiple sites, they do not automatically generalize to all times and places. The survey data in Chapter 3 are only from the contemporary United States. While virtual communities like those I analyze in Chapter 2 and Chapter 4 have the potential for international reach, they are still U.S.-centric [@rheingold_virtual_2000]. As in much NLP-based work, the textual data I rely on are English-only [@bender_achieving_2011]; analogues to "community" might not have the same resonances in other languages. Indeed, in a language as closely related as French, "community" is hard to translate [@anderson_imagined_2016]. Fundamentally, it is strange to study place attachment in the context of a settler-colonial society, or to study community talk in a colonially imposed and globally hegemonic language; I do not adequately address that dissonance in this work.
 
 ## Future directions
 

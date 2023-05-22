@@ -1,0 +1,15 @@
+project:
+  output-dir: chapter-networks
+
+book:
+  title: "Community talk"
+  subtitle: "Interactional contexts and consequences"
+  output-file: "gilroy-networks-chapter"
+  chapters:
+    - index.qmd
+    - networks.qmd
+    - references.qmd
+
+format: 
+  pdf: 
+    toc: false
