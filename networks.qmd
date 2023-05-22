@@ -3,11 +3,6 @@ title: Community talk
 subtitle: Interactional contexts and consequences
 ---
 
-```{r} 
-#| include: false
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 ## Introduction
 
 "Community" is something that people do -- they build community, they create it. This chapter aims to study how the process of creating and invoking community plays out in social networks and social interactions. Social density of interactions and relations, not mere physical proximity, produces the social reality and the individual subjective experience of community, as well as observable expressions of the same. But then in turn expressions of community help create the conditions for group-based social life. In this chapter, I use a set of virtual communities, LGBTQ-centered groups on the social platform Reddit, as a site to study the relation between social density and expressions of community.
