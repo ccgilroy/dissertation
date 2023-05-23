@@ -20,48 +20,21 @@ Attaining these substantive insights required methodological innovations, a cont
 
 ## Limitations
 
-This dissertation is perfect. It's beautiful. It looks like Linda Evangelista. It's a model.
-
 This dissertation is not without its limitations. The empirical results, while largely pointing toward community as foregrounded and central rather than backgrounded and ambient, do contain mixed signals. This is most apparent in the varied results from different LGBTQ groups on Reddit in Chapter 4. In addition, the spatial patterns in Chapter 3 are not entirely consistent with qualitative work finding between-place heterogeneity, most notably ambient community in places like Ithaca, New York [@brown-saracino_how_2017]. This points toward a fundamental limitation of a partial and triangulated approach -- I am unable to observe any one context fully. A comprehensive view would instead measure locations, interactions, expressions, and subjective experiences for the same people in the same groups. With that level of detail, heterogeneity between communities, rather than common patterns among them, might come into view.
 
 This work is a broad examination of fundamentally dynamic processes that are hard to model. If structural density and embeddedness leads to subjective and expressive forms of community belonging, and these in turn promote proximity, connection, and interaction, then this feedback loop is difficult to disentangle. Some of this is micro-scale, unfolding at the level of repeated participation in group conversations and activities; future work might investigate the fine-grained temporality that forms and sustains LGBTQ spaces and groups. Some of this unfolds at the temporal scale of entire lifetimes, as LGBTQ people with the motivation and means self-select into places where they hope to find belonging; following LGBTQ individuals across the life course as they migrate and make other key life choices might show how central LGBTQ community can be for life trajectories. 
 
 The entwined nature of the factors influencing community limits the concepts I am able to operationalize. While I operationalize signs of density, abundance, and embeddedness, those factors obscure the role of heterogeneity, diversity, and inclusivity. Empirically, I found these two sets of attributes to be too correlated to disentangle. Theoretically, I continue to believe inclusivity is important as one of the key features of some queer spaces, and absolutely essential for understanding the moral boundaries of LGBTQ community [@vaisey_structure_2007; @meyer_differences_2020]. 
 
-While my data span two decades and multiple sites, they do not automatically generalize to all times and places. The survey data in Chapter 3 are only from the contemporary United States. While virtual communities like those I analyze in Chapter 2 and Chapter 4 have the potential for international reach, they are still U.S.-centric [@rheingold_virtual_2000]. As in much NLP-based work, the textual data I rely on are English-only [@bender_achieving_2011]; analogues to "community" might not have the same resonances in other languages. Indeed, in a language as closely related as French, "community" is hard to translate [@anderson_imagined_2016]. Fundamentally, it is strange to study place attachment in the context of a settler-colonial society, or to study community talk in a colonially imposed and globally hegemonic language; I do not adequately address that dissonance in this work.
+While my data span two decades and multiple sites, they do not automatically generalize to all times and places. The survey data in Chapter 3 are only from the contemporary United States. While virtual communities like those I analyze in Chapter 2 and Chapter 4 have the potential for international reach, they are still U.S.-centric [@rheingold_virtual_2000]. As in much NLP-based work, the textual data I rely on are English-only [@bender_achieving_2011]; analogues to "community" might not have the same resonances in other languages. Indeed, in a language as closely related to English as French, "community" is hard to translate [@anderson_imagined_2016]. Fundamentally, it is strange to study place attachment in the context of a settler-colonial society, or to study community talk in a colonially imposed and globally hegemonic language; I do not adequately address that dissonance in this work.
 
 ## Future directions
 
-reference the end of the age of APIs -- twitter fell, reddit is falling. not at all clear where the data to study these phenomena will come from. reflect on my trajectory doing computational research. => numerous methodological reasons for pessimism, sorry.
+I close by considering the future of studying LGBTQ communities, and the future of those queer communities themselves. First, new empirical findings might arise from engaging innovative data sources. Digitized archives like the *Mapping the Gay Guides* project [@regan2019a] increasing offer the opportunity to link 
+historical trajectories of LGBTQ spaces with the present. More recent virtual platforms than Reddit, like Discord [@jiang_moderation_2019], offer new sites of queer community building for study. Second, key research questions can be drawn from what this dissertation leaves unanswered. Novel quantitative research methods are need to understand how not just shared identity and discourse, but shared activities and practices [@brint_gemeinschaft_2001; @orne_boystown_2017], contribute to community. Finally, as I alluded to above, I hypothesize that inclusivity plays an important role in queer spaces as a value and a practice. Anarchic and accepting does not mean incohesive; instead, it might be a positive, normative vision of the world, a foundation for collective action rather than a demobilizing force. As they say, Stonewall -- the central event of queer collective memory [@armstrong_movements_2006] -- was a riot.
 
-what goes into NLP models; do I get to speculate about ChatGPT here?
+Since I began this project, times have changed for digital and computational research methods. We are at the end of an era of relatively open data access, in the "post-API age" [@freelon_computational_2018]. Twitter, once the "model organism" of social media research [@tufekci_big_2014], has closed off academic access, and even access to the Reddit API has come into question. It is not clear where future data to study virtual social interactions will come from. At the same time, natural language processing methods have advanced significantly in the past few years, well beyond the simple word embeddings I used in this work to more complex large language models (LLMs), such as the series of GPT models and their competitors. LLMs are too data- and computation-intensive to train locally on niche data sources like queer Usenet groups, but will no doubt find other uses in academic research. In all, there are now greater limits to what an independent graduate student can do on their own. This is a loss because it is hard to imagine large research groups, much less private organizations, paying much attention to queer lives and experiences.
 
-what's the future of queer communities? what's the future of studying them?
+Outside of research, what kind of world makes for strong LGBTQ communities? This dissertation shows that experiences of community are not divorced from material reality. In terms of place-based community, availability of housing, transit, and public spaces would allow people to make the choice to come together. Without attention to queer spaces and queer visibility specifically in the realm of policy and planning, I would be concerned about a widening bifurcation in access among LGBTQ people. For creating a sense of community virtually, "augmented reality" -- an overlay of digital and offline lives [@jurgenson_digital_2011; @orne_boystown_2017] -- seems the most promising way forward. Soc.motss had its meetups, and I suspect the most cohesive subreddits do the same. Again, without deliberate thought, digital spaces too can be hostile or unwelcoming for LGBTQ people. Rather than a world of diverging or shrinking access to collective queer life, LGBTQ community can and should be available to everyone who wants it.
 
-reference backlash I guess. we're gonna see even more divergence unless the whole fucking country falls into fascism.
-
-precarious, miraculous. and then?
-
-was meant to be something of a love letter to queer spaces.
-
-we're divided, but not *that* divided. 
-
-
-what would I recommend? cheaper housing, denser places, with interstitial public space. let people be around each other. let them make choices.
-
-community is not divorced from material reality. if more really is more, ....
-
-again, *augmented reality* is the way forward for virtual communities. (even soc.motss had its meetups! do modern subreddits do that?)
-
-
-treat this as provisional. 
-
-
-inclusivity itself as a kind of moral boundary.
-
-
-what's going to happen as many places become more hostile toward collective queer life? especially, in this moment, toward transgender people and toward other forms of gendered existence and gender expression that challenge norms (e.g., drag).
-
-
-as I write. vs when I began grad school, on the heels of obergefell
-
+This work was meant to be something of a love letter to queer spaces. They can feel precarious and fragile; that they can exist at all can feel like a small miracle. In the present work, I have shown the conditions under which LGBTQ communities continue to thrive now, but I cannot predict their future. Over the course of the years I have spent on this dissertation, there has been a marked shift from increasing formal legal equality nationwide for LGBTQ people in the United States to growing backlash in the form of state-level legislation -- especially, in this moment, backlash against transgender people and against any forms of gendered existence and gender expression that challenge norms. Living queer lives, in public, is an expression of community. While LGBTQ people may be somewhat ambivalent about the continued salience of distinctive queer spaces, we are not that divided on the issue. On the whole, participating in queer community makes us feel more connected. May it continue to be so.
