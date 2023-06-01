@@ -106,7 +106,7 @@ div.csl-indent {
       <a href="./">Expressions of Community</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/ccgilroy/dissertation/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Expressions-of-Community.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="./gilroy-expressions-of-community.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -476,12 +476,6 @@ div.csl-indent {
 <p>In order to test whether more embedded or peripheral members of LGBTQ virtual communities engage in more community talk, I model the association between centrality in an interaction network and explicit and implicit measures of community talk. I first present model results for one large subreddit, r/gaybros, as an example, and then show the full range of 11 groups.</p>
 <p>I select r/gaybros because it is a paradigmatic example for LGBTQ community-building on Reddit. It has more comments and more interaction network edges than the more general group r/lgbt, indicating that r/gaybros is more active in terms of participation even though r/lgbt has more users. Compared to r/gaybros, only the two “r/ask{X}” subreddits (r/askgaybros and r/asktransgender) are more active. These are intrinsically oriented toward question-answering and discussion rather than community-building per se, so I treat those as distinct rather than representative.</p>
 <p>Ultimately, I find evidence that in r/gaybros more central members do engage in more community talk, both explicitly and implicitly. This suggests that community is foregrounded in terms of expression for those who are most structurally embedded in it. The r/lgbt subreddit shows similar trends, indicating that it too is an environment where community comes to the fore for central subreddit members. However, this is not true for all of the remaining nine. The two measures of community talk, explicit and implicit, are often consistent with each other within a subreddit – but not always; the inconsistencies suggest that they are imperfectly capturing the underlying concept of community-oriented expressions.</p>
-<!-- What is the core analysis here?  How do they relate to your core research question? Rather then just first, then this, then that, try to build a story.
-
-There is no fucking story, because this chapter is bad. We can play make-believe if you would like.
-
-Kate is asking me to do the thing that JBS says her respondents do with place narratives, which leads them to perceive or deemphasize certain empirical facts about the city ecology / socioscape. I am trying hard *not* to fool myself, or you.
- -->
 <p>The models control for the number of comments per user, logged. In the context of the negative binomial model, this means that the outcome can be considered approximately as rates rather than counts. (Fixing the coefficient for log(number of comments) at 1 as an offset would be a true rate, but estimating the coefficient results in a better model fit.) This control is essential because a user’s closeness centrality and number of comments are highly correlated. As <a href="#fig-covariates">Figure&nbsp;<span>4.2</span></a> shows, there is still sufficient conditional variation to model. (However, bear in mind the constrained conditional range when viewing the model prediction figures below, which means that some predictions are beyond the scale observed in the actual data.) Other controls I considered, average comment length and membership duration, did not affect estimates of the closeness centrality coefficient, and so I exclude them here.</p>
 <div id="fig-covariates" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -491,7 +485,6 @@ Kate is asking me to do the thing that JBS says her respondents do with place na
 </div>
 <p>As is typical for online communities, the distribution of user activity is highly skewed, with a handful of users providing the bulk of interactions and many contributing only once. Accordingly, I illustrate predicted values by closeness centrality with the number of comments held at the median (6), mean (30), and 95th percentile (113) values for members of r/gaybros.</p>
 <p><a href="#fig-gaybros">Figure&nbsp;<span>4.3</span></a> shows the results for the three models: one of implicit Word Mover’s Distance from “community,” and two predicting whether a user explicitly mentions community. At n = 30 comments, an increase in closeness centrality from 0.2 to 0.3 increases a user’s probability of ever mentioning “community” from 25% to 31%. At n = 113, a user is predicted to mention community 1.17 times at a closeness centrality of 0.2, and 1.52 times at a closeness centrality of 0.3. The average WMD of a user’s comments from “community” declines as the user’s centrality increases. Because WMD is a complex, abstract measure, the magnitude of the decrease is not as interpretable as the changes in the explicit measures, but it signals that implicit engagement with the concept of community also increases with member centrality. Overall, more central actors in r/gaybros are more involved in community talk.</p>
-<!-- Follow these two sentences with a substantive summary:  More central actors are more involved in community talk! -->
 <div id="fig-gaybros" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/networks/subreddit-gaybros-models.png" class="img-fluid figure-img"></p>
@@ -528,7 +521,8 @@ Kate is asking me to do the thing that JBS says her respondents do with place na
 <li>Finally, the subreddit with the fewest mentions of community and highest WMD, as well as the fewest tokenizable comments overall, is r/gay_irl, which shows a declining pattern of explicit mentions of community with closeness centrality. This subreddit is for memes, which may provoke different types of discussion and which also heavily incorporate images, a medium not accounted for by the text-centric methods I use.</li>
 </ul>
 <p>All of these subreddits are virtual spaces for LGBTQ people, but they vary in their purposes – the identity groups they are intended for, the types of topics and content they encourage posting, their moderation policies. They also vary in structural characteristics like numbers of members and volume of activity. Any of these characteristics might explain why some of these subreddits have central members engaging in the most community talk, while in others more peripheral members bring community into the conversation, and community for core actors is more of an ambient phenomenon. For instance, r/asktransgender fields questions and points of discussion from both trans and cisgender individuals; those coming in with questions may be structural outsiders with the greatest need for expressing community. Longstanding question-answers conversely, may not need to. By contrast, communities primarily centered around community-building per se and not questions, games, or memes – like r/lgbt and r/gaybros – may be the ones where central actors are most expressively invested in community. At the same time, comparing those two subreddits shows that r/lgbt has much more community talk overall – and yet much less actual participation in conversation than r/gaybros. It is possible that the more identity-inclusive group needs to engage in more explicit work to build community through conversation.</p>
-<!-- subreddit-lgbt: positive (but inverted at comment level!)
+<!-- 
+subreddit-lgbt: positive (but inverted at comment level!)
 subreddit-gaybros: positive
 subreddit-actuallesbians: none or negative
 subreddit-gaymers: none or positive association
@@ -538,7 +532,8 @@ subreddit-ainbow: negative association
 subreddit-gay: none (explicit) or positive (wmd)
 subreddit-gay_irl: none or negative
 subreddit-asktransgender: negative association
-subreddit-transgender: none or positive -->
+subreddit-transgender: none or positive 
+-->
 
 <!-- TODO: make and format tables of model statistics. -->
 </section>

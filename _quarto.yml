@@ -7,9 +7,11 @@ profile:
 
 book:
   title: "Expressions of Community"
+  subtitle: "Understanding Variations in Community through LGBTQ Experiences"
   author: "Connor Gilroy"
   date: today
   date-format: "MM/DD/YYYY"
+  output-file: "gilroy-expressions-of-community"
   repo-url: https://github.com/ccgilroy/dissertation/
   repo-actions: [edit, issue]
   downloads: [pdf]
