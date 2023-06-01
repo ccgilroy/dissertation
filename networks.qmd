@@ -39,7 +39,7 @@ An analytic advantage of Reddit's group-based structure is that it offers observ
 
 Reddit's other key advantage is that it offers rich data from which to construct an interaction network. On both Usenet [@dame-griff_herding_2019] and many other virtual platforms [@foote_communication_2023] it can be difficult to determine to whom exactly an individual is replying in a a conversation; by contrast, Reddit comments specify exactly whom they are addressing. On Reddit, interaction occurs in threads (i.e., conversations) of posts and comments within subreddits. Posts and comments can be rated and ranked through upvotes and downvotes, providing a crowdsourced measure of quality [@medvedev_anatomy_2018]. From these directed replies, the branching tree structure of a conversation can be constructed [@chang_convokit_2020]. Aggregating all conversations together produces the full interaction network of a subreddit. I can then observe which members are most centrally embedded in that network.
 
-[TODO: If I have time, make a network diagram.]
+<!-- TODO: If I have time, make a network diagram. -->
 
 ## Data and methods
 
