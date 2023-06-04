@@ -1,14 +1,11 @@
 book: 
   chapters:
     - index.qmd
-    - abstract.qmd
-    - acknowledgments.qmd
     - intro.qmd
     - discourse.qmd
     - place.qmd
     - networks.qmd
     - conclusion.qmd
     - references.qmd
-  # appendices: 
-  #   - place-appendix.qmd
-  #   - networks-appendix.qmd
+  appendices: 
+   - place-appendix.qmd

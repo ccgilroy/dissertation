@@ -1,7 +1,6 @@
----
-title: Geography, identity, and Gemeinschaft
-subtitle: Disentangling the meanings of "community" through word embeddings
----
+# Geography, Gemeinschaft, Identity {#sec-discourse}
+
+## Disentangling the Meanings of "Community" through Word Embeddings {.unnumbered .unlisted}
 
 ## Introduction
 
@@ -256,9 +255,3 @@ This structure does not fully carry over into the local context of an LGBTQ virt
 Potential limitations of this work relate to robustness, scope, and generalization. While I am convinced that the findings I present here are robust, a key limitation of any text analysis work centers around corpus and model quality. It would be possible to do even more to evaluate the stability and viability of the locally-trained embeddings [see @antoniak_evaluating_2018-1], or to incorporate corpora from additional groups -- although there is little evidence from prior work to expect that the results would differ dramatically [@dame-griff_herding_2019]. This work also demonstrates that there is some payoff to closely interrogating the embedding representation of a single word, provided that the associated concept has enough theoretical and empirical complexity to warrant a close read. The downside, then, is that generalizing to other complex concepts is inherently slow and requires interpretative work.
 
 This chapter analyzed the meaning of "community" at a discursive and cultural level. While I qualitatively contextualized the social environment of Usenet and the soc.motss newsgroup, I did not explicitly connect any social characteristics to experiences of and expressions of community. In the following chapters, I will bring in those characteristics, by characterizing how features of places relate to individual experiences of community and how features interaction networks relate to group expressions of community.
-
-<!-- ## Acknowledgments
-
-I thank Avery Dame-Griff for sharing code, advice, and encouragement for working with Usenet archives, and Steve Goodreau for the initial suggestion to look more closely at soc.motss in particular. Previous versions of this chapter received generous feedback from the Community Data Science Collective and the Metaphors and Meaning roundtable at ASA 2021. -->
-
-

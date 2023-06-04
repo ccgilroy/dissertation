@@ -1,7 +1,6 @@
----
-title: Community in interaction
-subtitle: The embeddedness of actors engaged in community talk
----
+# Community in Interaction {#sec-networks}
+
+## The Embeddedness of Actors Engaged in Community Talk {.unnumbered .unlisted}
 
 ## Introduction
 
@@ -53,7 +52,7 @@ Following @lucy_characterizing_2021, I use closeness centrality as my key measur
 
 In order to link embeddedness in interaction networks to expressions of community and investigate whether central or peripheral actors engage in more community talk, I construct two measures of community talk from the text of the Reddit comments. The first is a simple keyword-based measure, indicating for each comment whether it explicitly references "community" (or "communities") or not. I aggregate this indicator into a binary measure of whether a group member ever mentions community, and a count of how many times they do so. (Below, I will control for a user's total number of comments. As an individual produces more comments, their probability of uttering any word naturally increases.)
 
-The second measure is Word Mover's Distance, a latent continuous measure of the implicit distance of every comment from the single word "community." Having shown in the first empirical chapter that the GloVe word embedding [@pennington2014glove] for "community" has a reasonably close correspondence with the embedding for the concept in an LGBTQ virtual community, I use those pretrained GloVe embeddings for "community" and for all of the individual words in each comment. I calculate Word Mover's Distance using the Python implementation in gensim [@rehurek_lrec], which differs slightly from how @stoltz_concept_2019 implement Concept Mover's Distance in R. To facilitate comparison between subreddits and against other concepts in robustness checks, as well as to investigate the methodological issues I discuss next, I do not standardize WMD values. Smaller WMD values indicate that a comment is closer to the concept of "community," capturing implicit invocations of the concept that the keyword measure would miss. As both measures operationalize community talk, I would expect them to be largely consistent, although this turns out to not always be the case.
+The second measure is Word Mover's Distance, a latent continuous measure of the implicit distance of every comment from the single word "community." Having shown in @sec-discourse that the GloVe word embedding [@pennington2014glove] for "community" has a reasonably close correspondence with the embedding for the concept in an LGBTQ virtual community, I use those pretrained GloVe embeddings for "community" and for all of the individual words in each comment. I calculate Word Mover's Distance using the Python implementation in gensim [@rehurek_lrec], which differs slightly from how @stoltz_concept_2019 implement Concept Mover's Distance in R. To facilitate comparison between subreddits and against other concepts in robustness checks, as well as to investigate the methodological issues I discuss next, I do not standardize WMD values. Smaller WMD values indicate that a comment is closer to the concept of "community," capturing implicit invocations of the concept that the keyword measure would miss. As both measures operationalize community talk, I would expect them to be largely consistent, although this turns out to not always be the case.
 
 One important measurement issue makes it difficult to use Word Mover's Distance from "community" as the sole outcome measure. When calculated at the comment level, Word Mover's Distance exhibits a systematic variation in a way that appears to make it ill-suited for statistically modeling with other variables. Specifically, short texts, especially one- or two-word texts, exhibit very high variability; longer texts converge to roughly the average value overall. This makes theoretical sense when WMD is used to compare a variable-length document to a one-word concept, as @stoltz_concept_2019 do with their Concept Mover's Distance adaptation of the measure: WMD measures the effort it would take to transform one text into another, normalized for document length; in this view, single words can be quite far apart. Longer texts are a sort of average of all the words they can contain; the longer the document, the closer it becomes to what might be an average distance from, perhaps, the corpus overall. Variation washes out. I suspect this issue has not been previously reported because prior work has compared texts of roughly similar sizes, e.g., sentences, speeches, or books [@stoltz_concept_2019], and has compared relatively few documents. Reddit comments are highly variable in length -- many are only a few tokens long, while some stretch to thousands of words, and there are millions to compare. This makes the problem quite visible, as shown in @fig-funnel. A simple correction might be to use weighted least squares and weight longer comments more highly; more advanced approaches might incorporate and estimate that heteroskedasticity within the model itself. Still, this ignores something fundamental about the measure itself, with no obvious solution.
 
@@ -89,19 +88,19 @@ Accounting for all of these considerations, I fit and present user-level models 
 
 ::: {.cell-output-display}
 
-|Subreddit        | N. users| N. comments| Median comments per user| Mean comments per user| Pct. 'community', users| Pct. 'community', comments| Mean user WMD|
-|:----------------|--------:|-----------:|------------------------:|----------------------:|-----------------------:|--------------------------:|-------------:|
-|r/lgbt           |   81,436|   1,047,003|                        4|                   12.9|                    0.19|                      0.035|          1.15|
-|r/gaybros        |   55,727|   1,671,630|                        6|                   30.0|                    0.16|                      0.015|          1.16|
-|r/actuallesbians |   52,037|   1,492,782|                        7|                   28.7|                    0.18|                      0.015|          1.16|
-|r/gaymers        |   31,938|     703,158|                        6|                   22.0|                    0.14|                      0.014|          1.17|
-|r/bisexual       |   34,286|     467,598|                        5|                   13.6|                    0.18|                      0.030|          1.15|
-|r/askgaybros     |   63,366|   2,777,469|                        7|                   43.8|                    0.17|                      0.013|          1.15|
-|r/ainbow         |   25,309|     530,889|                        4|                   21.0|                    0.24|                      0.037|          1.15|
-|r/gay            |   23,792|     305,432|                        5|                   12.8|                    0.15|                      0.023|          1.15|
-|r/gay_irl        |   12,189|     140,147|                        3|                   11.5|                    0.06|                      0.012|          1.18|
-|r/asktransgender |   58,160|   2,430,525|                        7|                   41.8|                    0.23|                      0.019|          1.14|
-|r/transgender    |   11,144|     173,941|                        4|                   15.6|                    0.21|                      0.034|          1.15|
+|Subreddit           |   N. users|  N. comments| Pct. 'community', users| Pct. 'community', comments| Mean user WMD|
+|:-------------------|----------:|------------:|-----------------------:|--------------------------:|-------------:|
+|r/lgbt              |     81,436|    1,047,003|                    0.19|                      0.035|          1.15|
+|r/gaybros           |     55,727|    1,671,630|                    0.16|                      0.015|          1.16|
+|r/actuallesbians    |     52,037|    1,492,782|                    0.18|                      0.015|          1.16|
+|r/gaymers           |     31,938|      703,158|                    0.14|                      0.014|          1.17|
+|r/bisexual          |     34,286|      467,598|                    0.18|                      0.030|          1.15|
+|r/askgaybros        |     63,366|    2,777,469|                    0.17|                      0.013|          1.15|
+|r/ainbow            |     25,309|      530,889|                    0.24|                      0.037|          1.15|
+|r/gay               |     23,792|      305,432|                    0.15|                      0.023|          1.15|
+|r/gay_irl           |     12,189|      140,147|                    0.06|                      0.012|          1.18|
+|r/asktransgender    |     58,160|    2,430,525|                    0.23|                      0.019|          1.14|
+|r/transgender       |     11,144|      173,941|                    0.21|                      0.034|          1.15|
 
 : Subreddit text statistics {#tbl-text}
 
@@ -131,7 +130,7 @@ I next present results from combined models of all 11 subreddits, allowing coeff
 
 ![Predicting how many times a member mentions 'community' across 11 subreddits. Number of comments held constant at 30.](img/networks/negbin_all.png){#fig-negbin}
 
-![Predicting a member's average Word Mover's Distance from 'commmunity' across 11 subreddits. Number of comments held constant at 30.](img/networks/wls_all.png){#fig-wls}
+![Predicting a member's average Word Mover's Distance from 'community' across 11 subreddits. Number of comments held constant at 30.](img/networks/wls_all.png){#fig-wls}
 
 These results show considerable variation in levels and trends, rather than consistency: 
 

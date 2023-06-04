@@ -6,8 +6,10 @@ profile:
   default: all
 
 book:
-  title: "Expressions of Community"
-  subtitle: "Understanding Variations in Community through LGBTQ Experiences"
+  title: | 
+    Expressions of Community:  
+    Understanding Variations in Community through LGBTQ Experiences
+  # subtitle: "Understanding Variations in Community through LGBTQ Experiences"
   author: "Connor Gilroy"
   date: today
   date-format: "MM/DD/YYYY"
@@ -15,6 +17,11 @@ book:
   repo-url: https://github.com/ccgilroy/dissertation/
   repo-actions: [edit, issue]
   downloads: [pdf]
+  sidebar:
+    title: "Expressions of Community"
+  abstract: |
+    Structural features -- social density of interactions, physical density of proximity, abundance of others with shared group characteristics -- create the conditions for the existence of a community. How individuals outwardly express and subjectively experience community relates to those structural features. This dissertation investigates and compares two hypotheses about that relationship. First, structural and contextual characteristics could be co-constitutive with expressive and subjective ones, a mutually reinforcing feedback loop. Alternatively, expressions of community might substitute or stand in for the structural elements that promote togetherness and belonging. The tension between these possibilities is especially relevant for members of marginalized and minoritized identity categories, like LGBTQ identities, who cannot take acceptance and belonging for granted. To investigate this theoretical tension, I triangulate across three quantitative and computational case studies of LGBTQ communities. In the first empirical chapter, I use text from an early LGBTQ virtual community to examine whether, when LGBTQ people talk about community, what they mean invokes a belonging- and social organization-oriented sense of the concept to a greater extent than in more general contexts. I show that discourse in the soc.motss Usenet group uses "community" in the sense of *Gemeinschaft* to at least an equal extent as generic English-language text. In the second chapter, I ask whether dense places full of LGBTQ people facilitate a greater sense of connection to the LGBTQ community, or whether community becomes ambient in those contexts. I find that small-area abundance of same-sex couples, and to a lesser extent overall density, is associated with greater sense of community connectedness for LGBQ people. In the third chapter, I look at whether, in virtual communities organized around LGBTQ identities, core or peripheral members engage in more talk about community. I show significant heterogeneity in the relationship between interaction network centrality and expressions of community talk in a set of 11 LGBTQ groups on Reddit, a contemporary virtual platform. Overall, this work connects contextual features to how LGBTQ individuals outwardly express and subjectively experience community, through their language, group participation, and self-reports of belonging. Across the work, I find that experiences of community are most intense and expressions of community most frequent, not for peripheral members of LGBTQ communities but for the most central. Something beyond stigma animates the attractive force of community for LGBTQ people.
+
   # chapters:
   #   - index.qmd
   #   - intro.qmd
@@ -31,9 +38,22 @@ format:
   html:
     theme: cosmo
   pdf:
-    documentclass: scrreprt
-    fontsize: 12pt
-    include-in-header:
-      text: |
-        \usepackage{footmisc}
-    include-before-body: before.tex
+    title: | 
+      Expressions of Community:  
+      Understanding Variations in Community through LGBTQ Experiences
+    documentclass: uwthesis
+    template: template.tex
+    # documentclass: scrreprt
+    # toc-depth: 2
+    # fontsize: 11pt
+    # include-in-header:
+    #   text: |
+    #     \usepackage{footmisc}
+    # include-before-body: before.tex
+
+# properties for uwthesis documentclass
+year: "2023"
+program: "Sociology"
+chair: "Katherine Stovel"
+signature1: "Jelani Ince"
+signature2: "Kyle Crowder"

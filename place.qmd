@@ -1,7 +1,6 @@
----
-title: Density and abundance
-subtitle: How place characteristics shape individual sense of community for LGBQ people
----
+# Density and Abundance {#sec-place}
+
+## How Place Characteristics Shape Individual Sense of Community for LGBQ People {.unnumbered .unlisted}
 
 ## Introduction
 
@@ -75,7 +74,7 @@ With 4 outcomes, 2 geographic levels, and 4 functional specifications of density
 
 ## Results
 
-First, I will describe the distributions of the relevant variables, to contextualize the main statistical models that follow. @tbl-outcomes shows that the typical Generations respondent (47.2%) agrees that they feel a part of the LGBT community, and this corresponds closely to the overall 7-item average of 2.97 on the Community Connectedness scale. The scale is flipped, so that higher numbers represent greater connectedness, and a respondent who agrees with every item would receive a score of 3. Consistent with the LGBT-specific trend, respondents tend on average to disagree with the notion that they don't belong to any community, and this aligns with the 4.67 average response for the 15-item Social Wellbeing scale (again, with items aligned so that higher values represent more positive outcomes). All four measures point to a moderately positive sense of community and belonging on average, but with enough variability to attempt to model systematic differences among respondents and the places in which they live.
+First, I will describe the distributions of the relevant variables, to contextualize the main statistical models that follow. @tbl-outcomes-a shows that the typical Generations respondent (47.2%) agrees that they feel a part of the LGBT community, and this corresponds closely to the overall 7-item average of 2.97 on the Community Connectedness scale in @tbl-outcomes-b. The scale is flipped, so that higher numbers represent greater connectedness, and a respondent who agrees with every item would receive a score of 3. Consistent with the LGBT-specific trend, respondents tend on average to disagree with the notion that they don't belong to any community, and this aligns with the 4.67 average response for the 15-item Social Wellbeing scale (again, with items aligned so that higher values represent more positive outcomes). All four measures point to a moderately positive sense of community and belonging on average, but with enough variability to attempt to model systematic differences among respondents and the places in which they live.
 
 ```{r}
 #| include: false
@@ -88,12 +87,8 @@ tbl_place <- read_csv("tbl/place/tbl-place.csv")
 ```
 
 ```{r}
-#| label: tbl-outcomes
-#| tbl-cap: "Outcomes"
-#| tbl-subcap: 
-#|   - "Individual item outcomes"
-#|   - "Scale outcomes"
-#| layout-nrow: 2
+#| label: tbl-outcomes-a
+#| tbl-cap: "Individual item outcomes, _Generations_ study (Meyer 2020)"
 #| echo: false
 
 tbl_outcomes_a %>%
@@ -113,8 +108,12 @@ tbl_outcomes_a %>%
             cells_column_labels(),
             cells_row_groups()
         )
-    ) %>%
-    tab_source_note(md("Source: _Generations_ study (Meyer 2020)"))
+    )
+
+```{r}
+#| label: tbl-outcomes-b 
+#| tbl-cap: "Scale outcomes, _Generations_ study (Meyer 2020)"
+#| echo: false
 
 tbl_outcomes_b %>%
     gt(rowname_col = "variable") %>%
@@ -132,8 +131,7 @@ tbl_outcomes_b %>%
             color = "#D3D3D3"
         ),
         location = cells_column_labels()
-    ) %>%
-    tab_source_note(md("Source: _Generations_ study (Meyer 2020)"))
+    )
 ```
 
 <!-- TODO: descriptives for individual variables, to answer the question of "who is in the data". This could go in an appendix, since it's not a focus of my paper.-->
@@ -254,109 +252,3 @@ I do, however, find that differences between places impact sense of community at
 Another unresolved conceptual issue I leave unaddressed here: place-based factors that are difficult to disentangle from density and LGBTQ abundance. In particular, one way future work might explore both the conditions for a strong sense of community and the form that community might take would be to measure heterogeneity and diversity within a place. Any measure of heterogeneity, however, is highly correlated with the two factors I centered in this study. Moreover, diversity is conceptually difficult to disentangle from minority abundance, as previous work by @abascal_people_2021 has shown. To address those challenges with any precision, a larger or more spatially clustered data set than the Generations study would be necessary.
 
 This chapter has examined the consistencies and discrepancies between multiple measures of community and belonging, at multiple geographic scales, for a unique marginalized identity group. Stigma and outsiderness pushes LGBTQ people to seek out community, and density and abundance pull them toward it. Ultimately, the draw of dense places with many LGBTQ people facilitates a sense of connectedness to the LGBTQ community, outweighing the symbolic draw of identity-based community in more peripheral contexts. In the next chapter, I return to expressions of community rather than reported experiences, and connect these to a different structural angle, embeddedness in networks of group interaction.
-
-\newpage
-
-## Appendix: Statistical tables
-
-TODO: format two tables with four statistical models for zip codes and four models for MSAs. The zip code table is done but only displays in the html version.
-
-::: {.content-visible when-format="html"}
-```{r}
-#| label: tbl-zip-appendix
-#| tbl-cap: "Statistical models predicting four sense of community outcomes using ZCTA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
-#| tbl-cap-location: bottom
-#| echo: false
-#| message: false
-
-d_zt <- read_csv("tbl/place/tbl-zip-appendix.csv")
-d_best <- read_csv("tbl/place/tbl-zip-stats.csv")
-
-get_fit_statistic <- function(x, statistic) {
-    column_name <- names(which(map_lgl(d_zt, ~ identical(., x))))
-
-    d_best %>%
-        filter(outcome == column_name) %>%
-        pull({{ statistic }})
-}
-
-if (!knitr::is_latex_output()) {
-    gt(d_zt, rowname_col = "term") %>%
-        tab_header(title = "Zip code place characteristics and sense of community") %>%
-        sub_missing(missing_text = "---") %>%
-        cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
-        cols_label(
-            W1Q53 = md("Part of the LGBT community"),
-            W1Q04 = md("Don't belong to any community"),
-            W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
-            W1SOCIALWB_I = md("Social Wellbeing")
-        ) %>%
-        cols_align(align = "center") %>%
-        cols_align_decimal() %>%
-        grand_summary_rows(
-            fns = list(
-                "Num. obs." = ~ get_fit_statistic(., "nobs"),
-                "Log likelihood" = ~ get_fit_statistic(., "logLik"),
-                AIC = ~ get_fit_statistic(., "AIC"),
-                BIC = ~ get_fit_statistic(., "BIC"),
-                list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
-            ),
-            fmt = list(
-                ~ fmt_number(., sep_mark = ""),
-                ~ fmt_integer(., rows = "Num. obs.")
-            )
-        ) %>%
-    fmt_markdown(columns = everything())
-}
-
-```
-
-
-```{r}
-#| label: tbl-msa-appendix
-#| tbl-cap: "Statistical models predicting four sense of community outcomes using MSA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
-#| tbl-cap-location: bottom
-#| echo: false
-#| message: false
-
-d_mt <- read_csv("tbl/place/tbl-msa-appendix.csv")
-d_best_msa <- read_csv("tbl/place/tbl-msa-stats.csv")
-
-get_fit_statistic <- function(x, statistic) {
-    column_name <- names(which(map_lgl(d_mt, ~ identical(., x))))
-
-    d_best_msa %>%
-        filter(outcome == column_name) %>%
-        pull({{ statistic }})
-}
-
-gt(d_mt, rowname_col = "term") %>%
-    tab_header(title = "Metropolitan place characteristics and sense of community") %>%
-    sub_missing(missing_text = "---") %>%
-    cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
-    cols_label(
-        W1Q53 = md("Part of the LGBT community"),
-        W1Q04 = md("Don't belong to any community"),
-        W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
-        W1SOCIALWB_I = md("Social Wellbeing")
-    ) %>%
-    cols_align(align = "center") %>%
-    cols_align_decimal() %>%
-    grand_summary_rows(
-        fns = list(
-            "Num. obs." = ~ get_fit_statistic(., "nobs"),
-            "Log likelihood" = ~ get_fit_statistic(., "logLik"),
-            AIC = ~ get_fit_statistic(., "AIC"),
-            BIC = ~ get_fit_statistic(., "BIC"),
-            list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
-        ),
-        fmt = list(
-            ~ fmt_number(., sep_mark = ""),
-            ~ fmt_integer(., rows = "Num. obs.")
-        )
-    ) %>%
-    fmt_markdown(columns = everything())
-
-```
-:::
-
