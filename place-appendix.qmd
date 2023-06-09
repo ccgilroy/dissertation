@@ -1,4 +1,4 @@
-# Statistical Tables for Place Models
+# Statistical Tables for Place Models {#sec-place-app}
 
 ```{r}
 #| include: false
