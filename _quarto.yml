@@ -43,6 +43,7 @@ format:
       Understanding Variations in Community through LGBTQ Experiences
     documentclass: uwthesis
     template: template.tex
+    keep-tex: true
     # documentclass: scrreprt
     # toc-depth: 2
     # fontsize: 11pt

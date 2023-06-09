@@ -111,6 +111,9 @@ tbl_outcomes_a %>%
             cells_row_groups()
         )
     )
+```
+
+{{< pagebreak >}}
 
 ```{r}
 #| label: tbl-outcomes-b 
