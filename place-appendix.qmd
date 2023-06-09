@@ -1,0 +1,243 @@
+# Statistical Tables for Place Models
+
+```{r}
+#| include: false
+library("tidyverse")
+library("gt")
+```
+
+::: {.content-visible when-format="html"}
+```{r}
+#| label: tbl-zip-appendix
+#| tbl-cap: "Statistical models predicting four sense of community outcomes using ZCTA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
+#| tbl-cap-location: bottom
+#| echo: false
+#| message: false
+#| warning: false
+
+d_zt <- read_csv("tbl/place/tbl-zip-appendix.csv")
+d_best <- read_csv("tbl/place/tbl-zip-stats.csv")
+
+get_fit_statistic <- function(x, statistic) {
+    column_name <- names(which(map_lgl(d_zt, ~ identical(., x))))
+
+    d_best %>%
+        filter(outcome == column_name) %>%
+        pull({{ statistic }})
+}
+
+if (!knitr::is_latex_output()) {
+    gt(d_zt, rowname_col = "term") %>%
+        tab_header(title = "Zip code place characteristics and sense of community") %>%
+        sub_missing(missing_text = "---") %>%
+        cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
+        cols_label(
+            W1Q53 = md("Part of the LGBT community"),
+            W1Q04 = md("Don't belong to any community"),
+            W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
+            W1SOCIALWB_I = md("Social Wellbeing")
+        ) %>%
+        cols_align(align = "center") %>%
+        cols_align_decimal() %>%
+        grand_summary_rows(
+            fns = list(
+                "Num. obs." = ~ get_fit_statistic(., "nobs"),
+                "Log likelihood" = ~ get_fit_statistic(., "logLik"),
+                AIC = ~ get_fit_statistic(., "AIC"),
+                BIC = ~ get_fit_statistic(., "BIC"),
+                list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
+            ),
+            fmt = list(
+                ~ fmt_number(., sep_mark = ""),
+                ~ fmt_integer(., rows = "Num. obs.")
+            )
+        ) %>%
+    fmt_markdown(columns = everything())
+}
+
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+\hypertarget{tbl-zip-appendix}{}
+\begin{small}
+\begin{longtable}{l|cccc}
+\caption{
+{\label{tbl-zip-appendix}Zip code place characteristics and sense of community}
+} \\ 
+\toprule
+\multicolumn{1}{l}{} & Part of the LGBT & LGBT Community & Don't belong to & Social 
+\\ & community & Connectedness & any community & Wellbeing \\
+\midrule
+Density (linear, scaled) & 0.078 & 0.035 &  &  \\ 
+ & (0.055) & (0.015) &  &  \\ 
+ &  &  &  &  \\ 
+Density (logged) &  &  & 0.065 & 0.087 \\ 
+ &  &  & (0.067) & (0.032) \\ 
+ &  &  &  &  \\ 
+Percent same-sex & 16.122 & 2.322 & 12.328 & 5.875 \\ 
+couple households & (5.175) & (1.415) & (5.207) & (2.342) \\ 
+ &  &  &  &  \\ 
+Man & -0.162 & -0.043 & -0.072 & 0.061 \\ 
+(ref. woman) & (0.115) & (0.033) & (0.109) & (0.052) \\ 
+ &  &  &  &  \\ 
+Non-binary/genderqueer & -0.046 & 0.005 & -0.835 & -0.329 \\ 
+(ref. woman) & (0.241) & (0.069) & (0.226) & (0.111) \\ 
+ &  &  &  &  \\ 
+Middle cohort & -0.313 & -0.108 & -0.154 & 0.008 \\ 
+(ref. younger) & (0.134) & (0.038) & (0.124) & (0.061) \\ 
+ &  &  &  &  \\ 
+Older cohort & -0.304 & -0.135 & 0.07 & 0.026 \\ 
+(ref. younger) & (0.14) & (0.039) & (0.132) & (0.063) \\ 
+ &  &  &  &  \\ 
+Black/African American & 0.397 & 0.115 & -0.326 & -0.332 \\ 
+(ref. white) & (0.149) & (0.042) & (0.139) & (0.068) \\ 
+ &  &  &  &  \\ 
+Latino/Hispanic & 0.408 & 0.12 & -0.174 & -0.214 \\ 
+(ref. white) & (0.136) & (0.038) & (0.126) & (0.062) \\ 
+ &  &  &  &  \\ 
+Bisexual & -0.797 & -0.106 & -0.228 & -0.213 \\ 
+(ref. lesbian/gay) & (0.13) & (0.037) & (0.12) & (0.059) \\ 
+ &  &  &  &  \\ 
+Other sexual minority & -0.357 & 0.018 & 0.114 & 0.001 \\ 
+identity & (0.189) & (0.054) & (0.177) & (0.086) \\ 
+(ref. lesbian/gay) &  &  &  &  \\ 
+Democrat & 1.212 & 0.502 & 0.323 & 0.359 \\ 
+(ref. Republican) & (0.252) & (0.07) & (0.232) & (0.113) \\ 
+ &  &  &  &  \\ 
+Independent or other & 0.749 & 0.301 & -0.127 & 0.149 \\ 
+(ref. Republican) & (0.257) & (0.072) & (0.239) & (0.116) \\ 
+ &  &  &  &  \\ 
+More than high school & -0.488 & -0.068 & 0.295 & 0.335 \\ 
+education & (0.138) & (0.039) & (0.126) & (0.062) \\ 
+(ref. high school or less) &  &  &  &  \\ 
+Intercept &  & 2.665 &  & 3.963 \\ 
+ &  & (0.081) &  & (0.15) \\ 
+\midrule 
+\midrule 
+Num. obs. & $1,357$ & $1,357$ & $1,357$ & $1,357$ \\ 
+Log likelihood & $-1571.14$ & $-1068.10$ & $-2524.51$ & $-1709.87$ \\ 
+AIC & $3174.29$ & $2166.20$ & $5087.03$ & $3449.74$ \\ 
+BIC & $3257.69$ & $2244.39$ & $5186.07$ & $3527.94$ \\ 
+R\textsuperscript{2} & — & $0.10$ & — & $0.13$ \\ 
+\bottomrule
+\end{longtable}
+\end{small}
+:::
+
+::: {.content-visible when-format="html"}
+```{r}
+#| label: tbl-msa-appendix
+#| tbl-cap: "Statistical models predicting four sense of community outcomes using MSA-level place characteristics and individual sociodemographic controls. Estimated cutpoints for ordinal models are not shown. Data source: Generations study, wave 1 (Meyer 2020 and ICPSR) and 2015-2019 ACS (US Census Bureau). "
+#| tbl-cap-location: bottom
+#| echo: false
+#| message: false
+#| warning: false
+
+d_mt <- read_csv("tbl/place/tbl-msa-appendix.csv")
+d_best_msa <- read_csv("tbl/place/tbl-msa-stats.csv")
+
+get_fit_statistic <- function(x, statistic) {
+    column_name <- names(which(map_lgl(d_mt, ~ identical(., x))))
+
+    d_best_msa %>%
+        filter(outcome == column_name) %>%
+        pull({{ statistic }})
+}
+
+gt(d_mt, rowname_col = "term") %>%
+    tab_header(title = "Metropolitan place characteristics and sense of community") %>%
+    sub_missing(missing_text = "---") %>%
+    cols_move_to_start(c(W1Q53, W1CONNECTEDNESS_I)) %>%
+    cols_label(
+        W1Q53 = md("Part of the LGBT community"),
+        W1Q04 = md("Don't belong to any community"),
+        W1CONNECTEDNESS_I = md("LGBT Community Connectedness"),
+        W1SOCIALWB_I = md("Social Wellbeing")
+    ) %>%
+    cols_align(align = "center") %>%
+    cols_align_decimal() %>%
+    grand_summary_rows(
+        fns = list(
+            "Num. obs." = ~ get_fit_statistic(., "nobs"),
+            "Log likelihood" = ~ get_fit_statistic(., "logLik"),
+            AIC = ~ get_fit_statistic(., "AIC"),
+            BIC = ~ get_fit_statistic(., "BIC"),
+            list(id = "r2", label = md("R^2^")) ~ get_fit_statistic(., "r.squared")
+        ),
+        fmt = list(
+            ~ fmt_number(., sep_mark = ""),
+            ~ fmt_integer(., rows = "Num. obs.")
+        )
+    ) %>%
+    fmt_markdown(columns = everything())
+
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+\hypertarget{tbl-msa-appendix}{}
+\begin{small}
+\begin{longtable}{l|cccc}
+\caption{
+{\label{tbl-msa-appendix}Metropolitan place characteristics and sense of community}
+} \\ 
+\toprule
+\multicolumn{1}{l}{} & Part of the LGBT & LGBT Community & Don't belong to & Social 
+\\ & community & Connectedness & any community & Wellbeing \\
+\midrule
+Density (linear, scaled) & 0.058 & 0.024 &  &  \\ 
+ & (0.055) & (0.016) &  &  \\ 
+ &  &  &  &  \\ 
+Density (logged) &  &  & 0.184 & 0.084 \\ 
+ &  &  & (0.132) & (0.062) \\ 
+ &  &  &  &  \\ 
+Percent same-sex & 16.097 & -7.048 & 35.908 & 27.631 \\ 
+couple households & (24.351) & (6.986) & (24.688) & (11.654) \\ 
+ &  &  &  &  \\ 
+Man & -0.139 & -0.027 & -0.135 & 0.063 \\ 
+(ref. woman) & (0.122) & (0.035) & (0.116) & (0.055) \\ 
+ &  &  &  &  \\ 
+Non-binary/genderqueer & 0.001 & 0.018 & -0.725 & -0.316 \\ 
+(ref. woman) & (0.256) & (0.074) & (0.239) & (0.117) \\ 
+ &  &  &  &  \\ 
+Middle cohort & -0.244 & -0.1 & -0.088 & 0.025 \\ 
+(ref. younger) & (0.141) & (0.041) & (0.131) & (0.064) \\ 
+ &  &  &  &  \\ 
+Older cohort & -0.255 & -0.131 & 0.111 & 0.04 \\ 
+(ref. younger) & (0.15) & (0.043) & (0.142) & (0.067) \\ 
+ &  &  &  &  \\ 
+Black/African American & 0.45 & 0.126 & -0.212 & -0.282 \\ 
+(ref. white) & (0.156) & (0.044) & (0.145) & (0.07) \\ 
+ &  &  &  &  \\ 
+Latino/Hispanic & 0.411 & 0.12 & -0.159 & -0.216 \\ 
+(ref. white) & (0.143) & (0.041) & (0.132) & (0.064) \\ 
+ &  &  &  &  \\ 
+Bisexual & -0.855 & -0.117 & -0.324 & -0.236 \\ 
+(ref. lesbian/gay) & (0.139) & (0.04) & (0.13) & (0.063) \\ 
+ &  &  &  &  \\ 
+Other sexual minority & -0.35 & 0.024 & -0.017 & -0.034 \\ 
+identity & (0.202) & (0.058) & (0.189) & (0.091) \\ 
+(ref. lesbian/gay) &  &  &  &  \\ 
+Democrat & 1.265 & 0.518 & 0.412 & 0.449 \\ 
+(ref. Republican) & (0.268) & (0.075) & (0.246) & (0.119) \\ 
+ &  &  &  &  \\ 
+Independent or other & 0.738 & 0.301 & -0.045 & 0.254 \\ 
+(ref. Republican) & (0.274) & (0.077) & (0.253) & (0.122) \\ 
+ &  &  &  &  \\ 
+More than high school & -0.45 & -0.052 & 0.282 & 0.351 \\ 
+education & (0.148) & (0.042) & (0.134) & (0.066) \\ 
+(ref. high school or less) &  &  &  &  \\ 
+Intercept &  & 2.715 &  & 3.682 \\ 
+ &  & (0.103) &  & (0.219) \\ 
+\midrule 
+\midrule 
+Num. obs. & $1,209$ & $1,209$ & $1,209$ & $1,209$ \\ 
+Log likelihood & $-1396.78$ & $-961.00$ & $-2248.87$ & $-1510.11$ \\ 
+AIC & $2825.55$ & $1952.00$ & $4535.75$ & $3050.22$ \\ 
+BIC & $2907.11$ & $2028.47$ & $4632.60$ & $3126.68$ \\ 
+R\textsuperscript{2} & — & $0.09$ & — & $0.12$ \\ 
+\bottomrule
+\end{longtable}
+\end{small}
+:::
